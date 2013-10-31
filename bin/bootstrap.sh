@@ -10,7 +10,7 @@ fi
 homesick="$HOME/.homeshick"
 
 ### Clone my dotfiles repo ###
-#$homesick clone git://github.com/nastevens/dotfiles.git
+$homesick clone git@github.com:nastevens/dotfiles.git
 
 ### Backup existing files ###
 test -e symlink-backup || mkdir symlink-backup
@@ -18,9 +18,7 @@ mv .bashrc symlink-backup 2>&1 >/dev/null || true
 mv .profile symlink-backup 2>&1 >/dev/null || true
 mv .vimrc symlink-backup 2>&1 >/dev/null || true
 mv .vim symlink-backup 2>&1 >/dev/null || true
-# mv .ssh symlink-backup/
-# mv .bashrc symlink-backup/ || true
-# mv .profile symlink-backup/ || true
+mv .ssh symlink-backup/
 
 ### Pathogen is special - it links to Vim autoload folder ###
 cd $HOME/.homesick/repos/dotfiles/home
