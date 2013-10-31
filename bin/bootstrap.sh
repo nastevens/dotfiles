@@ -24,7 +24,7 @@ mv .ssh symlink-backup/
 cd $HOME/.homesick/repos/dotfiles/home
 if [ ! -d ../../vim-pathogen ]; then
 	echo "Cloning pathogen"
-	$homesick clone git://github.com/tpope/vim-pathogen.git
+	$homesick clone https://github.com/tpope/vim-pathogen.git
 	ln -s ../../../../vim-pathogen/autoload/pathogen.vim .vim/autoload/pathogen.vim
 fi
 
