@@ -1,0 +1,2 @@
+hardstatus alwayslastline
+hardstatus string '%{= BW}%Y-%m-%d %C%a%-=%t'
