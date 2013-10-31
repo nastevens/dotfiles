@@ -1,0 +1,118 @@
+scriptencoding utf-8
+
+call pathogen#infect()
+
+" Override brain-dead Windows visual mode
+behave xterm 
+
+
+" {{{ General settings
+set nocompatible               " Use Vim defaults (much better!)
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode
+set bs=2                       " Allow backspacing over everything in insert mode
+set ai                         " Always set auto-indenting on
+set history=50                 " keep 50 lines of command history
+set ruler                      " Show the cursor position all the time
+set showcmd                    " Display incomplete commands
+set viminfo='20,\"500          " Keep a .viminfo file.
+set nobackup                   " Don't leave cruft all over the place
+set nowritebackup              " Don't leave cruft all over the place
+set encoding=utf-8             " Use UTF-8 by default
+set ff=unix                    " If not unix formatted, I want to know
+" }}}
+
+" Should be for specific programming files
+
+" {{{ Autocommands
+if has("autocmd")
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+  augroup END
+
+else
+
+  set autoindent		" always set autoindenting on
+
+endif " has("autocmd")
+
+" }}}
+
+" {{{ Suffix settings
+" When doing tab completion, give the following files lower priority. 
+set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
+" }}}
+
+" {{{ Modeline, highlight, and syntax settings
+set modeline
+set incsearch
+set ignorecase          " Ignore case in searches...
+set smartcase           " ...unless I specify a capital letter
+set hlsearch
+set laststatus=2
+syntax on
+set showmatch
+" }}}
+
+" {{{ Line number settings
+if v:version >= 700
+  set numberwidth=3
+endif
+" }}}
+
+" {{{ Command mappings
+inoremap kj <Esc>
+inoremap <Esc> <nop>
+nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <silent><C-h> :tabprev<CR>
+nnoremap <silent><C-l> :tabnext<CR>
+nnoremap <Space> i_<Esc>r
+nnoremap <leader>q :nohlsearch<CR>
+nnoremap <leader>ev :vsplit $HOME/vimfiles/vimrc.vim<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sp :setlocal spell spelllang=en_us<CR>
+
+nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" }}}
+
+" {{{ Vimwiki options
+let g:personal_dropbox_loc = $DROPBOX
+let wiki_1 = {}
+let wiki_1.path = g:personal_dropbox_loc . '/vimwiki/'
+let wiki_1.path_html = g:personal_dropbox_loc . '/vimwiki_html/'
+let wiki_1.template_path = g:personal_dropbox_loc . '/etc/vimwiki_templates/'
+let wiki_1.template_default = 'default'
+let wiki_1.template_ext = '.html'
+let wiki_1.nested_syntaxes = {'python':'python', 'c++':'cpp', 'java':'java', 'verilog':'verilog', 'ebnf':'ebnf', 'sh':'sh'}
+
+let g:vimwiki_list = [wiki_1]
+" }}}
+
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
+filetype plugin on
+filetype indent on
+
+" vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :

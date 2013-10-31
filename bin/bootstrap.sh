@@ -32,24 +32,26 @@ fi
 
 ### Clone and link vim plugins ###
 vimplugins=(
-	bkad/CamelCaseMotion
-	paradigm/TextObjectify
-	scrooloose/nerdcommenter
-	Lokaltog/vim-easymotion
-	tfnico/vim-gradle
-	michaeljsmith/vim-indent-object
-	krisajenkins/vim-pipe
-	natw/vim-pythontextobj
-	derekwyatt/vim-scala
-	mhinz/vim-startify
-	tpope/vim-dispatch
+	lokaltog/vim-easymotion
+	bkad/camelcasemotion
+	corntrace/bufexplorer
 	dagwieers/asciidoc-vim
 	dantler/vim-alternate
-	corntrace/bufexplorer
+	derekwyatt/vim-scala
+	krisajenkins/vim-pipe
+	mhinz/vim-startify
+	michaeljsmith/vim-indent-object
+	natw/vim-pythontextobj
+	paradigm/textobjectify
+	scrooloose/nerdcommenter
+	tfnico/vim-gradle
+	tpope/vim-dispatch
+	tpope/vim-markdown
 	tpope/vim-surround
-	vim-scripts/CRefVim
+	vim-scripts/crefvim
 	vim-scripts/argtextobj.vim
 	vim-scripts/ebnf.vim
+	vim-scripts/indentpython.vim
 	vim-scripts/vimwiki
 	vim-scripts/visSum.vim
 )
