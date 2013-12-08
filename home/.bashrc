@@ -45,6 +45,7 @@ alias ....='cd ../../..'
 alias df='df -h'
 alias mkdir='mkdir -p'
 alias su='su -'
+alias myip='curl ifconfig.me'
 
 # Path
 export PATH="${PATH}:/home/nick/local/bin"
