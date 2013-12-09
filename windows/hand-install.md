@@ -12,3 +12,4 @@ yEd
 OpenSCAD
 NumPy
 Umlet
+Launchy plugin for Putty
