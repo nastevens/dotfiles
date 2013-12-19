@@ -3,7 +3,6 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
-
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
@@ -32,28 +31,41 @@ case ${TERM} in
 esac
 
 # Aliases
-alias homesick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
-alias flactags="metaflac --export-tags=- *.flac | sort | uniq"
-alias bc="bc -l "
-alias ls='ls -F -T 0'
-alias la='ls -F -T 0 -A'
-alias ll='ls -F -T 0 -l'
-alias grep='grep --colour=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias ls='ls --color=auto -F -T 0'
+alias la='\ls --color=auto -F -T 0 -A'
+alias ll='\ls --color=auto -F -T 0 -l'
+alias grep='grep --colour=auto'
 alias df='df -h'
 alias mkdir='mkdir -p'
 alias su='su -'
+alias bc="bc -l "
 alias myip='curl ifconfig.me'
 
-# Path
-export PATH="${PATH}:/home/nick/local/bin"
+# Stylize PS1
+norm='\[\033[00;00m\]'
+grn='\[\033[01;32m\]'
+blu='\[\033[01;34m\]'
+red='\[\033[01;31m\]'
+yel='\[\033[00;33m\]'
+if [[ ${EUID} == 0 ]] ; then
+    usercolor="$red"
+else
+    usercolor="$grn"
+fi
 
+if [[ -f ~/.bash/git-completion.bash && -f ~/.bash/git-prompt.sh ]]
+then
+    source ~/.bash/git-completion.bash
+    source ~/.bash/git-prompt.sh
+    PROMPT_COMMAND="__git_ps1 '$usercolor\u@\h $blu\w$yel' '$blu \$ $norm'"
+else
+    PS1="$usercolor\u@\h $blu\w \$ $norm"
+fi
+unset norm grn blue red yel usercolor
 
-# TODO: Need to understand:
-#  - how to get dircolors on mac
-#  - is there a way to make xterm background black from bash
 # Set colorful PS1 only on colorful terminals.
 # dircolors --print-database uses its own built-in database
 # instead of using /etc/DIR_COLORS.  Try to use the external file
@@ -70,7 +82,7 @@ match_lhs=""
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
 if ${use_color} ; then
-	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
+	# Enable colors for ls, etc.  Prefer ~/.dir_colors
 	if type -P dircolors >/dev/null ; then
 		if [[ -f ~/.dir_colors ]] ; then
 			eval $(dircolors -b ~/.dir_colors)
@@ -78,20 +90,5 @@ if ${use_color} ; then
 			eval $(dircolors -b /etc/DIR_COLORS)
 		fi
 	fi
-
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
-	else
-		PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
-	fi
-else
-	if [[ ${EUID} == 0 ]] ; then
-		# show root@ when we don't have colors
-		PS1='\u@\h \W \$ '
-	else
-		PS1='\u@\h \w \$ '
-	fi
 fi
-
-# Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
