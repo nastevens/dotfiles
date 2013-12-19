@@ -56,10 +56,10 @@ else
     usercolor="$grn"
 fi
 
-if [[ -f ~/.bash/git-completion.bash && -f ~/.bash/git-prompt.sh ]]
+if [[ -f ~/.bash-completion/git-completion.bash && -f ~/.bash-completion/git-prompt.sh ]]
 then
-    source ~/.bash/git-completion.bash
-    source ~/.bash/git-prompt.sh
+    source ~/.bash-completion/git-completion.bash
+    source ~/.bash-completion/git-prompt.sh
     PROMPT_COMMAND="__git_ps1 '$usercolor\u@\h $blu\w$yel' '$blu \$ $norm'"
 else
     PS1="$usercolor\u@\h $blu\w \$ $norm"
