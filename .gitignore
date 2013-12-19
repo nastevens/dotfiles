@@ -1,2 +1,5 @@
 home/.vim/autoload/*
 home/.vim/bundle/*
+home/.ssh/known_hosts
+
+*.swp
