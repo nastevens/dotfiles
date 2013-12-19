@@ -1,13 +1,43 @@
 scriptencoding utf-8
 
-call pathogen#infect()
-
 " Override brain-dead Windows visual mode
 behave xterm 
 
+" Set up vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" Vundle bundles
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'corntrace/bufexplorer'
+Bundle 'dagwieers/asciidoc-vim'
+Bundle 'dantler/vim-alternate'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'krisajenkins/vim-pipe'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mhinz/vim-startify'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'natw/vim-pythontextobj'
+Bundle 'paradigm/TextObjectify'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tfnico/vim-gradle'
+Bundle 'tfnico/vim-gradle'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'vim-scripts/ebnf.vim'
+Bundle 'vim-scripts/indentpython.vim'
+Bundle 'vim-scripts/vimwiki'
+Bundle 'vim-scripts/vimwiki'
+Bundle 'vim-scripts/visSum.vim'
+
+filetype plugin indent on
 
 " {{{ General settings
-set nocompatible               " Use Vim defaults (much better!)
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 set bs=2                       " Allow backspacing over everything in insert mode
 set ai                         " Always set auto-indenting on
@@ -20,8 +50,6 @@ set nowritebackup              " Don't leave cruft all over the place
 set encoding=utf-8             " Use UTF-8 by default
 set ff=unix                    " If not unix formatted, I want to know
 " }}}
-
-" Should be for specific programming files
 
 " {{{ Autocommands
 if has("autocmd")
@@ -83,11 +111,12 @@ nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <Space> i_<Esc>r
 nnoremap <leader>q :nohlsearch<CR>
-nnoremap <leader>ev :vsplit $HOME/vimfiles/vimrc.vim<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sp :setlocal spell spelllang=en_us<CR>
 
 nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
+nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -107,12 +136,5 @@ let wiki_1.nested_syntaxes = {'python':'python', 'c++':'cpp', 'java':'java', 've
 
 let g:vimwiki_list = [wiki_1]
 " }}}
-
-" Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
-" Also load indent files, to automatically do language-dependent indenting.
-filetype plugin on
-filetype indent on
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
