@@ -8,7 +8,7 @@
 export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/libexec/gnubin/:$PATH
 
 # Local binaries
-export PATH=~/local/bin:$PATH
+export PATH=~/local/bin:~/.scripts:$PATH
 
 # Ruby gem binaries
 export PATH=~/.gem/ruby/1.8/bin:~/.gem/ruby/2.0.0/bin:$PATH
