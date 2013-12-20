@@ -108,3 +108,6 @@ if ${use_color} ; then
 	fi
 fi
 unset use_color safe_term match_lhs
+
+# Enable completion for gibo
+source ~/.bash-completion/gibo-completion.bash
