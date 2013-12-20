@@ -11,6 +11,18 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+# If Dropbox folder is in expected locations export env var
+if [[ -d ~/Dropbox ]]
+then
+    export DROPBOX='~/Dropbox'
+fi
+
+# Workaround for Windows boxes with msys console
+case ${OS} in
+    Windows*)
+        export TERM=msys
+esac
+
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
 # it regains control.  #65623
