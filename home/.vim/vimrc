@@ -32,6 +32,7 @@ Bundle 'vim-scripts/ebnf.vim'
 Bundle 'vim-scripts/indentpython.vim'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/visSum.vim'
+Bundle 'wting/rust.vim'
 
 filetype plugin indent on
 
