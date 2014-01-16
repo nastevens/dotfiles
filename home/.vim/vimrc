@@ -138,6 +138,7 @@ let wiki_1.nested_syntaxes = {
       \ 'java': 'java', 
       \ 'markdown': 'markdown',
       \ 'python': 'python', 
+      \ 'rust': 'rust',
       \ 'sh': 'sh', 
       \ 'verilog': 'verilog', 
       \ }
