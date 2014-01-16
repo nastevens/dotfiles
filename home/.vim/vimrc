@@ -135,6 +135,7 @@ let wiki_1.nested_syntaxes = {
       \ 'ebnf': 'ebnf', 
       \ 'groovy': 'groovy',
       \ 'java': 'java', 
+      \ 'markdown': 'markdown',
       \ 'python': 'python', 
       \ 'sh': 'sh', 
       \ 'verilog': 'verilog', 
