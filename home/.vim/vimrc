@@ -33,6 +33,11 @@ Bundle 'vim-scripts/indentpython.vim'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'wting/rust.vim'
+Bundle 'mattboehm/vim-accordion'
+Bundle 'vim-scripts/groovyindent'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
+Bundle 'airblade/vim-gitgutter'
 
 filetype plugin indent on
 
@@ -48,6 +53,8 @@ set nobackup                   " Don't leave cruft all over the place
 set nowritebackup              " Don't leave cruft all over the place
 set encoding=utf-8             " Use UTF-8 by default
 set ff=unix                    " If not unix formatted, I want to know
+set splitbelow                 " Open new splits at bottom
+set splitright                 " Open new vsplits at the right
 " }}}
 
 " {{{ Autocommands
@@ -144,6 +151,19 @@ let wiki_1.nested_syntaxes = {
       \ }
 
 let g:vimwiki_list = [wiki_1]
+" }}}
+
+" {{{ Accordian options
+let g:accordion_mode="h"
+" }}}
+
+" {{{ Airline options
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
+" }}}
+
+" {{{ Gitgutter options
+highlight clear SignColumn
 " }}}
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
