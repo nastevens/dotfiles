@@ -11,33 +11,42 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Vundle bundles
+
+" Motions/Text Objects
 Bundle 'bkad/CamelCaseMotion'
-Bundle 'corntrace/bufexplorer'
-Bundle 'dagwieers/asciidoc-vim'
-Bundle 'dantler/vim-alternate'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'krisajenkins/vim-pipe'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'mhinz/vim-startify'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'natw/vim-pythontextobj'
 Bundle 'paradigm/TextObjectify'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tfnico/vim-gradle'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/argtextobj.vim'
-Bundle 'vim-scripts/ebnf.vim'
-Bundle 'vim-scripts/indentpython.vim'
-Bundle 'vim-scripts/vimwiki'
-Bundle 'vim-scripts/visSum.vim'
-Bundle 'wting/rust.vim'
-Bundle 'mattboehm/vim-accordion'
-Bundle 'vim-scripts/groovyindent'
+
+" UI enhancements
+Bundle 'corntrace/bufexplorer'
+Bundle 'mhinz/vim-startify'
 Bundle 'bling/vim-airline'
+Bundle 'mattboehm/vim-accordion'
 Bundle 'bling/vim-bufferline'
+
+" Syntax/Indenting
+Bundle 'dagwieers/asciidoc-vim'
+Bundle 'tfnico/vim-gradle'
+Bundle 'tpope/vim-markdown'
+Bundle 'vim-scripts/ebnf.vim'
+Bundle 'wting/rust.vim'
+Bundle 'vim-scripts/groovyindent'
+Bundle 'vim-scripts/indentpython.vim'
+
+" Command execution
+Bundle 'krisajenkins/vim-pipe'
+Bundle 'tpope/vim-dispatch'
+
+" Coding
+Bundle 'dantler/vim-alternate'
+Bundle 'scrooloose/nerdcommenter'
+
+" Other
+Bundle 'vim-scripts/vimwiki'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'vim-scripts/visSum.vim'
 
 filetype plugin indent on
 
@@ -75,6 +84,8 @@ if has("autocmd")
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+  autocmd FileType python let b:vimpipe_command="python -"
 
   augroup END
 
