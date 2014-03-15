@@ -6,9 +6,8 @@ behave xterm
 " Set up vundle
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/vundle.vim/
 call vundle#rc()
-Bundle 'gmarik/Vundle.vim'
 
 " Vundle bundles
 
