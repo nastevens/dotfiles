@@ -112,3 +112,13 @@ unset use_color safe_term match_lhs
 
 # Enable completion for gibo
 source ~/.bash-completion/gibo-completion.bash
+
+# Display message if homesick files more than a week old
+now=`date +%s`
+fetch_head=~/.homesick/repos/dotfiles/.git/FETCH_HEAD
+last_fetch=`stat -c %Y $fetch_head 2>/dev/null || echo $now`
+if [[ `expr $now - $last_fetch` > 604800 ]]
+then
+    echo "Your homesick repo is over a week old."
+    echo "Please do an update at your earliest convenience."
+fi
