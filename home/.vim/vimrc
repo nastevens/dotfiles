@@ -17,6 +17,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'paradigm/TextObjectify'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'justinmk/vim-sneak'
 
 " UI enhancements
 Bundle 'corntrace/bufexplorer'
