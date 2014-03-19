@@ -131,7 +131,7 @@ nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <Space> i_<Esc>r
 nnoremap <leader>q :nohlsearch<CR>
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sp :setlocal spell spelllang=en_us<CR>
 
