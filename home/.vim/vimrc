@@ -116,7 +116,9 @@ set showmatch
 if v:version >= 700
   set numberwidth=3
 endif
-set relativenumber
+if v:version >= 703
+  set relativenumber
+endif
 " }}}
 
 " {{{ Command mappings
