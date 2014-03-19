@@ -12,3 +12,6 @@ export PATH=~/local/bin:~/.scripts:$PATH
 
 # Ruby gem binaries
 export PATH=~/.gem/ruby/1.8/bin:~/.gem/ruby/2.0.0/bin:$PATH
+
+# Android SDK binaries
+export PATH=~/androidsdk/platform-tools:~/androidsdk/tools:$PATH
