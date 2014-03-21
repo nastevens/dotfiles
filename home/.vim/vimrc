@@ -42,6 +42,7 @@ Bundle 'tpope/vim-dispatch'
 " Coding
 Bundle 'dantler/vim-alternate'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-endwise'
 
 " Other
 Bundle 'vim-scripts/vimwiki'
