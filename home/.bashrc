@@ -11,6 +11,9 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+# The only sane editor option
+export EDITOR=vim
+
 # If Dropbox folder is in expected locations export env var
 if [[ -d ~/Dropbox ]]
 then
