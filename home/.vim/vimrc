@@ -48,6 +48,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'vim-scripts/visSum.vim'
+Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
