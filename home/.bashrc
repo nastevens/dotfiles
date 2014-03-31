@@ -125,3 +125,13 @@ then
     echo "Your homesick repo is over a week old."
     echo "Please do an update at your earliest convenience."
 fi
+
+# Make command history only keep unique commands
+export HISTCONTROL="ignoreboth:erasedups"
+
+# Make history size more reasonable
+export HISTSIZE="100000"
+export HISTFILESIZE=""
+
+# Append to history file, don't overwrite it
+shopt -s histappend
