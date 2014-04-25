@@ -63,6 +63,7 @@ alias su='su -'
 alias bc="bc -l "
 alias myip='curl ifconfig.me'
 alias screen='echo Use tmux you dolt'
+alias vimupdate='vim +BundleUpdate +qall'
 
 # Stylize PS1
 norm='\[\033[00;00m\]'
