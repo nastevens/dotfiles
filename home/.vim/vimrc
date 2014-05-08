@@ -56,7 +56,7 @@ Bundle 'vim-scripts/bufkill.vim'
 
 filetype plugin indent on
 
-" {{{ General settings
+" =====[General settings]=====
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 set bs=2                       " Allow backspacing over everything in insert mode
 set ai                         " Always set auto-indenting on
@@ -70,9 +70,8 @@ set encoding=utf-8             " Use UTF-8 by default
 set ff=unix                    " If not unix formatted, I want to know
 set splitbelow                 " Open new splits at bottom
 set splitright                 " Open new vsplits at the right
-" }}}
 
-" {{{ Autocommands
+" =====[Autocommands]=====
 if has("autocmd")
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -101,14 +100,11 @@ else
 
 endif " has("autocmd")
 
-" }}}
-
-" {{{ Suffix settings
+" =====[Suffix settings]=====
 " When doing tab completion, give the following files lower priority. 
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
-" }}}
 
-" {{{ Modeline, highlight, and syntax settings
+" =====[Modeline, highlight, and syntax settings]=====
 set modeline
 set incsearch
 set ignorecase          " Ignore case in searches...
@@ -117,18 +113,16 @@ set hlsearch
 set laststatus=2
 syntax on
 set showmatch
-" }}}
 
-" {{{ Line number settings
+" =====[Line number settings]=====
 if v:version >= 700
   set numberwidth=3
 endif
 if v:version >= 703
   set relativenumber
 endif
-" }}}
 
-" {{{ Command mappings
+" =====[Command mappings]=====
 inoremap kj <Esc>
 inoremap <Esc> <nop>
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
@@ -153,9 +147,7 @@ cabbrev bw BW
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" }}}
-
-" {{{ Vimwiki options
+" =====[Vimwiki options]=====
 let g:personal_dropbox_loc = $DROPBOX
 let wiki_1 = {}
 let wiki_1.path = g:personal_dropbox_loc . '/vimwiki/'
@@ -176,26 +168,23 @@ let wiki_1.nested_syntaxes = {
       \ }
 
 let g:vimwiki_list = [wiki_1]
-" }}}
 
-" {{{ Accordian options
+" =====[Accordian options]=====
 let g:accordion_mode="h"
-" }}}
 
-" {{{ Airline options
+" =====[Airline options]=====
 let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z=''
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
-" }}}
 
-" {{{ Gitgutter options
+" =====[Gitgutter options]=====
 highlight clear SignColumn
-" }}}
 
-"{{{ Custom scratch buffers - http://dhruvasagar.com/2014/03/11/creating-custom-scratch-buffers-in-vim
+" =====[Custom scratch buffers]=====
+" http://dhruvasagar.com/2014/03/11/creating-custom-scratch-buffers-in-vim
 function! ScratchEdit(cmd, options)
     exe a:cmd tempname()
     setl buftype=nofile bufhidden=wipe nobuflisted
@@ -206,11 +195,9 @@ command! -bar -nargs=* Sedit call ScratchEdit('edit', <q-args>)
 command! -bar -nargs=* Ssplit call ScratchEdit('split', <q-args>)
 command! -bar -nargs=* Svsplit call ScratchEdit('vsplit', <q-args>)
 command! -bar -nargs=* Stabedit call ScratchEdit('tabe', <q-args>)
-"}}}
 
-"{{{ Expand region mappings
+" =====[Expand region mappings]=====
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-"}}}
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
