@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 " Override brain-dead Windows visual mode
-behave xterm 
+behave xterm
 
 " Set up vundle
 set nocompatible
@@ -101,7 +101,7 @@ else
 endif " has("autocmd")
 
 " =====[Suffix settings]=====
-" When doing tab completion, give the following files lower priority. 
+" When doing tab completion, give the following files lower priority.
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
 
 " =====[Modeline, highlight, and syntax settings]=====
@@ -156,15 +156,15 @@ let wiki_1.template_path = g:personal_dropbox_loc . '/etc/vimwiki_templates/'
 let wiki_1.template_default = 'default'
 let wiki_1.template_ext = '.html'
 let wiki_1.nested_syntaxes = {
-      \ 'c++': 'cpp', 
-      \ 'ebnf': 'ebnf', 
+      \ 'c++': 'cpp',
+      \ 'ebnf': 'ebnf',
       \ 'groovy': 'groovy',
-      \ 'java': 'java', 
+      \ 'java': 'java',
       \ 'markdown': 'markdown',
-      \ 'python': 'python', 
+      \ 'python': 'python',
       \ 'rust': 'rust',
-      \ 'sh': 'sh', 
-      \ 'verilog': 'verilog', 
+      \ 'sh': 'sh',
+      \ 'verilog': 'verilog',
       \ }
 
 let g:vimwiki_list = [wiki_1]
