@@ -207,4 +207,17 @@ if has('persistent_undo')
   set undofile
 endif
 
+" =====[Highlight offensive characters]=====
+" (uBB is right double angle, uB7 is middle dot)
+exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+
+augroup HighlightOffensive
+    autocmd!
+    autocmd BufEnter  *       set list
+    autocmd BufEnter  *.txt   set nolist
+    autocmd BufEnter  *       if !&modifiable
+    autocmd BufEnter  *           set nolist
+    autocmd BufEnter  *       endif
+augroup END
+
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
