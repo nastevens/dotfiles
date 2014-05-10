@@ -133,7 +133,6 @@ nnoremap <Space> i_<Esc>r
 nnoremap <leader>q :nohlsearch<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>sp :setlocal spell spelllang=en_us<CR>
 
 nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
 nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>
@@ -224,5 +223,9 @@ augroup END
 iab  retrun  return
 iab   pritn  print
 iab     teh  the
+
+" =====[Highlight spelling on request]=====
+set spelllang=en_us
+nnoremap <leader>sp :setlocal invspell<CR>
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
