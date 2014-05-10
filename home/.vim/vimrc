@@ -200,4 +200,11 @@ command! -bar -nargs=* Stabedit call ScratchEdit('tabe', <q-args>)
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+" =====[Use persistent undo ]=====
+if has('persistent_undo')
+  set undodir=$HOME/.vim_undo
+  set undolevels=5000
+  set undofile
+endif
+
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
