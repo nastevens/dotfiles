@@ -220,4 +220,9 @@ augroup HighlightOffensive
     autocmd BufEnter  *       endif
 augroup END
 
+" =====[Correct common mistyped words]=====
+iab  retrun  return
+iab   pritn  print
+iab     teh  the
+
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
