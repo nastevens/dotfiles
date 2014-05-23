@@ -27,6 +27,7 @@ Bundle 'mhinz/vim-startify'
 Bundle 'bling/vim-airline'
 Bundle 'mattboehm/vim-accordion'
 Bundle 'bling/vim-bufferline'
+Bundle 'scrooloose/nerdtree'
 
 " Syntax/Indenting
 Bundle 'dagwieers/asciidoc-vim'
@@ -227,5 +228,11 @@ iab     teh  the
 " =====[Highlight spelling on request]=====
 set spelllang=en_us
 nnoremap <leader>sp :setlocal invspell<CR>
+
+" =====[NERDTree Options]=====
+let NERDTreeChristmasTree=1
+let NERDTreeCascadeOpenSingleChildDir=1
+let NERDTreeAutoDeleteBuffer=1
+nnoremap <leader>n :NERDTree<CR>
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
