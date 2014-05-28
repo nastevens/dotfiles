@@ -11,6 +11,9 @@ call vundle#rc()
 
 " Vundle bundles
 
+" Sensible Defaults
+Bundle 'tpope/vim-sensible'
+
 " Motions/Text Objects
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'Lokaltog/vim-easymotion'
@@ -58,19 +61,17 @@ Bundle 'vim-scripts/bufkill.vim'
 filetype plugin indent on
 
 " =====[General settings]=====
-set backspace=indent,eol,start " Allow backspacing over everything in insert mode
-set bs=2                       " Allow backspacing over everything in insert mode
-set ai                         " Always set auto-indenting on
-set history=50                 " keep 50 lines of command history
-set ruler                      " Show the cursor position all the time
-set showcmd                    " Display incomplete commands
-set viminfo='20,\"500          " Keep a .viminfo file.
 set nobackup                   " Don't leave cruft all over the place
 set nowritebackup              " Don't leave cruft all over the place
 set encoding=utf-8             " Use UTF-8 by default
 set ff=unix                    " If not unix formatted, I want to know
 set splitbelow                 " Open new splits at bottom
 set splitright                 " Open new vsplits at the right
+set modeline
+set ignorecase                 " Ignore case in searches...
+set smartcase                  " ...unless I specify a capital letter
+set hlsearch
+set showmatch
 
 " =====[Autocommands]=====
 if has("autocmd")
@@ -95,25 +96,11 @@ if has("autocmd")
 
   augroup END
 
-else
-
-  set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " =====[Suffix settings]=====
 " When doing tab completion, give the following files lower priority.
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
-
-" =====[Modeline, highlight, and syntax settings]=====
-set modeline
-set incsearch
-set ignorecase          " Ignore case in searches...
-set smartcase           " ...unless I specify a capital letter
-set hlsearch
-set laststatus=2
-syntax on
-set showmatch
 
 " =====[Line number settings]=====
 if v:version >= 700
