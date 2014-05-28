@@ -17,7 +17,7 @@ Bundle 'tpope/vim-sensible'
 " Motions/Text Objects
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'paradigm/TextObjectify'
+Bundle 'wellle/targets.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'justinmk/vim-sneak'
