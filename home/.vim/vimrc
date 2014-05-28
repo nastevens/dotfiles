@@ -50,6 +50,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'dantler/vim-alternate'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
+Bundle 'AndrewRadev/splitjoin.vim'
 
 " Other
 Bundle 'vim-scripts/vimwiki'
