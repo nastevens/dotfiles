@@ -53,7 +53,6 @@ Bundle 'tpope/vim-commentary'
 
 " Other
 Bundle 'vim-scripts/vimwiki'
-Bundle 'airblade/vim-gitgutter'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/bufkill.vim'
@@ -166,9 +165,6 @@ let g:airline_right_sep=''
 let g:airline_section_z=''
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
-
-" =====[Gitgutter options]=====
-highlight clear SignColumn
 
 " =====[Custom scratch buffers]=====
 " http://dhruvasagar.com/2014/03/11/creating-custom-scratch-buffers-in-vim
