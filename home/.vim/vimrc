@@ -28,7 +28,6 @@ Bundle 'vim-scripts/matchit.zip'
 Bundle 'corntrace/bufexplorer'
 Bundle 'mhinz/vim-startify'
 Bundle 'bling/vim-airline'
-Bundle 'mattboehm/vim-accordion'
 Bundle 'bling/vim-bufferline'
 Bundle 'scrooloose/nerdtree'
 
@@ -154,9 +153,6 @@ let wiki_1.nested_syntaxes = {
       \ }
 
 let g:vimwiki_list = [wiki_1]
-
-" =====[Accordian options]=====
-let g:accordion_mode="h"
 
 " =====[Airline options]=====
 let g:airline_theme='powerlineish'
