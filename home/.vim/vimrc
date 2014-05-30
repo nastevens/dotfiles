@@ -134,6 +134,9 @@ cabbrev bw BW
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" Add a 'yank entire buffer to system clipboard' command
+nnoremap <leader>a :1,$y+<CR>
+
 " =====[Vimwiki options]=====
 let g:personal_dropbox_loc = $DROPBOX
 let wiki_1 = {}
