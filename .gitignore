@@ -1,5 +1,6 @@
 home/.vim/autoload/*
 home/.vim/bundle/*
 home/.ssh/known_hosts
+home/.ssh/authorized_keys
 
 *.swp
