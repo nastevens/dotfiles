@@ -1,0 +1,11 @@
+[user]
+	name = Nick Stevens
+	email = nick@bitcurry.com
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore_globals
+	eol = lf
+	autocrlf = input
+[push]
+	default = simple
