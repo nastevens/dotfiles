@@ -31,6 +31,7 @@ Bundle 'mhinz/vim-startify'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
 
 " Syntax/Indenting
 Bundle 'dagwieers/asciidoc-vim'
@@ -223,5 +224,8 @@ let NERDTreeChristmasTree=1
 let NERDTreeCascadeOpenSingleChildDir=1
 let NERDTreeAutoDeleteBuffer=1
 nnoremap <leader>n :NERDTree<CR>
+
+" =====[TagBar Options]=====
+nnoremap <leader>t :TagbarToggle<CR>
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
