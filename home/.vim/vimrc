@@ -31,6 +31,7 @@ Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/YankRing.vim'
 
 " Syntax/Indenting
 Bundle 'dagwieers/asciidoc-vim'
