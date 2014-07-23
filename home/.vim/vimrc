@@ -33,6 +33,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'chrisbra/NrrwRgn'
+Bundle 'kien/ctrlp.vim'
 
 " Syntax/Indenting
 Bundle 'dagwieers/asciidoc-vim'
