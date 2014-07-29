@@ -58,6 +58,8 @@ Bundle 'dantler/vim-alternate'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 
 " Other
 Bundle 'vim-scripts/vimwiki'
@@ -231,5 +233,8 @@ nnoremap <leader>n :NERDTree<CR>
 
 " =====[TagBar Options]=====
 nnoremap <leader>t :TagbarToggle<CR>
+
+" =====[UltiSnips Options]=====
+let g:UltiSnipsExpandTrigger="<tab>"
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
