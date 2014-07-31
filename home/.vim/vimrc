@@ -66,6 +66,10 @@ Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'vim-scripts/bufkill.vim'
 
+" Tmux navigator needs the no_mappings option before loading
+let g:tmux_navigator_no_mappings = 1
+Bundle 'christoomey/vim-tmux-navigator'
+
 filetype plugin indent on
 
 " =====[General settings]=====
@@ -236,5 +240,12 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " =====[UltiSnips Options]=====
 let g:UltiSnipsExpandTrigger="<tab>"
+
+" =====[Tmux Navigator]=====
+nnoremap <silent> <C-w>h :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-w>j :TmuxNavigateDown<CR>
+nnoremap <silent> <C-w>k :TmuxNavigateUp<CR>
+nnoremap <silent> <C-w>l :TmuxNavigateRight<CR>
+
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
