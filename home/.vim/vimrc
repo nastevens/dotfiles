@@ -34,6 +34,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kana/vim-fakeclip'
 
 " Syntax/Indenting
 Bundle 'dagwieers/asciidoc-vim'
