@@ -68,6 +68,15 @@ Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'vim-scripts/bufkill.vim'
 
+" Litecorrect
+augroup litecorrect
+  autocmd!
+  autocmd FileType markdown call litecorrect#init()
+  autocmd FileType textile call litecorrect#init()
+augroup END
+let g:litecorrect#typographic = 0
+Bundle 'reedes/vim-litecorrect'
+
 " Tmux navigator needs the no_mappings option before loading
 let g:tmux_navigator_no_mappings = 1
 Bundle 'christoomey/vim-tmux-navigator'
