@@ -24,6 +24,7 @@ Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'justinmk/vim-sneak'
 Bundle 'terryma/vim-expand-region'
 Bundle 'vim-scripts/matchit.zip'
+Bundle 'tpope/vim-unimpaired'
 
 " UI enhancements
 Bundle 'corntrace/bufexplorer'
