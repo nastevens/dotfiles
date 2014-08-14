@@ -32,7 +32,6 @@ Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/YankRing.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kana/vim-fakeclip'
@@ -67,6 +66,11 @@ Bundle 'honza/vim-snippets'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'vim-scripts/bufkill.vim'
+
+" Yankring
+let g:yankring_history_dir = '$HOME/.vim,$HOME/vimfiles'
+let g:yankring_history_file = 'yankring_history'
+Bundle 'vim-scripts/YankRing.vim'
 
 " Litecorrect
 augroup litecorrect
