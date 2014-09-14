@@ -79,6 +79,11 @@ Bundle 'reedes/vim-litecorrect'
 let g:tmux_navigator_no_mappings = 1
 Bundle 'christoomey/vim-tmux-navigator'
 
+" GoldenView
+let g:goldenview__enable_default_mapping = 0
+nmap <silent><C-l> <Plug>GoldenViewSplit
+Bundle 'zhaocai/GoldenView.Vim'
+
 filetype plugin indent on
 
 " =====[General settings]=====
@@ -136,8 +141,6 @@ inoremap kj <Esc>
 inoremap <Esc> <nop>
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
-nnoremap <silent><C-h> :tabprev<CR>
-nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <Space> i_<Esc>r
 nnoremap <leader>c :!ctags -R .<CR>
 nnoremap <leader>q :nohlsearch<CR>
