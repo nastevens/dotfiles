@@ -20,5 +20,5 @@ setlocal formatoptions=cq
 setlocal wrapmargin=0
 
 " Highlight characters over 80 columns
-highlight OverLength cterm=bold ctermfg=7 ctermbg=1 guibg=#592929
+highlight OverLength ctermfg=white ctermbg=darkgray guifg=white guibg=darkgrey
 match OverLength /\%81v.\+/
