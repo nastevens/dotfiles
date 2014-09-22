@@ -136,3 +136,6 @@ export HISTFILESIZE=""
 
 # Append to history file, don't overwrite it
 shopt -s histappend
+
+# Source the dnav tool
+source ~/.dnav/dnav.sh
