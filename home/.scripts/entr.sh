@@ -6,7 +6,7 @@
 CMD=eval
 
 if [ $# -lt 1 ]; then
-    echo "Usage $0 [WHERE] [EXTS] [BUILD] [RUN]" >&2
+    echo "Usage $0 WHERE 'EXT [EXT...]' BUILD RUN" >&2
     exit 1
 fi
 
