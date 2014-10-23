@@ -23,4 +23,4 @@ for EXT in ${EXTS}; do
 done
 REGEX="${REGEX}\\)"
 
-$CMD "find \"${WHERE}\" -regex \"${REGEX}\" | entr -c bash -c \"${ACTION}\""
+$CMD "find \"${WHERE}\" -regex \"${REGEX}\" -not -regex \".*/build/.*\" | entr -c bash -c \"${ACTION}\""
