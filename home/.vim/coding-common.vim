@@ -2,7 +2,7 @@
 
 " Control if tabs stay tabs or convert to spaces
 if exists('b:TabsOkay')
-    exec "setlocal listchars=tab:\uB7\uB7,trail:\uB7,nbsp:~"
+    exec "setlocal listchars=tab:\uA0\uA0,trail:\uB7,nbsp:~"
     setlocal noexpandtab
 else
     exec "setlocal listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
