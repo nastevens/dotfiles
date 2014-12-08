@@ -7,7 +7,6 @@ behave xterm
 set nocompatible
 filetype off
 set rtp+=~/.vim/vundle.vim/
-set rtp+=~/vimfiles/vundle.vim/
 call vundle#rc()
 
 " Vundle bundles
