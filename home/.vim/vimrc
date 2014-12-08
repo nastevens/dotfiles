@@ -148,6 +148,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
 nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>
+nnoremap <leader>wod :VimwikiIndex<CR> :VimwikiGoto work/Brain Dump<CR>
 
 " Replace normal buffer unload/delete/wipe mappings with bufkill.vim
 cabbrev bun BUN
