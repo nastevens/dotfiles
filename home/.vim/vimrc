@@ -65,6 +65,10 @@ Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'vim-scripts/bufkill.vim'
 
+" Themes
+Bundle 'ajh17/Spacegray.vim'
+colorscheme spacegray
+
 " Litecorrect
 augroup litecorrect
   autocmd!
