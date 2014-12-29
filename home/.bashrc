@@ -46,23 +46,23 @@ case ${TERM} in
 esac
 
 # Aliases
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
 alias -- -='cd -'
-alias h='history'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias bc="bc -l "
 alias c='clear'
-alias q='exit'
-alias ls='ls --color=auto -F -T 0'
+alias df='df -h'
+alias grep='grep --colour=auto'
+alias h='history'
 alias la='\ls --color=auto -F -T 0 -A'
 alias ll='\ls --color=auto -F -T 0 -l'
-alias grep='grep --colour=auto'
-alias df='df -h'
+alias ls='ls --color=auto -F -T 0'
 alias mkdir='mkdir -p'
-alias su='su -'
-alias bc="bc -l "
 alias myip='curl ifconfig.me'
+alias q='exit'
 alias screen='echo Use tmux you dolt'
+alias su='su -'
 alias vimupdate='vim +BundleUpdate +qall'
 
 # Stylize PS1
