@@ -64,6 +64,7 @@ alias myip='curl ifconfig.me'
 alias q='exit'
 alias screen='echo Use tmux you dolt'
 alias su='su -'
+alias tmux='tmux -2'
 alias vimupdate='vim +BundleUpdate +qall'
 
 # Stylize PS1
