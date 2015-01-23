@@ -3,6 +3,9 @@ augroup LinuxSourceException
     autocmd BufEnter  *linux*/*.[ch]  let b:TabsOkay=1
     autocmd BufEnter  *linux*/*.[ch]  let b:Tabs8=1
     autocmd BufEnter  *linux*/*.[ch]  runtime coding-common.vim
+    autocmd BufEnter  *u-boot*/*.[ch]  let b:TabsOkay=1
+    autocmd BufEnter  *u-boot*/*.[ch]  let b:Tabs8=1
+    autocmd BufEnter  *u-boot*/*.[ch]  runtime coding-common.vim
 augroup END
 
 function! GlennSource()
