@@ -64,6 +64,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'vim-scripts/bufkill.vim'
+Bundle 'tpope/vim-repeat'
 
 " Themes
 Bundle 'ajh17/Spacegray.vim'
