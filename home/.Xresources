@@ -1,0 +1,6 @@
+xterm*font: *-fixed-*-*-*-18-*
+xterm*termName: xterm-256color
+xterm*metaSendsEscape: true
+
+*background: #111314
+*foreground: #B7BBB7
