@@ -4,14 +4,43 @@
 # runs your .bashrc and is recommended by the bash info pages.
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+# Adds colon separated items to "var" if they exist. If multiples items are
+# specified, they will be added in the order provided.
+add_if_exists() {
+    local var_name=$1
+    shift
+    for item in `echo ${@} | tac -s' '`; do
+        if [ -d ${item} ]; then
+            if [ -z "${!var_name}" ]; then
+                export "${var_name}=${item}"
+            else
+                export "${var_name}=${item}:${!var_name}"
+            fi
+        fi
+    done
+}
+
 # MacPorts paths
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/libexec/gnubin/:$PATH
+add_if_exists PATH \
+    "/opt/local/bin" \
+    "/opt/local/sbin" \
+    "/opt/local/libexec/gnubin"
 
 # Local binaries
-export PATH=~/local/bin:~/.scripts:$PATH
+add_if_exists PATH \
+    "$HOME/local/bin" \
+    "$HOME/.scripts"
+add_if_exists LD_LIBRARY_PATH \
+    "$HOME/local/lib"
 
 # Ruby gem binaries
-export PATH=~/.gem/ruby/1.8/bin:~/.gem/ruby/2.0.0/bin:$PATH
+add_if_exists PATH \
+    "$HOME/.gem/ruby/1.8/bin" \
+    "$HOME/.gem/ruby/2.0.0/bin"
 
 # Android SDK binaries
-export PATH=~/androidsdk/platform-tools:~/androidsdk/tools:$PATH
+add_if_exists PATH \
+    "$HOME/androidsdk/platform-tools" \
+    "$HOME/androidsdk/tools"
+
+unset add_if_exists
