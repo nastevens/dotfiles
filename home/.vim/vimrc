@@ -45,6 +45,7 @@ Bundle 'vim-scripts/indentpython.vim'
 Bundle 'othree/html5.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'kergoth/vim-bitbake'
+Bundle 'cespare/vim-toml'
 
 " External tools
 Bundle 'krisajenkins/vim-pipe'
