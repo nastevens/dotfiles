@@ -151,6 +151,7 @@ nnoremap <leader>c :!ctags -R .<CR>
 nnoremap <leader>q :nohlsearch<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap =j :%!python -m json.tool<CR>
 
 nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
 nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>
