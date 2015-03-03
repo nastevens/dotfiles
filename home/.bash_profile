@@ -9,7 +9,9 @@
 add_if_exists() {
     local var_name=$1
     shift
-    for item in `echo ${@} | tac -s' '`; do
+    for (( i = ${#@}; i > 0; i-- ))
+    {
+        local item=`echo ${!i}`
         if [ -d ${item} ]; then
             if [ -z "${!var_name}" ]; then
                 export "${var_name}=${item}"
@@ -17,7 +19,7 @@ add_if_exists() {
                 export "${var_name}=${item}:${!var_name}"
             fi
         fi
-    done
+    }
 }
 
 # MacPorts paths
