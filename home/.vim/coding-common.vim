@@ -25,7 +25,7 @@ highlight OverLength ctermfg=white ctermbg=darkgray guifg=white guibg=darkgrey
 if exists('b:OverLength')
     execute 'match OverLength /\%' . b:OverLength . 'v.\+/'
 else
-    match OverLength /\%81v.\+/
+    match OverLength /\%80v.\+/
 endif
 
 " Always use smart tabs
