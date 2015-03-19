@@ -46,3 +46,8 @@ add_if_exists PATH \
     "$HOME/androidsdk/tools"
 
 unset add_if_exists
+
+# Enable bash-completion if it exists
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
+fi
