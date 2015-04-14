@@ -147,7 +147,7 @@ inoremap <Esc> <nop>
 nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 nnoremap <Space> i_<Esc>r
-nnoremap <leader>c :!ctags -R . --exclude=.git --exclude=build --exclude=crossbuild<CR>
+nnoremap <leader>c :!ctags -R . --exclude=.git --exclude=build --exclude=crossbuild && cscope -b -R<CR>
 nnoremap <leader>q :nohlsearch<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
