@@ -46,6 +46,7 @@ Bundle 'othree/html5.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'kergoth/vim-bitbake'
 Bundle 'cespare/vim-toml'
+Bundle 'kchmck/vim-coffee-script'
 
 " External tools
 Bundle 'krisajenkins/vim-pipe'
