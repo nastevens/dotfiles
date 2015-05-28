@@ -28,4 +28,10 @@ endif
 
 nnoremap <LocalLeader>gs :call GlennSource()<CR>
 
+command! -nargs=1 Silent
+\ | execute ':silent !'.<q-args>
+\ | execute ':redraw!'
+
+nnoremap K :Silent man -s 2,3,4,5,6,7,8,9,1 <C-R>=expand("<cword>")<CR><CR>
+
 runtime coding-common.vim
