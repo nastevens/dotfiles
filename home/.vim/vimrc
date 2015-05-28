@@ -81,10 +81,6 @@ augroup END
 let g:litecorrect#typographic = 0
 Bundle 'reedes/vim-litecorrect'
 
-" Tmux navigator needs the no_mappings option before loading
-let g:tmux_navigator_no_mappings = 1
-Bundle 'christoomey/vim-tmux-navigator'
-
 " GoldenView
 let g:goldenview__enable_default_mapping = 0
 nmap <silent><C-l> <Plug>GoldenViewSplit
@@ -267,12 +263,6 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " =====[UltiSnips Options]=====
 let g:UltiSnipsExpandTrigger="<tab>"
-
-" =====[Tmux Navigator]=====
-nnoremap <silent> <C-w>h :TmuxNavigateLeft<CR>
-nnoremap <silent> <C-w>j :TmuxNavigateDown<CR>
-nnoremap <silent> <C-w>k :TmuxNavigateUp<CR>
-nnoremap <silent> <C-w>l :TmuxNavigateRight<CR>
 
 " =====[CScope Bindings]=====
 set cscopetag
