@@ -26,12 +26,29 @@ if exists('b:GlennSourceToggle')
     let b:Overlength=120
 endif
 
-nnoremap <LocalLeader>gs :call GlennSource()<CR>
+nnoremap <buffer> <LocalLeader>gs :call GlennSource()<CR>
 
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
 
-nnoremap K :Silent man -s 2,3,4,5,6,7,8,9,1 <C-R>=expand("<cword>")<CR><CR>
+nnoremap <buffer> K :Silent man -s 2,3,4,5,6,7,8,9,1 <C-R>=expand("<cword>")<CR><CR>
+
+" =====[CScope Bindings]=====
+setlocal cscopetag
+setlocal cscopetagorder=1
+if filereadable("cscope.out")
+  cscope add cscope.out
+elseif $CSCOPE_DB != ""
+  cscope add $CSCOPE_DB
+endif
+nmap <buffer> <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <buffer> <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <buffer> <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <buffer> <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <buffer> <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <buffer> <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <buffer> <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <buffer> <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 runtime coding-common.vim
