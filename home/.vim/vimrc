@@ -74,6 +74,7 @@ augroup litecorrect
   autocmd!
   autocmd FileType markdown call litecorrect#init()
   autocmd FileType textile call litecorrect#init()
+  autocmd FileType gitcommit call litecorrect#init()
 augroup END
 let g:litecorrect#typographic = 0
 Bundle 'reedes/vim-litecorrect'
