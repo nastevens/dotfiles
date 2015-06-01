@@ -116,8 +116,10 @@ if ${use_color} ; then
 fi
 unset use_color safe_term match_lhs
 
-# Enable completion for gibo
+# Misc completions
 source ~/.bash-completion/gibo-completion.bash
+source ~/.bash-completion/cargo-completion.bash
+source ~/.bash-completion/homesick-completion.bash
 
 # Display message if homesick files more than a week old
 now=`date +%s`

@@ -1,4 +1,3 @@
-have cargo &&
 _cargo() {
     local commands split=false
     local cur cmd
