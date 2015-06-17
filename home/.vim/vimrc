@@ -31,7 +31,6 @@ Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
-Bundle 'kien/ctrlp.vim'
 Bundle 'kana/vim-fakeclip'
 
 " Syntax/Indenting
@@ -238,5 +237,12 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " =====[UltiSnips Options]=====
 let g:UltiSnipsExpandTrigger="<tab>"
+
+" =====[Ctrl-P Options]=====
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](build|crossbuild)$',
+  \ 'file': '\v(tags|(\.(exe|so|dll)))$',
+  \ }
+Bundle 'kien/ctrlp.vim'
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
