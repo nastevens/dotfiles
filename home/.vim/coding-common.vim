@@ -42,3 +42,6 @@ setlocal nowrap
 setlocal textwidth=0
 setlocal formatoptions=cq
 setlocal wrapmargin=0
+
+" Align new lines inside arguments with first argument
+setlocal cinoptions+=(0
