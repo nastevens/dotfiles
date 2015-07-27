@@ -34,17 +34,13 @@ Bundle 'majutsushi/tagbar'
 Bundle 'kana/vim-fakeclip'
 
 " Syntax/Indenting
+Bundle 'sheerun/vim-polyglot'
 Bundle 'dagwieers/asciidoc-vim'
-Bundle 'tfnico/vim-gradle'
-Bundle 'tpope/vim-markdown'
-Bundle 'vim-scripts/ebnf.vim'
-Bundle 'wting/rust.vim'
-Bundle 'vim-scripts/groovyindent'
-Bundle 'vim-scripts/indentpython.vim'
-Bundle 'othree/html5.vim'
 Bundle 'kergoth/vim-bitbake'
+Bundle 'vim-scripts/ebnf.vim'
+Bundle 'tfnico/vim-gradle'
+Bundle 'vim-scripts/groovyindent'
 Bundle 'cespare/vim-toml'
-Bundle 'kchmck/vim-coffee-script'
 
 " External tools
 Bundle 'tpope/vim-dispatch'
