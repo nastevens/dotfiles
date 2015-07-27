@@ -57,6 +57,8 @@ Bundle 'tpope/vim-commentary'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'ludovicchabant/vim-gutentags'
+Bundle 'mhinz/vim-signify'
+let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
 
 " Other
 Bundle 'vim-scripts/vimwiki'
