@@ -255,4 +255,8 @@ let g:ctrlp_custom_ignore = {
   \ }
 Bundle 'kien/ctrlp.vim'
 
+" =====[unto-tree Options]
+Bundle 'mbbill/undotree'
+nnoremap <leader>u :UndotreeToggle<CR>
+
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
