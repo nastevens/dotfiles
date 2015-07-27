@@ -1,170 +1,35 @@
-scriptencoding utf-8
+" vim: set fenc=utf-8 tw=78 sw=2 sts=2 et fdl=0 fdm=marker:
 
-" Override brain-dead Windows visual mode
-behave xterm
+" General settings {{{
+  scriptencoding utf-8
+  behave xterm           " Override brain-dead Windows visual mode
+  set nobackup           " Don't leave cruft all over the place
+  set nowritebackup      " Don't leave cruft all over the place
+  set fileformat=unix    " If not unix formatted, I want to know
+  set splitbelow         " Open new splits at bottom
+  set splitright         " Open new vsplits at the right
+  set modeline           " Enable modeline processing
+  set ignorecase         " Ignore case in searches...
+  set smartcase          " ...unless I specify a capital letter
+  set hlsearch           " Highlight search results
+  set showmatch          " Highlight matching character briefly
 
-call plug#begin('~/.vim/plugged')
+  " When doing tab completion, give the following files lower priority.
+  set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
 
-" Sensible Defaults
-Plug 'tpope/vim-sensible'
+  " Show relative number for all except current line, which shows absolute
+  " line number
+  if v:version >= 703
+    set number relativenumber
+  endif
 
-" Motions/Text Objects
-Plug 'bkad/CamelCaseMotion'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'wellle/targets.vim'
-Plug 'tpope/vim-surround'
-Plug 'justinmk/vim-sneak'
-Plug 'terryma/vim-expand-region'
-Plug 'vim-scripts/matchit.zip'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-rsi'
+  " Make regexes more familiar
+    nnoremap / /\v
+    vnoremap / /\v
+    nnoremap ? ?\v
+    vnoremap ? ?\v
 
-" UI enhancements
-Plug 'corntrace/bufexplorer'
-Plug 'bling/vim-airline'
-Plug 'bling/vim-bufferline'
-Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
-Plug 'kana/vim-fakeclip'
-
-" Syntax/Indenting
-Plug 'sheerun/vim-polyglot'
-Plug 'dagwieers/asciidoc-vim'
-Plug 'kergoth/vim-bitbake'
-Plug 'vim-scripts/ebnf.vim'
-Plug 'tfnico/vim-gradle'
-Plug 'vim-scripts/groovyindent'
-Plug 'cespare/vim-toml'
-
-" External tools
-Plug 'tpope/vim-dispatch'
-
-" Coding
-Plug 'dantler/vim-alternate'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'mhinz/vim-signify'
-let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
-
-" Other
-Plug 'vim-scripts/vimwiki'
-Plug 'vim-scripts/visSum.vim'
-Plug 'vim-scripts/bufkill.vim'
-Plug 'tpope/vim-repeat'
-Plug 'godlygeek/tabular'
-
-" Themes
-Plug 'ajh17/Spacegray.vim'
-
-" Litecorrect
-augroup litecorrect
-  autocmd!
-  autocmd FileType markdown call litecorrect#init()
-  autocmd FileType textile call litecorrect#init()
-  autocmd FileType gitcommit call litecorrect#init()
-augroup END
-let g:litecorrect#typographic = 0
-Plug 'reedes/vim-litecorrect'
-
-filetype plugin indent on
-
-" =====[General settings]=====
-set nobackup                   " Don't leave cruft all over the place
-set nowritebackup              " Don't leave cruft all over the place
-set encoding=utf-8             " Use UTF-8 by default
-set ff=unix                    " If not unix formatted, I want to know
-set splitbelow                 " Open new splits at bottom
-set splitright                 " Open new vsplits at the right
-set modeline
-set ignorecase                 " Ignore case in searches...
-set smartcase                  " ...unless I specify a capital letter
-set hlsearch
-set showmatch
-
-" =====[Autocommands]=====
-if has("autocmd")
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  autocmd FileType python let b:vimpipe_command="python -"
-
-  augroup END
-
-endif " has("autocmd")
-
-" =====[Suffix settings]=====
-" When doing tab completion, give the following files lower priority.
-set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
-
-" =====[Line number settings]=====
-if v:version >= 700
-  set numberwidth=3
-endif
-if v:version >= 703
-  set relativenumber
-endif
-
-" =====[Command mappings]=====
-inoremap kj <Esc>
-inoremap <Esc> <nop>
-nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
-nnoremap <Space> i_<Esc>r
-nnoremap <leader>c :!ctags -R . --exclude=.git --exclude=build --exclude=crossbuild && cscope -b -R -q<CR>
-nnoremap <leader>q :nohlsearch<CR>
-nnoremap <leader>ev :split $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap =j :%!python -m json.tool<CR>
-
-nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
-nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>
-nnoremap <leader>wod :VimwikiIndex<CR> :VimwikiGoto work/Brain Dump<CR>
-
-" Replace normal buffer unload/delete/wipe mappings with bufkill.vim
-cabbrev bun BUN
-cabbrev bd BD
-cabbrev bw BW
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" Add a 'yank entire buffer to system clipboard' command
-nnoremap <leader>a :1,$y+<CR>
-
-" Wipe the current buffer
-nnoremap <leader>x :BW<CR>
-
-" Make regexes more familiar {{{
-  nnoremap / /\v
-  vnoremap / /\v
-  nnoremap ? ?\v
-  vnoremap ? ?\v
-"}}}
-
-" Reselect visual block after indent {{{
-  vnoremap < <gv
-  vnoremap > >gv
-"}}}
-
-" Use Silver Searcher if it exists {{{
+  " Use Silver Searcher if it exists
   if exists("g:ctrlp_user_command")
     unlet g:ctrlp_user_command
   endif
@@ -174,118 +39,106 @@ nnoremap <leader>x :BW<CR>
   else
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co', 'find %s -type f']
   endif
+
+  " Highlight code in Markdown documents
+  let g:markdown_fenced_languages = [
+        \ 'c',
+        \ 'cpp',
+        \ 'java',
+        \ 'python',
+        \ 'rust',
+        \ 'sh',
+        \ 'verilog',
+        \ ]
+
+  " Preserve undo across program restarts
+  if has('persistent_undo')
+    set undodir=$HOME/.vim_undo
+    set undolevels=5000
+    set undofile
+  endif
 "}}}
 
-" =====[Vimwiki options]=====
-if isdirectory($HOME . "/Dropbox")
-  let g:personal_dropbox_loc = $HOME . "/Dropbox"
-else
-  let g:personal_dropbox_loc = $DROPBOX
-endif
-let wiki_1 = {}
-let wiki_1.path = g:personal_dropbox_loc . '/vimwiki/'
-let wiki_1.path_html = g:personal_dropbox_loc . '/vimwiki_html/'
-let wiki_1.template_path = g:personal_dropbox_loc . '/vimwiki_html/assets/'
-let wiki_1.template_default = 'default'
-let wiki_1.template_ext = '.tpl'
-let wiki_1.auto_export = 0
-let wiki_1.nested_syntaxes = {
-      \ 'c++': 'cpp',
-      \ 'ebnf': 'ebnf',
-      \ 'groovy': 'groovy',
-      \ 'java': 'java',
-      \ 'markdown': 'markdown',
-      \ 'python': 'python',
-      \ 'rust': 'rust',
-      \ 'sh': 'sh',
-      \ 'verilog': 'verilog',
-      \ }
-let g:vimwiki_list = [wiki_1]
+" Autocommands {{{
+  if has("autocmd")
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+      autocmd!
 
-" =====[Markdown Options]=====
-let g:markdown_fenced_languages = [
-      \ 'c',
-      \ 'cpp',
-      \ 'java',
-      \ 'python',
-      \ 'rust',
-      \ 'sh',
-      \ 'verilog',
-      \ ]
+      " For all files set 'textwidth' to 78 characters.
+      autocmd FileType * setlocal textwidth=78
 
-" =====[Airline options]=====
-let g:airline_theme='dark'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+      " When editing a file, always jump to the last known cursor position.  Don't
+      " do it when the position is invalid or when inside an event handler
+      " (happens when dropping a file on gvim).  Also don't do it when the mark is
+      " in the first line, that is the default position when opening a file.
+      autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+    augroup END
 
-" =====[Expand region mappings]=====
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
+    " Highlight offensive characters
+    " (uBB is right double angle, uB7 is middle dot)
+    exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
-" =====[Use persistent undo ]=====
-if has('persistent_undo')
-  set undodir=$HOME/.vim_undo
-  set undolevels=5000
-  set undofile
-endif
+    augroup HighlightOffensive
+      autocmd!
+      autocmd BufEnter  *       set list
+    augroup END
 
-" =====[Highlight offensive characters]=====
-" (uBB is right double angle, uB7 is middle dot)
-exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-
-augroup HighlightOffensive
-    autocmd!
-    autocmd BufEnter  *       set list
-    autocmd BufEnter  *.txt   set nolist
-    autocmd BufEnter  *       if !&modifiable
-    autocmd BufEnter  *           set nolist
-    autocmd BufEnter  *       endif
-augroup END
-
-" =====[Highlight spelling on request]=====
-set spelllang=en_us
-nnoremap <leader>sp :setlocal invspell<CR>
-
-" =====[NERDTree Options]=====
-let NERDTreeChristmasTree=1
-let NERDTreeCascadeOpenSingleChildDir=1
-let NERDTreeAutoDeleteBuffer=1
-nnoremap <leader>n :NERDTree<CR>
-
-" =====[TagBar Options]=====
-nnoremap <leader>t :TagbarToggle<CR>
-
-" =====[UltiSnips Options]=====
-let g:UltiSnipsExpandTrigger="<tab>"
-
-" =====[Ctrl-P Options]=====
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(\.git|\.hg|\.svn|target|build|crossbuild)',
-  \ 'file': '\v(tags$|\.exe$|\.so$|\.dll$)',
-  \ }
-Plug 'kien/ctrlp.vim'
-
-" =====[unto-tree Options]=====
-Plug 'mbbill/undotree'
-nnoremap <leader>u :UndotreeToggle<CR>
-
-" =====[fugitive options]=====
-Plug 'tpope/vim-fugitive'
-"{{{
-  nnoremap <silent> <leader>gs :Gstatus<CR>
-  nnoremap <silent> <leader>gd :Gdiff<CR>
-  nnoremap <silent> <leader>gc :Gcommit<CR>
-  nnoremap <silent> <leader>gb :Gblame<CR>
-  nnoremap <silent> <leader>gl :Glog<CR>
-  nnoremap <silent> <leader>gp :Git push<CR>
-  nnoremap <silent> <leader>gw :Gwrite<CR>
-  nnoremap <silent> <leader>gr :Gremove<CR>
-  autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
-  autocmd BufReadPost fugitive://* set bufhidden=delete
+  endif
 "}}}
 
-call plug#end()
+" Mappings {{{
+  " Use 'kj' instead of escape
+  inoremap kj <Esc>
+  inoremap <Esc> <nop>
 
+  " Add a new line before/after
+  nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+  nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+  " Insert one character
+  nnoremap <Space> i_<Esc>r
+
+  " Regenerate cscope database
+  nnoremap <leader>c :!cscope -b -R -q<CR>
+
+  " Edit and source vimrc, plugins
+  nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+  nnoremap <leader>sv :source $MYVIMRC<CR>
+  nnoremap <leader>ep :vsplit $HOME/.vim/plugins.vim<CR>
+
+  " Pretty format JSON file
+  nnoremap =j :%!python -m json.tool<CR>
+
+  " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+  " so that you can undo CTRL-U after inserting a line break.
+  inoremap <C-U> <C-G>u<C-U>
+  " Add a 'yank entire buffer to system clipboard' command
+  nnoremap <leader>a :1,$y+<CR>
+
+  " Highlight spelling on request
+  set spelllang=en_us
+  nnoremap <leader>sp :setlocal invspell<CR>
+"}}}
+
+" Plugins {{{
+  " Auto-install vim-plug and install plugins
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+  endif
+
+  " Source plugins
+  call plug#begin('~/.vim/plugged')
+  source ~/.vim/plugins.vim
+  call plug#end()
+"}}}
+
+" Set colorscheme
+" Note this must be done after plugins are sourced, otherwise the colorscheme
+" plugin won't have been loaded
 colorscheme spacegray
-
-" vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
