@@ -127,7 +127,7 @@
 " Plugins {{{
   " Auto-install vim-plug and install plugins
   if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autload/plug.vim --create-dirs
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
   endif

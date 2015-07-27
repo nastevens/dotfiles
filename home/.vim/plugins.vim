@@ -93,10 +93,12 @@ Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/groovyindent'
 
 " =====[Coding]=====
-Plug 'SirVer/ultisnips'
-Plug 'dantler/vim-alternate' | Plug 'honza/vim-snippets' "{{{
-  let g:UltiSnipsExpandTrigger="<tab>"
-"}}}
+" UltiSnips needs Vim >= 7.4 {{{
+if v:version >= 704
+  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    let g:UltiSnipsExpandTrigger="<tab>"
+endif "}}}
+Plug 'dantler/vim-alternate'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify' "{{{
   let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
