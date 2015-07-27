@@ -189,7 +189,15 @@ let wiki_1.nested_syntaxes = {
 let g:vimwiki_list = [wiki_1]
 
 " =====[Markdown Options]=====
-let g:markdown_fenced_languages = [ 'c', 'cpp', 'sh' ]
+let g:markdown_fenced_languages = [
+      \ 'c',
+      \ 'cpp',
+      \ 'java',
+      \ 'python',
+      \ 'rust',
+      \ 'sh',
+      \ 'verilog',
+      \ ]
 
 " =====[Airline options]=====
 let g:airline_theme='powerlineish'
