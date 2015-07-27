@@ -12,3 +12,5 @@
 [diff]
 	tool = vimdiff
 	guitool = meld
+[merge]
+	defaultToUpstream = true
