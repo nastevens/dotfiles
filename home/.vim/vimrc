@@ -3,68 +3,61 @@ scriptencoding utf-8
 " Override brain-dead Windows visual mode
 behave xterm
 
-" Set up vundle
-set nocompatible
-filetype off
-set rtp+=~/.vim/vundle.vim/
-call vundle#rc()
-
-" Vundle bundles
+call plug#begin('~/.vim/plugged')
 
 " Sensible Defaults
-Bundle 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'
 
 " Motions/Text Objects
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'wellle/targets.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'justinmk/vim-sneak'
-Bundle 'terryma/vim-expand-region'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-rsi'
+Plug 'bkad/CamelCaseMotion'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-surround'
+Plug 'justinmk/vim-sneak'
+Plug 'terryma/vim-expand-region'
+Plug 'vim-scripts/matchit.zip'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rsi'
 
 " UI enhancements
-Bundle 'corntrace/bufexplorer'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
-Bundle 'kana/vim-fakeclip'
+Plug 'corntrace/bufexplorer'
+Plug 'bling/vim-airline'
+Plug 'bling/vim-bufferline'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'kana/vim-fakeclip'
 
 " Syntax/Indenting
-Bundle 'sheerun/vim-polyglot'
-Bundle 'dagwieers/asciidoc-vim'
-Bundle 'kergoth/vim-bitbake'
-Bundle 'vim-scripts/ebnf.vim'
-Bundle 'tfnico/vim-gradle'
-Bundle 'vim-scripts/groovyindent'
-Bundle 'cespare/vim-toml'
+Plug 'sheerun/vim-polyglot'
+Plug 'dagwieers/asciidoc-vim'
+Plug 'kergoth/vim-bitbake'
+Plug 'vim-scripts/ebnf.vim'
+Plug 'tfnico/vim-gradle'
+Plug 'vim-scripts/groovyindent'
+Plug 'cespare/vim-toml'
 
 " External tools
-Bundle 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 
 " Coding
-Bundle 'dantler/vim-alternate'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-commentary'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'ludovicchabant/vim-gutentags'
-Bundle 'mhinz/vim-signify'
+Plug 'dantler/vim-alternate'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mhinz/vim-signify'
 let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
 
 " Other
-Bundle 'vim-scripts/vimwiki'
-Bundle 'vim-scripts/visSum.vim'
-Bundle 'vim-scripts/bufkill.vim'
-Bundle 'tpope/vim-repeat'
-Bundle 'godlygeek/tabular'
+Plug 'vim-scripts/vimwiki'
+Plug 'vim-scripts/visSum.vim'
+Plug 'vim-scripts/bufkill.vim'
+Plug 'tpope/vim-repeat'
+Plug 'godlygeek/tabular'
 
 " Themes
-Bundle 'ajh17/Spacegray.vim'
-colorscheme spacegray
+Plug 'ajh17/Spacegray.vim'
 
 " Litecorrect
 augroup litecorrect
@@ -74,7 +67,7 @@ augroup litecorrect
   autocmd FileType gitcommit call litecorrect#init()
 augroup END
 let g:litecorrect#typographic = 0
-Bundle 'reedes/vim-litecorrect'
+Plug 'reedes/vim-litecorrect'
 
 filetype plugin indent on
 
@@ -270,14 +263,14 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v(\.git|\.hg|\.svn|target|build|crossbuild)',
   \ 'file': '\v(tags$|\.exe$|\.so$|\.dll$)',
   \ }
-Bundle 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " =====[unto-tree Options]=====
-Bundle 'mbbill/undotree'
+Plug 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " =====[fugitive options]=====
-Bundle 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "{{{
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -290,5 +283,9 @@ Bundle 'tpope/vim-fugitive'
   autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
   autocmd BufReadPost fugitive://* set bufhidden=delete
 "}}}
+
+call plug#end()
+
+colorscheme spacegray
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :

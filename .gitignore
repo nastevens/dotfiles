@@ -4,7 +4,7 @@ home/.ssh/authorized_keys
 home/.ssh/known_hosts
 home/.vim/.netrwhist
 home/.vim/autoload/*
-home/.vim/bundle/*
+home/.vim/plugged/*
 home/.vim/yankring_history_v2.txt
 
 *.swp

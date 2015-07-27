@@ -65,7 +65,7 @@ alias q='exit'
 alias screen='echo Use tmux you dolt'
 alias su='su -'
 alias tmux='tmux -2'
-alias vimupdate='vim +BundleUpdate +qall'
+alias vimupdate='vim +PlugUpgrade +PlugUpdate +qall'
 
 # Stylize PS1
 norm='\[\033[00;00m\]'
