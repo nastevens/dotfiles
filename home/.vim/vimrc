@@ -56,6 +56,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
+Bundle 'ludovicchabant/vim-gutentags'
 
 " Other
 Bundle 'vim-scripts/vimwiki'
