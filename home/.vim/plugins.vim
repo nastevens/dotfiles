@@ -44,6 +44,7 @@ Plug 'reedes/vim-litecorrect' "{{{
   augroup END
   let g:litecorrect#typographic = 0
 "}}}
+Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree' "{{{
   let NERDTreeChristmasTree=1
   let NERDTreeCascadeOpenSingleChildDir=1
