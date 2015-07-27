@@ -44,7 +44,6 @@ Bundle 'cespare/vim-toml'
 
 " External tools
 Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-fugitive'
 
 " Coding
 Bundle 'dantler/vim-alternate'
@@ -160,6 +159,30 @@ nnoremap <leader>a :1,$y+<CR>
 " Wipe the current buffer
 nnoremap <leader>x :BW<CR>
 
+" Make regexes more familiar {{{
+  nnoremap / /\v
+  vnoremap / /\v
+  nnoremap ? ?\v
+  vnoremap ? ?\v
+"}}}
+
+" Reselect visual block after indent {{{
+  vnoremap < <gv
+  vnoremap > >gv
+"}}}
+
+" Use Silver Searcher if it exists {{{
+  if exists("g:ctrlp_user_command")
+    unlet g:ctrlp_user_command
+  endif
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  else
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co', 'find %s -type f']
+  endif
+"}}}
+
 " =====[Vimwiki options]=====
 if isdirectory($HOME . "/Dropbox")
   let g:personal_dropbox_loc = $HOME . "/Dropbox"
@@ -198,13 +221,9 @@ let g:markdown_fenced_languages = [
       \ ]
 
 " =====[Airline options]=====
-let g:airline_theme='powerlineish'
+let g:airline_theme='dark'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_section_z=''
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#hunks#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
 
 " =====[Expand region mappings]=====
 vmap v <Plug>(expand_region_expand)
@@ -248,13 +267,28 @@ let g:UltiSnipsExpandTrigger="<tab>"
 
 " =====[Ctrl-P Options]=====
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](build|crossbuild)$',
-  \ 'file': '\v(tags|(\.(exe|so|dll)))$',
+  \ 'dir':  '\v(\.git|\.hg|\.svn|target|build|crossbuild)',
+  \ 'file': '\v(tags$|\.exe$|\.so$|\.dll$)',
   \ }
 Bundle 'kien/ctrlp.vim'
 
-" =====[unto-tree Options]
+" =====[unto-tree Options]=====
 Bundle 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
+
+" =====[fugitive options]=====
+Bundle 'tpope/vim-fugitive'
+"{{{
+  nnoremap <silent> <leader>gs :Gstatus<CR>
+  nnoremap <silent> <leader>gd :Gdiff<CR>
+  nnoremap <silent> <leader>gc :Gcommit<CR>
+  nnoremap <silent> <leader>gb :Gblame<CR>
+  nnoremap <silent> <leader>gl :Glog<CR>
+  nnoremap <silent> <leader>gp :Git push<CR>
+  nnoremap <silent> <leader>gw :Gwrite<CR>
+  nnoremap <silent> <leader>gr :Gremove<CR>
+  autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+"}}}
 
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
