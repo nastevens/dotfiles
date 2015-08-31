@@ -7,8 +7,8 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]] ; then
-	# Shell is non-interactive.  Be done now!
-	return
+    # Shell is non-interactive.  Be done now!
+    return
 fi
 
 # The only sane editor option
@@ -37,12 +37,12 @@ shopt -s histappend
 
 # Change the window title of X terminals 
 case ${TERM} in
-	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-		;;
-	screen)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-		;;
+    xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+        ;;
+    screen)
+        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+        ;;
 esac
 
 # Aliases
@@ -100,22 +100,26 @@ match_lhs=""
 [[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
 [[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
 [[ -z ${match_lhs}    ]] \
-	&& type -P dircolors >/dev/null \
-	&& match_lhs=$(dircolors --print-database)
+    && type -P dircolors >/dev/null \
+    && match_lhs=$(dircolors --print-database)
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
 if ${use_color} ; then
-	# Enable colors for ls, etc.  Prefer ~/.dir_colors
-	if type -P dircolors >/dev/null ; then
-		if [[ -f ~/.dir_colors ]] ; then
-			eval $(dircolors -b ~/.dir_colors)
-		elif [[ -f /etc/DIR_COLORS ]] ; then
-			eval $(dircolors -b /etc/DIR_COLORS)
-		fi
-	fi
+    # Enable colors for ls, etc.  Prefer ~/.dir_colors
+    if type -P dircolors >/dev/null ; then
+        if [[ -f ~/.dir_colors ]] ; then
+            eval $(dircolors -b ~/.dir_colors)
+        elif [[ -f /etc/DIR_COLORS ]] ; then
+            eval $(dircolors -b /etc/DIR_COLORS)
+        fi
+    fi
 fi
 unset use_color safe_term match_lhs
 
+# Enable bash-completion if it exists
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
+fi
 # Misc completions
 source ~/.bash-completion/gibo-completion.bash
 source ~/.bash-completion/cargo-completion.bash
@@ -140,3 +144,46 @@ export HISTFILESIZE=""
 
 # Append to history file, don't overwrite it
 shopt -s histappend
+
+# Adds colon separated items to "var" if they exist. If multiples items are
+# specified, they will be added in the order provided.
+add_if_exists() {
+    local var_name=$1
+    shift
+    for (( i = ${#@}; i > 0; i-- ))
+    {
+        local item=`echo ${!i}`
+        if [ -d ${item} ]; then
+            if [ -z "${!var_name}" ]; then
+                export "${var_name}=${item}"
+            else
+                export "${var_name}=${item}:${!var_name}"
+            fi
+        fi
+    }
+}
+
+# MacPorts paths
+add_if_exists PATH \
+    "/opt/local/bin" \
+    "/opt/local/sbin" \
+    "/opt/local/libexec/gnubin"
+
+# Local binaries
+add_if_exists PATH \
+    "$HOME/local/bin" \
+    "$HOME/.scripts"
+add_if_exists LD_LIBRARY_PATH \
+    "$HOME/local/lib"
+
+# Ruby gem binaries
+add_if_exists PATH \
+    "$HOME/.gem/ruby/1.8/bin" \
+    "$HOME/.gem/ruby/2.0.0/bin"
+
+# Android SDK binaries
+add_if_exists PATH \
+    "$HOME/androidsdk/platform-tools" \
+    "$HOME/androidsdk/tools"
+
+unset add_if_exists
