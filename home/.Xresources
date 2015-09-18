@@ -1,4 +1,7 @@
-xterm*font: *-fixed-*-*-*-18-*
+XTerm*faceName: Inconsolata Regular
+XTerm*faceSize: 10
+UXTerm*faceName: Inconsolata Regular
+UXTerm*faceSize: 10
 xterm*termName: xterm-256color
 xterm*metaSendsEscape: true
 
