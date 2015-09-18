@@ -26,6 +26,7 @@ if exists('b:OverLength')
     execute 'match OverLength /\%' . b:OverLength . 'v.\+/'
 else
     match OverLength /\%80v.\+/
+    nnoremap <leader>l :match OverLength /\%120v.\+/<CR>
 endif
 
 " Always use smart tabs
