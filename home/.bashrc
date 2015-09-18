@@ -179,6 +179,7 @@ add_if_exists LD_LIBRARY_PATH \
 # Ruby gem binaries
 add_if_exists PATH \
     "$HOME/.gem/ruby/1.8/bin" \
+    "$HOME/.gem/ruby/1.9.1/bin" \
     "$HOME/.gem/ruby/2.0.0/bin"
 
 # Android SDK binaries
