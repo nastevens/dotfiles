@@ -187,4 +187,10 @@ add_if_exists PATH \
     "$HOME/androidsdk/platform-tools" \
     "$HOME/androidsdk/tools"
 
+# Microchip compiler binaries
+add_if_exists PATH \
+    "$HOME/local/microchip/xc8/bin" \
+    "$HOME/local/microchip/xc16/bin" \
+    "$HOME/local/microchip/xc32/bin"
+
 unset add_if_exists
