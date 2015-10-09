@@ -111,3 +111,7 @@ crashlytics-build.properties
 
 ### Custom
 tags
+
+### CMake build directories
+build/
+crossbuild/
