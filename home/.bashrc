@@ -124,6 +124,7 @@ fi
 source ~/.bash-completion/gibo-completion.bash
 source ~/.bash-completion/cargo-completion.bash
 source ~/.bash-completion/homesick-completion.bash
+source ~/.bash-completion/tmux-completion.bash
 
 # Display message if homesick files more than a week old
 now=`date +%s`
