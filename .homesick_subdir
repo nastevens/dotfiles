@@ -1,2 +1,5 @@
 .fluxbox
 .ssh
+.vim
+.vim/autoload
+.vim_undo

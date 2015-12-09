@@ -1,8 +1,4 @@
 home/.scripts/vim
 home/.scripts/mvim
-home/.vim/.netrwhist
-home/.vim/autoload/*
-home/.vim/plugged/*
-home/.vim/yankring_history_v2.txt
 
 *.swp
