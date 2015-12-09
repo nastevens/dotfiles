@@ -87,11 +87,15 @@ Plug 'vimwiki/vimwiki' "{{{
 " =====[Syntax/Indenting]=====
 Plug 'cespare/vim-toml'
 Plug 'dagwieers/asciidoc-vim'
+Plug 'hdima/python-syntax' "{{{
+  let python_highlight_all = 1
+"}}}
 Plug 'kergoth/vim-bitbake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
 Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/groovyindent'
+Plug 'vim-scripts/indentpython.vim'
 
 " =====[Coding]=====
 " UltiSnips needs Vim >= 7.4 {{{
