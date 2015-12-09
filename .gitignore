@@ -1,7 +1,5 @@
 home/.scripts/vim
 home/.scripts/mvim
-home/.ssh/authorized_keys
-home/.ssh/known_hosts
 home/.vim/.netrwhist
 home/.vim/autoload/*
 home/.vim/plugged/*
