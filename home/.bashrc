@@ -194,4 +194,8 @@ add_if_exists PATH \
     "$HOME/local/microchip/xc16/bin" \
     "$HOME/local/microchip/xc32/bin"
 
+# Cargo binaries
+add_if_exists PATH \
+    "$HOME/.cargo/bin"
+
 unset add_if_exists
