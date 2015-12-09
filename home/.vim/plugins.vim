@@ -26,7 +26,7 @@ Plug 'bling/vim-airline' "{{{
 Plug 'bling/vim-bufferline'
 Plug 'corntrace/bufexplorer'
 Plug 'godlygeek/tabular'
-Plug 'kien/ctrlp.vim' "{{{
+Plug 'ctrlpvim/ctrlp.vim' "{{{
   let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v(\.git|\.hg|\.svn|target|build|crossbuild)',
     \ 'file': '\v(tags$|\.exe$|\.so$|\.dll$)',
