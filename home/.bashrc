@@ -198,4 +198,12 @@ add_if_exists PATH \
 add_if_exists PATH \
     "$HOME/.cargo/bin"
 
+# PyEnv
+add_if_exists PATH \
+    "$HOME/.pyenv/bin"
+if which pyenv; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
 unset add_if_exists
