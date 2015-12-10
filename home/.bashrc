@@ -201,7 +201,7 @@ add_if_exists PATH \
 # PyEnv
 add_if_exists PATH \
     "$HOME/.pyenv/bin"
-if which pyenv; then
+if which pyenv >/dev/null; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi
