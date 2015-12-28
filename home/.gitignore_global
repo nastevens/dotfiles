@@ -111,6 +111,8 @@ crashlytics-build.properties
 
 ### Custom
 tags
+tags.lock
+tags.temp
 
 ### CMake build directories
 build/
