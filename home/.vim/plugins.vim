@@ -27,7 +27,7 @@ Plug 'bling/vim-bufferline'
 Plug 'ctrlpvim/ctrlp.vim' "{{{
   let g:ctrlp_extensions = ['tag', 'mixed']
   let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v(\.git|\.hg|\.svn|target|build|crossbuild)',
+    \ 'dir':  '\v(\.git|\.hg|\.svn|target|build|crossbuild|__pycache__|\.egg$|\.egg-info$)',
     \ 'file': '\v(tags$|\.exe$|\.so$|\.dll$)',
     \ }
   let g:ctrlp_cmd = 'CtrlPTag'
