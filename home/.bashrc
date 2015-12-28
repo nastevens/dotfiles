@@ -173,6 +173,7 @@ add_if_exists PATH \
 # Local binaries
 add_if_exists PATH \
     "$HOME/local/bin" \
+    "$HOME/.local/bin" \
     "$HOME/.scripts"
 add_if_exists LD_LIBRARY_PATH \
     "$HOME/local/lib"
