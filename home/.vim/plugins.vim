@@ -52,7 +52,14 @@ Plug 'scrooloose/nerdtree' "{{{
   let NERDTreeChristmasTree=1
   let NERDTreeCascadeOpenSingleChildDir=1
   let NERDTreeAutoDeleteBuffer=1
-  let NERDTreeIgnore=['\.pyc$', '\~$', '^__pycache__$', '^tags$']
+  let NERDTreeIgnore=[
+    \ '\.pyc$[[file]]',
+    \ '\~$',
+    \ '^__pycache__$[[dir]]',
+    \ '^tags$[[file]]',
+    \ '^.*\.egg$[[dir]]',
+    \ '^.*\.egg-info$[[dir]]',
+    \ ]
   nnoremap <leader>n :NERDTree<CR>
 "}}}
 Plug 'vim-scripts/visSum.vim'
