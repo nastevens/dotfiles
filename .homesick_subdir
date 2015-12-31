@@ -3,4 +3,5 @@
 .vim
 .vim/autoload
 .vim_undo
-.oh-my-zsh
+.zsh
+.zsh/themes
