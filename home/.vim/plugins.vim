@@ -18,7 +18,7 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/targets.vim'
 
 " =====[Tools and UIs]=====
-Plug 'bling/vim-airline' "{{{
+Plug 'vim-airline/vim-airline' "{{{
   let g:airline_theme='dark'
   let g:airline_left_sep=''
   let g:airline_right_sep=''
