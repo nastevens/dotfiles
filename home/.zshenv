@@ -33,6 +33,7 @@ path=(
     # Include system paths
     $path
 )
+export path
 
 # The only sane editor option
 export EDITOR='vim'
