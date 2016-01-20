@@ -81,7 +81,6 @@ export LANG=en_US.UTF-8
 # Enable pyenv, if it is installed
 if whence -p pyenv >/dev/null; then
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
 fi
 
 # Source my "plugin" scripts
