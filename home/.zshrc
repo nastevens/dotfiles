@@ -83,14 +83,14 @@ if whence -p pyenv >/dev/null; then
     eval "$(pyenv init -)"
 fi
 
-# Source my "plugin" scripts
-source "$ZSH/aliases.zsh"
-source "$ZSH/dircolors.zsh"
-
 # Options
 setopt autocontinue
 setopt correct
 setopt notify
+
+# Source my "plugin" scripts
+source "$ZSH/aliases.zsh"
+source "$ZSH/dircolors.zsh"
 
 # Finally, clean up paths, removing duplicates and non-existant directories
 source $HOME/.zsh/prune-paths.zsh
