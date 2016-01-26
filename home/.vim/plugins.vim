@@ -77,6 +77,7 @@ Plug 'vimwiki/vimwiki' "{{{
   let wiki_1.template_ext = '.tpl'
   let wiki_1.auto_export = 0
   let wiki_1.nested_syntaxes = {
+        \ 'bash': 'bash',
         \ 'c++': 'cpp',
         \ 'ebnf': 'ebnf',
         \ 'groovy': 'groovy',
@@ -86,6 +87,7 @@ Plug 'vimwiki/vimwiki' "{{{
         \ 'rust': 'rust',
         \ 'sh': 'sh',
         \ 'verilog': 'verilog',
+        \ 'zsh': 'zsh',
         \ }
   let g:vimwiki_list = [wiki_1]
 
