@@ -113,12 +113,16 @@
   nnoremap <leader>sv :source $MYVIMRC<CR>
   nnoremap <leader>ep :vsplit $HOME/.vim/plugins.vim<CR>
 
+  " Edit ftplugin for current filetype
+  nnoremap <leader>ef :exec "vsplit " . $HOME . "/.vim/ftplugin/" . &filetype . ".vim"<CR>
+
   " Pretty format JSON file
   nnoremap <leader>j :%!python -m json.tool<CR>
 
   " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
   " so that you can undo CTRL-U after inserting a line break.
   inoremap <C-U> <C-G>u<C-U>
+
   " Add a 'yank entire buffer to system clipboard' command
   nnoremap <leader>a :1,$y+<CR>
 
