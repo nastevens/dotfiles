@@ -104,7 +104,6 @@ Plug 'kergoth/vim-bitbake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
 Plug 'vim-scripts/ebnf.vim'
-Plug 'vim-scripts/groovyindent'
 Plug 'vim-scripts/indentpython.vim'
 
 " =====[Coding]=====
