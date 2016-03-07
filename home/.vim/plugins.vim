@@ -87,6 +87,7 @@ Plug 'vimwiki/vimwiki' "{{{
         \ 'rust': 'rust',
         \ 'sh': 'sh',
         \ 'verilog': 'verilog',
+        \ 'xml': 'xml',
         \ 'zsh': 'zsh',
         \ }
   let g:vimwiki_list = [wiki_1]
