@@ -13,20 +13,41 @@ function! GlennSource()
         unlet b:GlennSourceToggle
         unlet b:TabsOkay
         unlet b:OverLength
+        unlet! b:Tabs8
     else
         let b:GlennSourceToggle=1
         let b:TabsOkay=1
         let b:OverLength=120
+        unlet! b:Tabs8
+    endif
+    runtime coding-common.vim
+endfunction
+
+function! LinuxSource()
+    if exists('b:LinuxSourceToggle')
+        unlet! b:LinuxSourceToggle
+        unlet! b:TabsOkay
+        unlet! b:OverLength
+        unlet! b:Tabs8
+    else
+        let b:LinuxSourceToggle=1
+        let b:TabsOkay=1
+        let b:OverLength=80
+        let b:Tabs8=1
     endif
     runtime coding-common.vim
 endfunction
 
 if exists('b:GlennSourceToggle')
-    let b:TabsOkay=1
-    let b:Overlength=120
+    call GlennSource()
+endif
+
+if exists('b:LinuxSourceToggle')
+    call LinuxSource()
 endif
 
 nnoremap <buffer> <LocalLeader>gs :call GlennSource()<CR>
+nnoremap <buffer> <LocalLeader>ls :call LinuxSource()<CR>
 
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
