@@ -105,6 +105,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
 Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-scripts/scons.vim' "{{{
+  au BufNewFile,BufRead SCons* set filetype=scons
+"}}}
 
 " =====[Coding]=====
 " UltiSnips needs Vim >= 7.4 {{{
