@@ -37,6 +37,7 @@ path=(
     "$HOME/local/bin"
     "$HOME/.local/bin"
     "$HOME/.scripts"
+    "$HOME/Library/python/2.7/bin"
 
     # Ruby gem binaries
     "$HOME/.gem/ruby/1.8/bin"
