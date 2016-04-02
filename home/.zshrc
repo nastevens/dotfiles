@@ -79,6 +79,9 @@ export LANG=en_US.UTF-8
 # If Dropbox folder is in expected locations export env var
 [[ -d "$HOME/Dropbox" ]] && export DROPBOX='~/Dropbox'
 
+# Source local tokens/keys if present
+[[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
+
 # Enable pyenv, if it is installed
 if whence -p pyenv >/dev/null; then
     eval "$(pyenv init -)"
