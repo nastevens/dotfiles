@@ -1,4 +1,3 @@
-alias :q="exit"
 alias bc="bc -l"
 alias c="clear"
 alias df="df -h"
