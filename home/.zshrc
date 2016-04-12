@@ -91,6 +91,7 @@ fi
 setopt autocontinue
 setopt correct
 setopt notify
+setopt noautopushd
 
 # Source my "plugin" scripts
 source "$ZSH/aliases.zsh"
