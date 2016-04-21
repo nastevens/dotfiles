@@ -33,14 +33,8 @@
     vnoremap ? ?\v
 
   " Use Silver Searcher if it exists
-  if exists("g:ctrlp_user_command")
-    unlet g:ctrlp_user_command
-  endif
   if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  else
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co', 'find %s -type f']
   endif
 
   " Highlight code in Markdown documents

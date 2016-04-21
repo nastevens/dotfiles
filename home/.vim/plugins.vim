@@ -26,11 +26,13 @@ Plug 'vim-airline/vim-airline' "{{{
 Plug 'bling/vim-bufferline'
 Plug 'ctrlpvim/ctrlp.vim' "{{{
   let g:ctrlp_extensions = ['tag', 'mixed']
-  let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v(\.git|\.hg|\.svn|target|build|crossbuild|__pycache__|\.egg$|\.egg-info$)',
-    \ 'file': '\v(tags$|\.exe$|\.so$|\.dll$)',
-    \ }
   let g:ctrlp_cmd = 'CtrlPTag'
+  if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+  else
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co', 'find %s -type f']
+  endif
   nnoremap <C-f> :CtrlP<CR>
 "}}}
 Plug 'corntrace/bufexplorer'
