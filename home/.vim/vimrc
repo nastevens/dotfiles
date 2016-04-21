@@ -123,6 +123,10 @@
   " Highlight spelling on request
   set spelllang=en_us
   nnoremap <leader>sp :setlocal invspell<CR>
+
+  " Ctrl-H searches for term under cursor
+  nnoremap <C-H> :silent! grep! "\b<C-R><C-W>\b"\|redraw!\|rightbelow cwindow<CR>
+  vnoremap <C-H> y:silent! grep! "\b<C-R>"\b"\|redraw!\|rightbelow cwindow<CR>
 "}}}
 
 " Plugins {{{
