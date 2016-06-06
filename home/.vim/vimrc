@@ -54,6 +54,9 @@
     set undolevels=5000
     set undofile
   endif
+
+  " Don't be stupid in shell file syntax highlighting
+  let g:is_bash=1
 "}}}
 
 " Autocommands {{{
