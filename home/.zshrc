@@ -35,6 +35,7 @@ path=(
 
     # Local binaries
     "$HOME/local/bin"
+    "$HOME/local/usr/bin"
     "$HOME/.local/bin"
     "$HOME/.scripts"
     "$HOME/Library/python/2.7/bin"
