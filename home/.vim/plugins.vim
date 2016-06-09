@@ -139,6 +139,7 @@ Plug 'tpope/vim-fugitive' "{{{
   autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
   autocmd BufReadPost fugitive://* set bufhidden=delete
 "}}}
+Plug 'jreybert/vimagit'
 
 " =====[Other]=====
 Plug 'tpope/vim-dispatch'
