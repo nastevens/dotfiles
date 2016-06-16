@@ -15,7 +15,7 @@
   set showmatch          " Highlight matching character briefly
 
   " When doing tab completion, give the following files lower priority.
-  set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
+  set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo,.lock
 
   " Use real encryption for files
   set cryptmethod=blowfish
