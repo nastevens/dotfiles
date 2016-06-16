@@ -113,6 +113,7 @@ crashlytics-build.properties
 tags
 tags.lock
 tags.temp
+rusty-tags.vi
 
 ### CMake build directories
 build/
