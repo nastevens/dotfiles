@@ -103,6 +103,7 @@ Plug 'vimwiki/vimwiki' "{{{
 Plug 'cespare/vim-toml'
 Plug 'dagwieers/asciidoc-vim'
 Plug 'kergoth/vim-bitbake'
+Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
 Plug 'vim-scripts/ebnf.vim'
