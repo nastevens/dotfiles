@@ -102,6 +102,9 @@ Plug 'vimwiki/vimwiki' "{{{
 " =====[Syntax/Indenting]=====
 Plug 'cespare/vim-toml'
 Plug 'dagwieers/asciidoc-vim'
+Plug 'hdima/python-syntax' "{{{
+  let g:python_highlight_all = 1
+" }}}
 Plug 'kergoth/vim-bitbake'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
