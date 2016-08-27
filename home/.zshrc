@@ -85,6 +85,7 @@ export LANG=en_US.UTF-8
 
 # Enable pyenv, if it is installed
 if whence -p pyenv >/dev/null; then
+    export PYTHON_CONFIGURE_OPTS="--enable-framework"
     eval "$(pyenv init -)"
 fi
 
