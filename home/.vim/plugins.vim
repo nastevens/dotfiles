@@ -120,6 +120,16 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-scripts/scons.vim' "{{{
   au BufNewFile,BufRead SCons* set filetype=scons
 "}}}
+Plug 'scrooloose/syntastic' "{{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"}}}
 
 " =====[Coding]=====
 " UltiSnips needs Vim >= 7.4 {{{
