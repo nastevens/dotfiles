@@ -7,6 +7,7 @@
 	excludesfile = ~/.gitignore_global
 	eol = lf
 	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = simple
 [diff]
@@ -15,3 +16,10 @@
 	compactionHeuristic = true
 [merge]
 	defaultToUpstream = true
+[color "diff-highlight"]
+	oldNormal = 9 bold
+	oldHighlight = 9 bold 52
+	newNormal = 10 bold
+	newHighlight = 10 bold 22
+[diff-so-fancy]
+	markEmptyLines = false
