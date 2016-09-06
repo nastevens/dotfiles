@@ -20,6 +20,7 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
     radhermit/gentoo-zsh-completions
+    lukechilds/zsh-nvm
 EOBUNDLES
 antigen theme "$ZSH/themes" nick
 antigen apply
