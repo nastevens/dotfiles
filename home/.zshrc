@@ -16,7 +16,6 @@ antigen bundles <<EOBUNDLES
     colored-man-pages
     command-not-found
     history
-    pyenv
     rupa/z
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
@@ -84,6 +83,12 @@ export LANG=en_US.UTF-8
 
 # Source local tokens/keys if present
 [[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
+
+# Enable pyenv, if it is installed
+if whence -p pyenv >/dev/null; then
+    export PYTHON_CONFIGURE_OPTS="--enable-framework"
+    eval "$(pyenv init -)"
+fi
 
 # Options
 setopt autocontinue
