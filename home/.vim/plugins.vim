@@ -111,7 +111,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
 Plug 'Valloric/YouCompleteMe', "{{{
   \ { 'do': './install.py --clang-completer --racer-completer' }
-  let g:ycm_rust_src_path = $HOME . '/.cargo/rust'
+  let g:ycm_rust_src_path = $RUST_SRC_PATH
   let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
   let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 "}}}

@@ -89,6 +89,9 @@ if whence -p pyenv >/dev/null; then
     eval "$(pyenv init -)"
 fi
 
+# Point Racer at the Rust src distribution
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
 # Options
 setopt autocontinue
 setopt correct
