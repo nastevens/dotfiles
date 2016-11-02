@@ -29,11 +29,6 @@ antigen apply
 # distro seems intent on breaking this with their own settings that clobber
 # PATH in the system-wide zprofile.
 path=(
-    # MacPorts paths
-    "/opt/local/bin"
-    "/opt/local/sbin"
-    "/opt/local/libexec/gnubin"
-
     # Local binaries
     "$HOME/local/bin"
     "$HOME/local/usr/bin"
