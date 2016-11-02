@@ -7,7 +7,9 @@
 	excludesfile = ~/.gitignore_global
 	eol = lf
 	autocrlf = input
-	pager = which diff-so-fancy && diff-so-fancy || cat | less --tabs=4 -RFX
+[pager]
+	diff = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
+	show = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
 [push]
 	default = simple
 [diff]
