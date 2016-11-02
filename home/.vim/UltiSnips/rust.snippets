@@ -25,3 +25,27 @@ snippet mit "MIT copyright template"
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 endsnippet
+
+snippet from
+impl From<${1:FROM}> for ${2:TO} {
+    fn from(val: $1) -> $2 {
+        $3
+    }
+}
+endsnippet
+
+snippet debug
+impl fmt::Debug for $1 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "$2", $3)
+    }
+}
+endsnippet
+
+snippet display
+impl fmt::Display for $1 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "$2", $3)
+    }
+}
+endsnippet
