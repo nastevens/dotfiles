@@ -53,6 +53,10 @@ path=(
     "$HOME/local/microchip/xc16/bin"
     "$HOME/local/microchip/xc32/bin"
 
+    # Homebrew binaries
+    "/usr/local/bin"
+    "/usr/local/sbin"
+
     # Cargo binaries
     "$HOME/.cargo/bin"
 
