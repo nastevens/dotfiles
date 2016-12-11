@@ -1,3 +1,5 @@
 #!/bin/sh
 
-clear
+for (( i=0; i<80; i++ )); do
+    echo ""
+done
