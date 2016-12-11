@@ -34,6 +34,14 @@ impl From<${1:FROM}> for ${2:TO} {
 }
 endsnippet
 
+snippet frome
+impl From<${1:io::Error}> for ${2:TO} {
+    fn from(e: $1) -> $2 {
+        ${3:$2::$1(e)}
+    }
+}
+endsnippet
+
 snippet debug
 impl fmt::Debug for $1 {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
@@ -47,5 +55,17 @@ impl fmt::Display for $1 {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "$2", $3)
     }
+}
+endsnippet
+snippet pe "public enum definition"
+#[derive(Debug)]
+pub enum ${1:Name} {
+    ${2},
+}
+endsnippet
+snippet en "enum definition"
+#[derive(Debug)]
+enum ${1:Name} {
+    ${2},
 }
 endsnippet
