@@ -57,12 +57,18 @@ impl fmt::Display for $1 {
     }
 }
 endsnippet
+
+snippet write
+write!(f, "$1"${2:, ${3:arg}})$0
+endsnippet
+
 snippet pe "public enum definition"
 #[derive(Debug)]
 pub enum ${1:Name} {
     ${2},
 }
 endsnippet
+
 snippet en "enum definition"
 #[derive(Debug)]
 enum ${1:Name} {
