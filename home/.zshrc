@@ -63,6 +63,9 @@ path=(
     # pyenv binaries
     "$HOME/.pyenv/bin"
 
+    # VSCode binaries
+    '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+
     # Include system paths
     $path
 )
