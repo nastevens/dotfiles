@@ -19,6 +19,7 @@ antigen bundles <<EOBUNDLES
     command-not-found
     history
     rust
+    ssh-agent
     z
 
     # github plugins
@@ -105,6 +106,9 @@ setopt autocontinue
 setopt correct
 setopt notify
 setopt noautopushd
+
+# Enable SSH agent forwarding
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 # Source my "plugin" scripts
 source "$ZSH/aliases.zsh"
