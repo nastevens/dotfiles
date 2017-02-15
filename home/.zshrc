@@ -13,14 +13,19 @@ fi
 source "$ADOTDIR/antigen/antigen.zsh"
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
+    # oh-my-zsh plugins
+    cargo
     colored-man-pages
     command-not-found
     history
-    rupa/z
+    rust
+    z
+
+    # github plugins
+    lukechilds/zsh-nvm
+    radhermit/gentoo-zsh-completions
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
-    radhermit/gentoo-zsh-completions
-    lukechilds/zsh-nvm
 EOBUNDLES
 antigen apply
 antigen theme "$ZSH" themes/nick
