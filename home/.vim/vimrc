@@ -123,10 +123,6 @@
   " Add a 'yank entire buffer to system clipboard' command
   nnoremap <leader>a :1,$y+<CR>
 
-  " Highlight spelling on request
-  set spelllang=en_us
-  nnoremap <leader>sp :setlocal invspell<CR>
-
   " Ctrl-H searches for term under cursor
   nnoremap <C-H> :silent! grep! "\b<C-R><C-W>\b"\|redraw!\|rightbelow cwindow<CR>
   vnoremap <C-H> y:silent! grep! "\b<C-R>"\b"\|redraw!\|rightbelow cwindow<CR>
@@ -136,6 +132,19 @@
   nnoremap <Up> :move .-2<CR>
   vnoremap <Down> :move '>+1<CR>gv
   vnoremap <Up> :move '<-2<CR>gv
+"}}}
+
+" Spelling {{{
+  set spelllang=en_us
+
+  " Toggle spelling enabled/disabled
+  nnoremap <leader>sp :setlocal invspell<CR>
+
+  " Automatically enable spelling check on certain file types
+  augroup enable_spelling_on_files
+    autocmd!
+    autocmd FileType md,rst,text,yaml setlocal spell
+  augroup END
 "}}}
 
 " Plugins {{{
