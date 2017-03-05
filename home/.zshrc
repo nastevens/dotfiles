@@ -17,6 +17,7 @@ antigen bundles <<EOBUNDLES
     cargo
     colored-man-pages
     command-not-found
+    docker
     history
     rust
     ssh-agent
