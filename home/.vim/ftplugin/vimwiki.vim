@@ -8,5 +8,11 @@ setlocal expandtab
 " Turn on relative line numbers
 setlocal relativenumber
 
-" Disable wrapping
+" Disable soft wrapping
 setlocal nowrap
+
+" Disable hard wrapping
+setlocal formatoptions-=t
+
+" Disable long-line highlighting
+match none
