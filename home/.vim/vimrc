@@ -121,7 +121,19 @@
   inoremap <C-U> <C-G>u<C-U>
 
   " Add a 'yank entire buffer to system clipboard' command
-  nnoremap <leader>a :1,$y+<CR>
+  if has('macunix')
+    nnoremap <leader>a :silent 1,$write !safe-reattach-to-user.sh pbcopy<CR>
+  else
+    nnoremap <leader>a :1,$y+<CR>
+  endif
+
+  " Add a 'yank visual selection to system clipboard' command. Note that this
+  " yanks the whole line even if only a partial visual selection is made.
+  if has('macunix')
+    vnoremap <C-c> <Esc>:<C-U>silent '<,'>write !safe-reattach-to-user.sh pbcopy<CR>
+  else
+    vnoremap <C-c> :y+<CR>
+  endif
 
   " Ctrl-H searches for term under cursor
   nnoremap <C-H> :silent! grep! "\b<C-R><C-W>\b"\|redraw!\|rightbelow cwindow<CR>
