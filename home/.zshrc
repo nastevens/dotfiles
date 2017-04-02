@@ -30,7 +30,7 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 antigen apply
-antigen theme "$ZSH" themes/nick
+source "$ZSH/themes/nick.zsh-theme"
 
 # Paths to add to PATH. I should be able to put these in .zshenv, but every
 # distro seems intent on breaking this with their own settings that clobber
