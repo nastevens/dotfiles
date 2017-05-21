@@ -106,7 +106,8 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
 fi
 
 # Point Racer at the Rust src distribution
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+command -v rustc >/dev/null 2>&1 && \
+    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # Options
 setopt autocontinue
