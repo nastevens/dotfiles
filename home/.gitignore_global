@@ -110,6 +110,8 @@ crashlytics-build.properties
 
 
 ### Custom
+notes.txt
+notes.md
 tags
 tags.lock
 tags.temp
