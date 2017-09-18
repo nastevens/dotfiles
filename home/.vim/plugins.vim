@@ -93,6 +93,7 @@ Plug 'vimwiki/vimwiki' "{{{
         \ 'zsh': 'zsh',
         \ }
   let g:vimwiki_list = [wiki_1]
+  let g:vimwiki_folding = 'expr'
 
   nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
   nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>

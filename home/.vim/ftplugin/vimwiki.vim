@@ -16,3 +16,6 @@ setlocal formatoptions-=t
 
 " Disable long-line highlighting
 match none
+
+" Don't automatically fold
+setlocal foldlevel=99
