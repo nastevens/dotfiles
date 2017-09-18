@@ -125,3 +125,6 @@ source "$ZSH/homesick.zsh"
 
 # Clean up paths, removing duplicates and non-existant directories
 source $HOME/.zsh/prune-paths.zsh
+
+# Fix https://github.com/robbyrussell/oh-my-zsh/issues/1398
+zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
