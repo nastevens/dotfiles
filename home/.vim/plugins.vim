@@ -101,13 +101,7 @@ Plug 'vimwiki/vimwiki' "{{{
 "}}}
 
 " =====[Syntax/Indenting]=====
-Plug 'cespare/vim-toml'
-Plug 'dagwieers/asciidoc-vim'
-Plug 'hdima/python-syntax' "{{{
-  let g:python_highlight_all = 1
-" }}}
 Plug 'kergoth/vim-bitbake'
-Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
 Plug 'Valloric/YouCompleteMe', "{{{
@@ -117,7 +111,6 @@ Plug 'Valloric/YouCompleteMe', "{{{
   let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 "}}}
 Plug 'vim-scripts/ebnf.vim'
-Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-scripts/scons.vim' "{{{
   au BufNewFile,BufRead SCons* set filetype=scons
 "}}}
