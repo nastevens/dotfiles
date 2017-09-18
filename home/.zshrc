@@ -123,5 +123,5 @@ source "$ZSH/aliases.zsh"
 source "$ZSH/dircolors.zsh"
 source "$ZSH/homesick.zsh"
 
-# Finally, clean up paths, removing duplicates and non-existant directories
+# Clean up paths, removing duplicates and non-existant directories
 source $HOME/.zsh/prune-paths.zsh
