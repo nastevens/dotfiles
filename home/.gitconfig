@@ -27,3 +27,7 @@
 	markEmptyLines = false
 [rebase]
 	autosquash = true
+[tag]
+	gpgsign = true
+[commit]
+	verbose = true
