@@ -44,12 +44,11 @@ path=(
     "$HOME/Library/python/2.7/bin"
 
     # Ruby
-    "$HOME/.gem/ruby/1.8/bin"
-    "$HOME/.gem/ruby/1.9.1/bin"
     "$HOME/.gem/ruby/2.0.0/bin"
     "$HOME/.gem/ruby/2.1.0/bin"
     "$HOME/.gem/ruby/2.2.0/bin"
     "$HOME/.gem/ruby/2.3.0/bin"
+    "$HOME/.gem/ruby/2.4.0/bin"
     "$HOME/.rvm/bin"
 
     # Android SDK binaries
