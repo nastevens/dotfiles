@@ -1,2 +1,2 @@
-let b:OverLength=120
+let b:OverLength=160
 runtime coding-common.vim
