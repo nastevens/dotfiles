@@ -61,6 +61,8 @@ Plug 'scrooloose/nerdtree' "{{{
     \ '^tags$[[file]]',
     \ '^.*\.egg$[[dir]]',
     \ '^.*\.egg-info$[[dir]]',
+    \ '\.o$[[file]]',
+    \ '\.su$[[file]]',
     \ ]
   nnoremap <leader>n :NERDTree<CR>
 "}}}
