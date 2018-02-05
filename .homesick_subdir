@@ -1,8 +1,9 @@
+.config/sakura
 .fluxbox
 .ssh
+.tmux
 .vim
 .vim/autoload
 .vim_undo
 .zsh
 .zsh/themes
-.config/sakura
