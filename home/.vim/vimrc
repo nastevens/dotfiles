@@ -13,6 +13,7 @@
   set smartcase          " ...unless I specify a capital letter
   set hlsearch           " Highlight search results
   set showmatch          " Highlight matching character briefly
+  set t_BE=              " Disables bracketed paste mode
 
   " When doing tab completion, give the following files lower priority.
   set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo,.lock
