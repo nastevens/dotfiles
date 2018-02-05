@@ -123,3 +123,6 @@ crossbuild/
 
 ### pyenv local
 .python-version
+
+### disable gutentags
+.notags
