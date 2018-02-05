@@ -16,6 +16,7 @@
 	tool = vimdiff
 	guitool = meld
 	compactionHeuristic = true
+	renames = copies
 [merge]
 	defaultToUpstream = true
 [color "diff-highlight"]
