@@ -1,5 +1,14 @@
 " vim: set fenc=utf-8 tw=78 sw=2 sts=2 et fdl=0 fdm=marker:
 
+" Some plugins don't play nice with Windows
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
+
 " =====[Sensible defaults]=====
 Plug 'tpope/vim-sensible'
 
@@ -106,12 +115,14 @@ Plug 'vimwiki/vimwiki' "{{{
 Plug 'kergoth/vim-bitbake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
-Plug 'Valloric/YouCompleteMe', "{{{
-  \ { 'do': './install.py --clang-completer --racer-completer' }
-  let g:ycm_rust_src_path = $RUST_SRC_PATH
-  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-"}}}
+if g:os != "Windows"
+  Plug 'Valloric/YouCompleteMe', "{{{
+    \ { 'do': './install.py --clang-completer --racer-completer' }
+    let g:ycm_rust_src_path = $RUST_SRC_PATH
+    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+  "}}}
+endif
 Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/scons.vim' "{{{
   au BufNewFile,BufRead SCons* set filetype=scons
