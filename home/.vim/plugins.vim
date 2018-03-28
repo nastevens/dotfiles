@@ -116,36 +116,60 @@ Plug 'vimwiki/vimwiki' "{{{
 Plug 'kergoth/vim-bitbake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
-if g:os != "Windows"
-  Plug 'Valloric/YouCompleteMe', "{{{
-    \ { 'do': './install.py --clang-completer --racer-completer' }
-    let g:ycm_rust_src_path = $RUST_SRC_PATH
-    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-  "}}}
-endif
 Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/scons.vim' "{{{
   au BufNewFile,BufRead SCons* set filetype=scons
 "}}}
-Plug 'scrooloose/syntastic' "{{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_flake8_post_args = '--ignore=E501'
+" =====[Code Completion]=====
+if g:os != "Windows"
+  Plug 'Shougo/deoplete.nvim' "{{{
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    let g:deoplete#enable_at_startup = 1
+  "}}}
+  " Requires compile of libclang
+  " Plug 'zchee/deoplete-clang'
+  Plug 'Shougo/neco-syntax'
+  Plug 'Shougo/neco-vim'
+  Plug 'zchee/deoplete-jedi'
+  Plug 'zchee/deoplete-zsh'
+  Plug 'sebastianmarkow/deoplete-rust' "{{{
+    let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+  "}}}
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ } "{{{
+    let g:LanguageClient_serverCommands = {
+      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ }
+    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+    nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+  "}}}
+endif
+
+" =====[Code Linting/Style]=====
+Plug 'scrooloose/syntastic' "{{{
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_python_flake8_post_args = '--ignore=E501'
 "}}}
 
 " =====[Coding]=====
-" UltiSnips needs Vim >= 7.4 {{{
 if v:version >= 704
-  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-    let g:UltiSnipsExpandTrigger="<tab>"
-endif "}}}
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' "{{{
+      let g:UltiSnipsExpandTrigger="<tab>"
+    "}}}
+endif
 Plug 'dantler/vim-alternate'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify' "{{{
