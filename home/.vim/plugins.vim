@@ -28,9 +28,10 @@ Plug 'wellle/targets.vim'
 
 " =====[Tools and UIs]=====
 Plug 'vim-airline/vim-airline' "{{{
-  let g:airline_theme='dark'
-  let g:airline_left_sep=''
-  let g:airline_right_sep=''
+  let g:airline_powerline_fonts = 1
+"}}}
+Plug 'vim-airline/vim-airline-themes' "{{{
+  let g:airline_theme='jellybeans'
 "}}}
 Plug 'bling/vim-bufferline'
 Plug 'ctrlpvim/ctrlp.vim' "{{{
