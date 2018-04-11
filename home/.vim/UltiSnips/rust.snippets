@@ -1,5 +1,9 @@
 extends copyright-clike
 
+snippet allder
+#[derive(Clone, Copy, Debug, Default, Hash, Eq, Ord, PartialEq, PartialOrd)]
+endsnippet
+
 snippet asref
 impl AsRef<$1> for $2 {
     fn as_ref(&self) -> &$1 {
