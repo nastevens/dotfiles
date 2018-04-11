@@ -121,6 +121,22 @@ Plug 'vim-scripts/scons.vim' "{{{
   au BufNewFile,BufRead SCons* set filetype=scons
 "}}}
 
+" =====[Rust-Specific]=====
+let g:rust_src_path = ""
+if g:os == "Darwin"
+  let g:rust_src_path = $HOME . '/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+endif
+if g:os == "Linux"
+  let g:rust_src_path = $HOME . '/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+endif
+
+if executable("rusty-tags")
+  augroup RustyTags
+    autocmd BufRead *.rs :silent! exec "setlocal tags=./rusty-tags.vi;/," . g:rust_src_path . "/rusty-tags.vi"
+    autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+  augroup END
+endif
+
 " =====[Code Completion]=====
 if g:os != "Windows"
   Plug 'Shougo/deoplete.nvim' "{{{
@@ -135,8 +151,14 @@ if g:os != "Windows"
   Plug 'zchee/deoplete-jedi'
   Plug 'zchee/deoplete-zsh'
   Plug 'sebastianmarkow/deoplete-rust' "{{{
+
     let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
-    let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+    if g:os == "Darwin"
+      let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+    endif
+    if g:os == "Linux"
+      let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+    endif
   "}}}
   Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
