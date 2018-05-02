@@ -19,3 +19,9 @@ match none
 
 " Don't automatically fold
 setlocal foldlevel=99
+
+" Insert timestamps/interruption prompts
+iabbrev <expr> dd strftime("%Y-%m-%d")
+iabbrev <expr> tt strftime("%H:%M:%S")
+iabbrev <expr> ts strftime("%Y-%m-%d %H:%M:%S")
+iabbrev <expr> int strftime("%H:%M:%S INT")

@@ -145,9 +145,6 @@
   nnoremap <Up> :move .-2<CR>
   vnoremap <Down> :move '>+1<CR>gv
   vnoremap <Up> :move '<-2<CR>gv
-
-  " Insert date
-  iabbrev <expr> ddate strftime("%Y-%m-%d")
 "}}}
 
 " Spelling {{{
