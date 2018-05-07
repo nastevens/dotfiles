@@ -49,6 +49,7 @@ path=(
     "$HOME/.gem/ruby/2.2.0/bin"
     "$HOME/.gem/ruby/2.3.0/bin"
     "$HOME/.gem/ruby/2.4.0/bin"
+    "$HOME/.gem/ruby/2.5.0/bin"
     "$HOME/.rvm/bin"
 
     # Android SDK binaries
