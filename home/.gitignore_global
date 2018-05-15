@@ -113,9 +113,11 @@ crashlytics-build.properties
 notes.txt
 notes.md
 tags
+!tags/
 tags.lock
 tags.temp
 rusty-tags.vi
+.tmp*
 
 ### CMake build directories
 build/
