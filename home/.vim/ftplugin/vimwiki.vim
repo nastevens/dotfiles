@@ -22,6 +22,6 @@ setlocal foldlevel=99
 
 " Insert timestamps/interruption prompts
 iabbrev <expr> dd strftime("%Y-%m-%d")
-iabbrev <expr> tt strftime("%H:%M:%S")
-iabbrev <expr> ts strftime("%Y-%m-%d %H:%M:%S")
-iabbrev <expr> int strftime("%H:%M:%S INT")
+iabbrev <expr> tt strftime("%H:%M:00")
+iabbrev <expr> ts strftime("%Y-%m-%d %H:%M:00")
+iabbrev <expr> int strftime("%H:%M:00 INT")
