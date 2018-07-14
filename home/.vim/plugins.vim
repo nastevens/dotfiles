@@ -76,6 +76,7 @@ Plug 'scrooloose/nerdtree' "{{{
     \ ]
   nnoremap <leader>n :NERDTree<CR>
 "}}}
+Plug 'tmux-plugins/vim-tmux'
 Plug 'vim-scripts/visSum.vim'
 Plug 'vimwiki/vimwiki' "{{{
   if isdirectory($HOME . "/Dropbox")
