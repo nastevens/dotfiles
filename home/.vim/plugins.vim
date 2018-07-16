@@ -154,7 +154,7 @@ if v:version >= 704
     "}}}
 endif
 Plug 'dantler/vim-alternate'
-Plug 'ludovicchabant/vim-gutentags', { 'for': 'c' }
+Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'c', 'cpp', 'python', 'sh' ] }
 Plug 'mhinz/vim-signify' "{{{
   let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
 "}}}
