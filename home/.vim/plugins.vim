@@ -136,54 +136,14 @@ if executable("rusty-tags")
   augroup END
 endif
 
-" =====[Code Completion]=====
+" =====[Code Completion/Linting]=====
 if g:os != "Windows"
-  Plug 'Shougo/deoplete.nvim' "{{{
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-    let g:deoplete#enable_at_startup = 1
+  Plug 'valloric/YouCompleteMe', { 'do': './install.py --rust-completer' } "{{{
+    " Workaround for https://github.com/Valloric/YouCompleteMe/issues/3062
+    silent! py3 pass
   "}}}
-  " Requires compile of libclang
-  " Plug 'zchee/deoplete-clang'
-  Plug 'Shougo/neco-syntax'
-  Plug 'Shougo/neco-vim'
-  Plug 'zchee/deoplete-jedi'
-  Plug 'zchee/deoplete-zsh'
-  Plug 'sebastianmarkow/deoplete-rust' "{{{
-
-    let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
-    if g:os == "Darwin"
-      let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
-    endif
-    if g:os == "Linux"
-      let g:deoplete#sources#rust#rust_source_path = $HOME . '/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-    endif
-  "}}}
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ } "{{{
-    let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-      \ }
-    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-    nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-  "}}}
+  Plug 'w0rp/ale'
 endif
-
-" =====[Code Linting/Style]=====
-Plug 'scrooloose/syntastic' "{{{
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_python_flake8_post_args = '--ignore=E501'
-"}}}
 
 " =====[Coding]=====
 if v:version >= 704
