@@ -13,8 +13,7 @@ endif
 Plug 'tpope/vim-sensible'
 
 " =====[Movements, text objects]=====
-Plug 'Lokaltog/vim-easymotion'
-Plug 'bkad/CamelCaseMotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'terryma/vim-expand-region' "{{{
   vmap v <Plug>(expand_region_expand)
@@ -23,7 +22,6 @@ Plug 'terryma/vim-expand-region' "{{{
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/targets.vim'
 
 " =====[Tools and UIs]=====
@@ -33,7 +31,6 @@ Plug 'vim-airline/vim-airline' "{{{
 Plug 'vim-airline/vim-airline-themes' "{{{
   let g:airline_theme='jellybeans'
 "}}}
-Plug 'bling/vim-bufferline'
 Plug 'ctrlpvim/ctrlp.vim' "{{{
   let g:ctrlp_extensions = ['tag', 'mixed']
   let g:ctrlp_cmd = 'CtrlPTag'
@@ -46,16 +43,16 @@ Plug 'ctrlpvim/ctrlp.vim' "{{{
   nnoremap <C-f> :CtrlP<CR>
 "}}}
 Plug 'corntrace/bufexplorer'
-Plug 'godlygeek/tabular'
 Plug 'mbbill/undotree' "{{{
   nnoremap <leader>u :UndotreeToggle<CR>
 "}}}
 Plug 'reedes/vim-litecorrect' "{{{
   augroup litecorrect
     autocmd!
+    autocmd FileType gitcommit call litecorrect#init()
     autocmd FileType markdown call litecorrect#init()
     autocmd FileType textile call litecorrect#init()
-    autocmd FileType gitcommit call litecorrect#init()
+    autocmd FileType vimwiki call litecorrect#init()
   augroup END
   let g:litecorrect#typographic = 0
 "}}}
@@ -76,7 +73,6 @@ Plug 'scrooloose/nerdtree' "{{{
     \ ]
   nnoremap <leader>n :NERDTree<CR>
 "}}}
-Plug 'tmux-plugins/vim-tmux'
 Plug 'vim-scripts/visSum.vim'
 Plug 'vimwiki/vimwiki' "{{{
   if isdirectory($HOME . "/Dropbox")
@@ -107,16 +103,14 @@ Plug 'vimwiki/vimwiki' "{{{
         \ }
   let g:vimwiki_list = [wiki_1]
   let g:vimwiki_folding = 'expr'
-
   nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
-  nnoremap <leader>d :VimwikiIndex<CR> :VimwikiGoto Brain Dump<CR>
-  nnoremap <leader>wod :VimwikiIndex<CR> :VimwikiGoto work/Brain Dump<CR>
 "}}}
 
 " =====[Syntax/Indenting]=====
 Plug 'kergoth/vim-bitbake'
 Plug 'sheerun/vim-polyglot'
 Plug 'tfnico/vim-gradle'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/scons.vim' "{{{
   au BufNewFile,BufRead SCons* set filetype=scons
@@ -217,21 +211,10 @@ Plug 'majutsushi/tagbar' "{{{
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive' "{{{
-  nnoremap <silent> <leader>gs :Gstatus<CR>
-  nnoremap <silent> <leader>gd :Gdiff<CR>
-  nnoremap <silent> <leader>gc :Gcommit<CR>
-  nnoremap <silent> <leader>gb :Gblame<CR>
-  nnoremap <silent> <leader>gl :Glog<CR>
-  nnoremap <silent> <leader>gp :Git push<CR>
-  nnoremap <silent> <leader>gw :Gwrite<CR>
-  nnoremap <silent> <leader>gr :Gremove<CR>
-  autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
-  autocmd BufReadPost fugitive://* set bufhidden=delete
+  autocmd BufReadPost fugitive://* set bufhidden=wipe
 "}}}
-Plug 'jreybert/vimagit'
 
 " =====[Other]=====
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/bufkill.vim' "{{{
   " Replace normal buffer unload/delete/wipe mappings with bufkill.vim
