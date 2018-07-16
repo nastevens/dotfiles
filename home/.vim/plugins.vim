@@ -141,6 +141,8 @@ if g:os != "Windows"
   Plug 'valloric/YouCompleteMe', { 'do': './install.py --rust-completer' } "{{{
     " Workaround for https://github.com/Valloric/YouCompleteMe/issues/3062
     silent! py3 pass
+    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
   "}}}
   Plug 'w0rp/ale'
 endif
