@@ -108,7 +108,11 @@ Plug 'vimwiki/vimwiki' "{{{
 
 " =====[Syntax/Indenting]=====
 Plug 'kergoth/vim-bitbake'
-Plug 'sheerun/vim-polyglot'
+Plug 'rust-lang/rust.vim'
+Plug 'sheerun/vim-polyglot' "{{{
+  " In favor of full rust.vim
+  let g:polyglot_disabled = ['rust']
+"}}}
 Plug 'tfnico/vim-gradle'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'vim-scripts/ebnf.vim'
