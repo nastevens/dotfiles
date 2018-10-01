@@ -64,6 +64,7 @@ path=(
     # Homebrew binaries
     "/usr/local/bin"
     "/usr/local/sbin"
+    "/usr/local/opt/curl/bin"
 
     # Cargo binaries
     "$HOME/.cargo/bin"
