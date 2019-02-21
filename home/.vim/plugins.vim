@@ -144,7 +144,10 @@ if g:os != "Windows"
     let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
     let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
   "}}}
-  Plug 'w0rp/ale'
+  Plug 'w0rp/ale' "{{{
+    let g:ale_rust_cargo_check_tests = 1
+    let g:ale_rust_cargo_check_examples = 1
+  "}}}
 endif
 
 " =====[Coding]=====
