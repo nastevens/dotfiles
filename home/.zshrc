@@ -135,3 +135,6 @@ source $HOME/.zsh/prune-paths.zsh
 
 # Fix https://github.com/robbyrussell/oh-my-zsh/issues/1398
 zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
+
+# Add custon completion functions
+fpath+=~/.zfunc
