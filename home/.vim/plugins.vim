@@ -13,6 +13,7 @@ endif
 Plug 'tpope/vim-sensible'
 
 " =====[Movements, text objects]=====
+Plug 'andymass/vim-matchup'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'terryma/vim-expand-region' "{{{
