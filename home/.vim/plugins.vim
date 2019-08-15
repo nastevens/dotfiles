@@ -109,7 +109,9 @@ Plug 'vimwiki/vimwiki' "{{{
 
 " =====[Syntax/Indenting]=====
 Plug 'kergoth/vim-bitbake'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim' "{{{
+  let g:rustfmt_command = "rustfmt +nightly"
+"}}}
 Plug 'sheerun/vim-polyglot' "{{{
   " In favor of full rust.vim
   let g:polyglot_disabled = ['rust']
