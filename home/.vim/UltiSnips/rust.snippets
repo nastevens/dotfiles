@@ -24,7 +24,7 @@ endsnippet
 
 snippet debug
 impl fmt::Debug for $1 {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "$2", $3)
     }
 }
@@ -32,7 +32,7 @@ endsnippet
 
 snippet display
 impl fmt::Display for $1 {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "$2", $3)
     }
 }
@@ -144,7 +144,6 @@ impl Actor for $1 {
     }
 }
 endsnippet
-
 
 snippet handler
 impl Handler<$1> for $2 {
