@@ -153,3 +153,39 @@ impl Handler<$1> for $2 {
     }
 }
 endsnippet
+
+snippet sm
+#[derive(Debug, StateMachineFuture)]
+#[state_machine_future(context = "$1Context")]
+pub enum $1 {
+    #[state_machine_future(start, transitions())]
+    Start,
+
+    #[state_machine_future(ready)]
+    Finished($2),
+
+    #[state_machine_future(error)]
+    ErrorState(Error),
+}
+endsnippet
+
+snippet state
+#[state_machine_future(transitions($3))]
+$1 {
+    $2
+},
+endsnippet
+
+snippet smpoll
+fn poll_$1<'a, 'c>(
+    $1: &'a mut RentToOwn<'a, $2>,
+    context: &'c mut RentToOwn<'c, $3>,
+) -> Poll<After$2, Error> {
+    let $2 { $4 } = $1.take();
+    $5
+}
+endsnippet
+
+snippet trans
+transition!($1)
+endsnippet
