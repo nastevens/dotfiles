@@ -34,4 +34,5 @@
 	verbose = true
 [alias]
 	authors = !git log --format=\"%an <%ae>\" | sort | uniq -c | sort -nr
-	yolo = !git add -A && git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
+	wip = !git add -A && git commit -m \"WIP\"
+	unwip = !git reset HEAD^
