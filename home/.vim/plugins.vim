@@ -26,9 +26,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 
 " =====[Tools and UIs]=====
-Plug 'vim-airline/vim-airline' "{{{
-  let g:airline_powerline_fonts = 1
-"}}}
 Plug 'vim-airline/vim-airline-themes' "{{{
   let g:airline_theme='jellybeans'
 "}}}
