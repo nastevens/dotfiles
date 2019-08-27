@@ -36,3 +36,5 @@
 	authors = !git log --format=\"%an <%ae>\" | sort | uniq -c | sort -nr
 	wip = !git add -A && git commit -m \"WIP\"
 	unwip = !git reset HEAD^
+[credential]
+	helper = store
