@@ -1,0 +1,5 @@
+default_context:
+    full_name: Nick Stevens
+    email: nick@bitcurry.com
+    github_username: nastevens
+    stable_rust: 1.37.0
