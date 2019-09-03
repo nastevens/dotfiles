@@ -154,6 +154,9 @@
   nnoremap <Up> :move .-2<CR>
   vnoremap <Down> :move '>+1<CR>gv
   vnoremap <Up> :move '<-2<CR>gv
+
+  " Map a scratchpad text file
+  nnoremap <leader>sc :exec "edit " . g:personal_dropbox_loc . "/scratchpad.md"<CR>
 "}}}
 
 " Spelling {{{
