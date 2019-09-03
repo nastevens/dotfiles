@@ -33,9 +33,11 @@
     nnoremap ? ?\v
     vnoremap ? ?\v
 
-  " Use Silver Searcher if it exists
-  if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
+  " Use Ripgrep/Silver Search if it exists
+  if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  elseif executable('ag')
+    set grepprg=ag\ --vimgrep\ --smart-case
   endif
 
   " Highlight code in Markdown documents

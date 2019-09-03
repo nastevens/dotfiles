@@ -32,7 +32,10 @@ Plug 'vim-airline/vim-airline-themes' "{{{
 Plug 'ctrlpvim/ctrlp.vim' "{{{
   let g:ctrlp_extensions = ['tag', 'mixed']
   let g:ctrlp_cmd = 'CtrlPTag'
-  if executable('ag')
+  if executable('rg')
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
+  elseif executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     let g:ctrlp_use_caching = 0
   else
@@ -44,6 +47,15 @@ Plug 'corntrace/bufexplorer'
 Plug 'mbbill/undotree' "{{{
   nnoremap <leader>u :UndotreeToggle<CR>
 "}}}
+Plug 'mileszs/ack.vim' "{{{
+  if executable('rg')
+    let g:ackprg = 'rg --vimgrep'
+  elseif executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+  endif
+  cabbrev Rg LAck
+  cabbrev Ag LAck
+"}}}
 Plug 'reedes/vim-litecorrect' "{{{
   augroup litecorrect
     autocmd!
@@ -54,7 +66,6 @@ Plug 'reedes/vim-litecorrect' "{{{
   augroup END
   let g:litecorrect#typographic = 0
 "}}}
-Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "{{{
   let NERDTreeChristmasTree=1
   let NERDTreeCascadeOpenSingleChildDir=1
