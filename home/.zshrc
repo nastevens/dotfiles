@@ -66,15 +66,14 @@ path=(
     "/usr/local/bin"
     "/usr/local/sbin"
     "/usr/local/opt/curl/bin"
+    "/usr/local/opt/coreutils/libexec/gnubin"
+    "/usr/local/opt/gnu-sed/libexec/gnubin"
 
     # Cargo binaries
     "$HOME/.cargo/bin"
 
     # pyenv binaries
     "$HOME/.pyenv/bin"
-
-    # VSCode binaries
-    '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
 
     # Include system paths
     $path
