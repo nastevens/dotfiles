@@ -43,7 +43,9 @@ Plug 'ctrlpvim/ctrlp.vim' "{{{
   endif
   nnoremap <C-f> :CtrlP<CR>
 "}}}
-Plug 'corntrace/bufexplorer'
+Plug 'corntrace/bufexplorer' "{{{
+  let g:bufExplorerShowRelativePath=1
+"}}}
 Plug 'mbbill/undotree' "{{{
   nnoremap <leader>u :UndotreeToggle<CR>
 "}}}
