@@ -60,6 +60,13 @@
 
   " Don't be stupid in shell file syntax highlighting
   let g:is_bash=1
+
+  " Export Dropbox location for plugins and other stuff
+  if isdirectory($HOME . "/Dropbox")
+    let g:personal_dropbox_loc = $HOME . "/Dropbox"
+  else
+    let g:personal_dropbox_loc = $DROPBOX
+  endif
 "}}}
 
 " Autocommands {{{

@@ -86,11 +86,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "{{{
 "}}}
 Plug 'vim-scripts/visSum.vim'
 Plug 'vimwiki/vimwiki' "{{{
-  if isdirectory($HOME . "/Dropbox")
-    let g:personal_dropbox_loc = $HOME . "/Dropbox"
-  else
-    let g:personal_dropbox_loc = $DROPBOX
-  endif
   let wiki_1 = {}
   let wiki_1.path = g:personal_dropbox_loc . '/vimwiki/'
   let wiki_1.path_html = g:personal_dropbox_loc . '/vimwiki_html/'
