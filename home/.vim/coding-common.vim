@@ -49,3 +49,9 @@ setlocal wrapmargin=0
 
 " Align new lines inside arguments with first argument
 setlocal cinoptions+=(0
+
+" Pretty-format JSON
+command! PrettyJSON :%!python3 -c "import json, sys; print(json.dumps(json.load(sys.stdin), indent=4, sort_keys=True))"
+
+" Pretty-format XML
+command! PrettyXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
