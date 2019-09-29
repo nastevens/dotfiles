@@ -127,6 +127,9 @@ Plug 'vim-scripts/ebnf.vim'
 Plug 'vim-scripts/scons.vim' "{{{
   au BufNewFile,BufRead SCons* set filetype=scons
 "}}}
+Plug 'Yggdroot/indentLine' "{{{
+  let g:indentLine_char = '┊'
+"}}}
 
 " =====[Rust-Specific]=====
 let g:rust_src_path = ""
