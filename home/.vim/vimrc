@@ -168,7 +168,7 @@
   " Automatically enable spelling check on certain file types
   augroup enable_spelling_on_files
     autocmd!
-    autocmd FileType md,rst,text,yaml setlocal spell
+    autocmd FileType md,rst,text setlocal spell
   augroup END
 "}}}
 
