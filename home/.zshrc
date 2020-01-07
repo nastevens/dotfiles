@@ -95,20 +95,26 @@ export LANG=en_US.UTF-8
 # Source local tokens/keys if present
 [[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
 
-# Enable pyenv, if it is installed
+# Enable pyenv if it is installed
 if whence -p pyenv >/dev/null; then
     export PYTHON_CONFIGURE_OPTS="--enable-framework"
     eval "$(pyenv init -)"
 fi
 
-# Enable rvm, if it is installed
+# Enable rvm if it is installed
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
     source "$HOME/.rvm/scripts/rvm"
 fi
 
-# Enable chtf, if it is installed
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+# Enable chtf if it is installed
+if [[ -f "/usr/local/share/chtf/chtf.sh" ]]; then
     source "/usr/local/share/chtf/chtf.sh"
+fi
+
+# Enable nvm if it is installed
+if [[ -f "/usr/local/opt/nvm/nvm.sh" ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
 fi
 
 # Point Racer at the Rust src distribution
@@ -130,10 +136,10 @@ source "$ZSH/dircolors.zsh"
 source "$ZSH/homesick.zsh"
 
 # Clean up paths, removing duplicates and non-existant directories
-source $HOME/.zsh/prune-paths.zsh
+source "$ZSH/prune-paths.zsh"
 
 # Fix https://github.com/robbyrussell/oh-my-zsh/issues/1398
 zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
 
-# Add custon completion functions
+# Add custom completion functions
 fpath+=~/.zfunc
