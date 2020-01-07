@@ -118,8 +118,12 @@ Plug 'rust-lang/rust.vim' "{{{
   let g:rustfmt_command = "rustfmt +nightly"
 "}}}
 Plug 'sheerun/vim-polyglot' "{{{
-  " In favor of full rust.vim
-  let g:polyglot_disabled = ['rust']
+  " The groovy.vim in polyglot is very old (see " https://github.com/sheerun/vim-polyglot/issues/456)
+  " The rust plugin is intentionally limited in polyglot, we want the whole thing
+  let g:polyglot_disabled = [
+    \ 'groovy',
+    \ 'rust',
+  \]
 "}}}
 Plug 'tfnico/vim-gradle'
 Plug 'tmux-plugins/vim-tmux'
