@@ -2,11 +2,11 @@
 
 " Some plugins don't play nice with Windows
 if !exists("g:os")
-    if has("win64") || has("win32") || has("win16")
-        let g:os = "Windows"
-    else
-        let g:os = substitute(system('uname'), '\n', '', '')
-    endif
+  if has("win64") || has("win32") || has("win16")
+    let g:os = "Windows"
+  else
+    let g:os = substitute(system('uname'), '\n', '', '')
+  endif
 endif
 
 " =====[Sensible defaults]=====
