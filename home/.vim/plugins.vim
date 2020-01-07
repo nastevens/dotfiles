@@ -86,30 +86,35 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "{{{
 "}}}
 Plug 'vim-scripts/visSum.vim'
 Plug 'vimwiki/vimwiki' "{{{
-  let wiki_1 = {}
-  let wiki_1.path = g:personal_dropbox_loc . '/vimwiki/'
-  let wiki_1.path_html = g:personal_dropbox_loc . '/vimwiki_html/'
-  let wiki_1.template_path = g:personal_dropbox_loc . '/vimwiki_html/assets/'
-  let wiki_1.template_default = 'default'
-  let wiki_1.template_ext = '.tpl'
-  let wiki_1.auto_export = 0
-  let wiki_1.nested_syntaxes = {
-        \ 'bash': 'bash',
-        \ 'c++': 'cpp',
-        \ 'ebnf': 'ebnf',
-        \ 'groovy': 'groovy',
-        \ 'java': 'java',
-        \ 'markdown': 'markdown',
-        \ 'python': 'python',
-        \ 'rust': 'rust',
-        \ 'sh': 'sh',
-        \ 'verilog': 'verilog',
-        \ 'xml': 'xml',
-        \ 'zsh': 'zsh',
-        \ }
-  let g:vimwiki_list = [wiki_1]
+  let wiki_base = {
+    \ 'template_path': g:personal_dropbox_loc . '/vimwiki-html/assets/',
+    \ 'template_default': 'default',
+    \ 'template_ext': '.tpl',
+    \ 'auto_export': 0,
+    \ 'nested_syntaxes': {
+      \ 'bash': 'bash',
+      \ 'c++': 'cpp',
+      \ 'ebnf': 'ebnf',
+      \ 'groovy': 'groovy',
+      \ 'java': 'java',
+      \ 'markdown': 'markdown',
+      \ 'python': 'python',
+      \ 'rust': 'rust',
+      \ 'sh': 'sh',
+      \ 'verilog': 'verilog',
+      \ 'xml': 'xml',
+      \ 'zsh': 'zsh',
+    \ },
+  \ }
+  let wiki_personal = copy(wiki_base)
+  let wiki_personal.path = g:personal_dropbox_loc . '/vimwiki/'
+  let wiki_personal.path_html = g:personal_dropbox_loc . '/vimwiki-html/'
+  let wiki_work = copy(wiki_base)
+  let wiki_work.path = g:personal_dropbox_loc . '/smartthings/vimwiki/'
+  let wiki_work.path_html = g:personal_dropbox_loc . '/smartthings/vimwiki-html/'
+  let g:vimwiki_list = [wiki_personal, wiki_work]
   let g:vimwiki_folding = 'expr'
-  nnoremap <leader>wo :VimwikiIndex<CR> :VimwikiGoto work/index<CR>
+  nnoremap <leader>wo :norm 2\ww<CR>
 "}}}
 
 " =====[Syntax/Indenting]=====
