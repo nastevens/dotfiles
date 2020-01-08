@@ -124,3 +124,6 @@ rusty-tags.vi
 
 ### disable gutentags
 .notags
+
+### mypy
+.mypy_cache
