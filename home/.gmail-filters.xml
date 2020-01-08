@@ -73,7 +73,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{codewars.com datadoghq.com eff.org goodreads.com hashicorp.com kickstarter.com indiegogo.com sourceforge.net store-news@amazon.com stackoverflow.email}'/>
+        <apps:property name='hasTheWord' value='from:{codewars.com datadoghq.com eff.org goodreads.com hackaday.com hashicorp.com kickstarter.com indiegogo.com sourceforge.net store-news@amazon.com stackoverflow.email}'/>
         <apps:property name='label' value='Promotions/Newsletters'/>
         <apps:property name='shouldMarkAsRead' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
