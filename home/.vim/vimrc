@@ -15,6 +15,13 @@
   set showmatch          " Highlight matching character briefly
   set t_BE=              " Disables bracketed paste mode
 
+  " Export directory for vim home
+  if has('win32') || has ('win64')
+    let $VIMHOME = $HOME . "/vimfiles"
+  else
+    let $VIMHOME = $HOME . "/.vim"
+  endif
+
   " When doing tab completion, give the following files lower priority.
   set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo,.lock
 
@@ -118,10 +125,10 @@
   " Edit and source vimrc, plugins
   nnoremap <leader>ev :vsplit $MYVIMRC<CR>
   nnoremap <leader>sv :source $MYVIMRC<CR>
-  nnoremap <leader>ep :vsplit $HOME/.vim/plugins.vim<CR>
+  nnoremap <leader>ep :vsplit $VIMHOME/plugins.vim<CR>
 
   " Edit ftplugin for current filetype
-  nnoremap <leader>ef :exec "vsplit " . $HOME . "/.vim/ftplugin/" . &filetype . ".vim"<CR>
+  nnoremap <leader>ef :exec "vsplit " . $VIMHOME . "/ftplugin/" . &filetype . ".vim"<CR>
 
   " Pretty format JSON file
   nnoremap <leader>j :%!python -m json.tool<CR>
@@ -174,15 +181,15 @@
 
 " Plugins {{{
   " Auto-install vim-plug and install plugins
-  if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  if empty(glob($VIMHOME . '/autoload/plug.vim'))
+    silent !curl -fLo $VIMHOME/autoload/plug.vim --create-dirs
       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
 
   " Source plugins
-  call plug#begin('~/.vim/plugged')
-  source ~/.vim/plugins.vim
+  call plug#begin($VIMHOME . '/plugged')
+  source $VIMHOME/plugins.vim
   call plug#end()
 "}}}
 
