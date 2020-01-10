@@ -1,9 +1,0 @@
-XTerm*faceName: Inconsolata Regular
-XTerm*faceSize: 10
-UXTerm*faceName: Inconsolata Regular
-UXTerm*faceSize: 10
-xterm*termName: xterm-256color
-xterm*metaSendsEscape: true
-
-*background: #111314
-*foreground: #B7BBB7
