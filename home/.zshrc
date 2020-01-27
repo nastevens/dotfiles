@@ -36,10 +36,6 @@ EOBUNDLES
 export NVM_LAZY_LOAD=true
 antigen bundle lukechilds/zsh-nvm
 
-# Load pyenv if available
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
-antigen bundle pyenv
-
 antigen apply
 source "$ZSH/themes/nick.zsh-theme"
 
@@ -95,6 +91,12 @@ export LANG=en_US.UTF-8
 
 # Source local tokens/keys if present
 [[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
+
+# Load pyenv if available
+if command -v pyenv &> /dev/null; then
+    export PYTHON_CONFIGURE_OPTS="--enable-framework"
+    eval "$(pyenv init -)"
+fi
 
 # Enable rvm if it is installed
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
