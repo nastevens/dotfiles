@@ -34,7 +34,11 @@
 	verbose = true
 [alias]
 	authors = !git log --format=\"%an <%ae>\" | sort | uniq -c | sort -nr
+	fap = fetch --all --prune
+	ls = lsbranch
+	mf = merge --ff-only
+	mfu = merge --ff-only upstream/master
 	wip = !git add -A && git commit -m \"WIP\"
-	unwip = !git reset HEAD^
+	unwip = reset HEAD^
 [credential]
 	helper = store
