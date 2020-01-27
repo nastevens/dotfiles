@@ -1,3 +1,6 @@
+# Uncomment this and zprof at the end to profile startup
+# zmodload zsh/zprof
+
 # Directory for my customizations
 ZSH=$HOME/.zsh
 ADOTDIR=$HOME/.antigen
@@ -16,25 +19,34 @@ antigen bundles <<EOBUNDLES
     # oh-my-zsh plugins
     cargo
     colored-man-pages
-    command-not-found
     docker
     history
+    ripgrep
     rust
     ssh-agent
-    z
+    terraform
 
     # github plugins
-    lukechilds/zsh-nvm
     radhermit/gentoo-zsh-completions
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
+
+# Lazy-load nvm
+export NVM_LAZY_LOAD=true
+antigen bundle lukechilds/zsh-nvm
+
+# Load pyenv if available
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
+antigen bundle pyenv
+
 antigen apply
 source "$ZSH/themes/nick.zsh-theme"
 
 # Paths to add to PATH. I should be able to put these in .zshenv, but every
 # distro seems intent on breaking this with their own settings that clobber
-# PATH in the system-wide zprofile.
+# PATH in the system-wide zprofile. So instead every possibility is added and
+# the ones that don't exist are pruned later.
 path=(
     # Local binaries
     "$HOME/local/bin"
@@ -44,23 +56,12 @@ path=(
     "$HOME/Library/python/2.7/bin"
 
     # Ruby
-    "$HOME/.gem/ruby/2.0.0/bin"
-    "$HOME/.gem/ruby/2.1.0/bin"
-    "$HOME/.gem/ruby/2.2.0/bin"
-    "$HOME/.gem/ruby/2.3.0/bin"
-    "$HOME/.gem/ruby/2.4.0/bin"
-    "$HOME/.gem/ruby/2.5.0/bin"
-    "$HOME/.gem/ruby/2.6.0/bin"
     "$HOME/.rvm/bin"
-
-    # Android SDK binaries
-    "$HOME/androidsdk/platform-tools"
-    "$HOME/androidsdk/tools"
-
-    # Microchip compiler binaries
-    "$HOME/local/microchip/xc8/bin"
-    "$HOME/local/microchip/xc16/bin"
-    "$HOME/local/microchip/xc32/bin"
+    "$HOME/.gem/ruby/2.7.0/bin"
+    "$HOME/.gem/ruby/2.6.0/bin"
+    "$HOME/.gem/ruby/2.5.0/bin"
+    "$HOME/.gem/ruby/2.4.0/bin"
+    "$HOME/.gem/ruby/2.3.0/bin"
 
     # Homebrew binaries
     "/usr/local/bin"
@@ -95,12 +96,6 @@ export LANG=en_US.UTF-8
 # Source local tokens/keys if present
 [[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
 
-# Enable pyenv if it is installed
-if whence -p pyenv >/dev/null; then
-    export PYTHON_CONFIGURE_OPTS="--enable-framework"
-    eval "$(pyenv init -)"
-fi
-
 # Enable rvm if it is installed
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
     source "$HOME/.rvm/scripts/rvm"
@@ -109,12 +104,6 @@ fi
 # Enable chtf if it is installed
 if [[ -f "/usr/local/share/chtf/chtf.sh" ]]; then
     source "/usr/local/share/chtf/chtf.sh"
-fi
-
-# Enable nvm if it is installed
-if [[ -f "/usr/local/opt/nvm/nvm.sh" ]]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
 fi
 
 # Point Racer at the Rust src distribution
@@ -143,3 +132,6 @@ zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
 
 # Add custom completion functions
 fpath+=~/.zfunc
+
+# Uncomment with first line to profile startup
+# zprof
