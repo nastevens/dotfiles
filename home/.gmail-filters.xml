@@ -31,7 +31,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{aexp.com centerpointenergy.com centurylink.com chase.com googleplay-noreply@google.com insperityservices.com massmutual@digital-delivery.com optum.com optumbank.com paypal.com robinhood.com schwab.com squareup.com torguard.net uber.com usbank-email.com usbank.com vanguard.com verizonwireless.com wmonline@wm.com xcelenergy.com}'/>
+        <apps:property name='hasTheWord' value='from:{aexp.com centerpointenergy.com centurylink.com chase.com geico.com googleplay-noreply@google.com insperityservices.com massmutual@digital-delivery.com optum.com optumbank.com paypal.com robinhood.com schwab.com squareup.com torguard.net uber.com usbank-email.com usbank.com vanguard.com verizonwireless.com wmonline@wm.com xcelenergy.com}'/>
         <apps:property name='label' value='Financial'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
