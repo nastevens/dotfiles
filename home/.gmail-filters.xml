@@ -31,7 +31,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{aexp.com centerpointenergy.com centurylink.com chase.com geico.com googleplay-noreply@google.com insperityservices.com massmutual@digital-delivery.com optum.com optumbank.com paypal.com robinhood.com schwab.com squareup.com torguard.net uber.com usbank-email.com usbank.com vanguard.com verizonwireless.com wmonline@wm.com xcelenergy.com}'/>
+        <apps:property name='hasTheWord' value='from:{aexp.com centerpointenergy.com centurylink.com chase.com geico.com googleplay-noreply@google.com insperityservices.com massmutual@digital-delivery.com optum.com optumbank.com paypal.com prospectusdocs.com robinhood.com schwab.com squareup.com torguard.net uber.com usbank-email.com usbank.com vanguard.com verizonwireless.com wmonline@wm.com xcelenergy.com}'/>
         <apps:property name='label' value='Financial'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
@@ -59,7 +59,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{allinonbeer.com boomislandbrewing.com email-totalwine.com}'/>
+        <apps:property name='hasTheWord' value='from:{allinonbeer.com boomislandbrewing.com email-totalwine.com fairstate.coop}'/>
         <apps:property name='label' value='Promotions/Beer'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
@@ -73,7 +73,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{codewars.com datadoghq.com eff.org goodreads.com hackaday.com hashicorp.com kickstarter.com indiegogo.com sourceforge.net store-news@amazon.com stackoverflow.email}'/>
+        <apps:property name='hasTheWord' value='from:{codewars.com datadoghq.com eff.org goodreads.com hackaday.com hashicorp.com kickstarter.com indiegogo.com newsletter@circleci.com sourceforge.net store-news@amazon.com stackoverflow.email}'/>
         <apps:property name='label' value='Promotions/Newsletters'/>
         <apps:property name='shouldMarkAsRead' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
@@ -94,7 +94,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{discordapp.com evite.com facebookmail.com glassdoor.com instagram.com keybase.io linkedin.com meetup.com strava.com twitter.com untappd.com}'/>
+        <apps:property name='hasTheWord' value='from:{discordapp.com evite.com facebookmail.com glassdoor.com instagram.com keybase.io linkedin.com meetup.com nextdoor.com strava.com twitter.com untappd.com}'/>
         <apps:property name='label' value='Social'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
