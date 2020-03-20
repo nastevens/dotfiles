@@ -27,7 +27,7 @@ antigen bundles <<EOBUNDLES
     terraform
 
     # github plugins
-    radhermit/gentoo-zsh-completions
+    zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
