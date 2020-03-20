@@ -127,3 +127,6 @@ rusty-tags.vi
 
 ### mypy
 .mypy_cache
+
+## tarpaulin
+tarpaulin-report.html
