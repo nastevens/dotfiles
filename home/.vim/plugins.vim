@@ -115,6 +115,7 @@ Plug 'vimwiki/vimwiki' "{{{
   let g:vimwiki_list = [wiki_personal, wiki_work]
   let g:vimwiki_folding = 'expr'
   nnoremap <leader>wo :norm 2\ww<CR>
+  nnoremap <leader>wo\i :norm 2\wi<CR>
   nnoremap <leader>sc :exec "edit " . g:personal_dropbox_loc . "/scratchpad.wiki"<CR>
 "}}}
 
