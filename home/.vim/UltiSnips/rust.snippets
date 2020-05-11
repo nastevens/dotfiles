@@ -101,6 +101,10 @@ impl Sink for $1 {
 }
 endsnippet
 
+snippet poll
+fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
+endsnippet
+
 snippet write
 write!(f, "$1"${2:, ${3:arg}})$0
 endsnippet
