@@ -92,6 +92,9 @@ export LANG=en_US.UTF-8
 # Source local tokens/keys if present
 [[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
 
+# Source work-only config if present
+[[ -f "$HOME/.zsh/work.zsh" ]] && source "$HOME/.zsh/work.zsh"
+
 # Load pyenv if available
 if command -v pyenv &> /dev/null; then
     export PYTHON_CONFIGURE_OPTS="--enable-framework"
