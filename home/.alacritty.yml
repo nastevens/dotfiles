@@ -1,0 +1,6 @@
+font:
+  normal:
+    family: mononoki
+  size: 12.0
+selection:
+  save_to_clipboard: true
