@@ -10,6 +10,7 @@
 [pager]
 	diff = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
 	show = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
+	unpushed = false
 [push]
 	default = simple
 [diff]
@@ -39,6 +40,7 @@
 	mf = merge --ff-only
 	mfu = merge --ff-only upstream/master
 	wip = !git add -A && git commit -m \"WIP\"
+	unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
 	unwip = reset HEAD^
 [credential]
 	helper = store
