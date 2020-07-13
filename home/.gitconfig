@@ -1,6 +1,8 @@
 [user]
 	name = Nick Stevens
 	email = nick@bitcurry.com
+[includeIf "gitdir:~/projects/"]
+	path = .gitconfig-work
 [color]
 	ui = auto
 [core]
