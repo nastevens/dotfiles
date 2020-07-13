@@ -7,4 +7,3 @@ then
     echo "Your homesick repo is over a week old."
     echo "Please do an update at your earliest convenience."
 fi
-
