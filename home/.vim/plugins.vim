@@ -122,6 +122,7 @@ Plug 'vimwiki/vimwiki' "{{{
 " =====[Syntax/Indenting]=====
 Plug 'kergoth/vim-bitbake'
 Plug 'nastevens/vim-duckscript'
+Plug 'nastevens/vim-cargo-make'
 Plug 'rust-lang/rust.vim' "{{{
   let g:rustfmt_command = "rustfmt +nightly"
 "}}}
