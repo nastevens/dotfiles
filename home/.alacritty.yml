@@ -1,7 +1,7 @@
 font:
   normal:
     family: mononoki
-  size: 12.0
+  size: 11.5
 selection:
   save_to_clipboard: true
 key_bindings:
@@ -9,3 +9,11 @@ key_bindings:
     command:
       program: "wmctrl"
       args: ["-r", ":ACTIVE:", "-b", "toggle,fullscreen"]
+  # Eat desktop switching commands to avoid vim doing bad things to the file
+  # being edited
+  - key: Left
+    mods: Control|Alt
+    action: None
+  - key: Right
+    mods: Control|Alt
+    action: None
