@@ -9,11 +9,11 @@ else
     setlocal expandtab
 endif
 
-" Control 4 or 8 space tabs
-if exists('b:Tabs8')
-    setlocal tabstop=8
-    setlocal softtabstop=8
-    setlocal shiftwidth=8
+" Control tab width
+if exists('b:TabsWidth')
+    exec 'setlocal tabstop=' . b:TabsWidth
+    exec 'setlocal softtabstop=' . b:TabsWidth
+    exec 'setlocal shiftwidth=' . b:TabsWidth
 else
     setlocal tabstop=4
     setlocal softtabstop=4
