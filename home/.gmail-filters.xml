@@ -59,7 +59,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{allinonbeer.com boomislandbrewing.com email-totalwine.com fairstate.coop}'/>
+        <apps:property name='hasTheWord' value='from:{allinonbeer.com boomislandbrewing.com email-totalwine.com fairstate.coop squaremktg.com}'/>
         <apps:property name='label' value='Promotions/Beer'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
