@@ -1,7 +1,7 @@
 font:
   normal:
     family: mononoki
-  size: 11.5
+  size: 11
 selection:
   save_to_clipboard: true
 key_bindings:
