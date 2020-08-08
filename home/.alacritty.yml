@@ -1,7 +1,10 @@
 font:
   normal:
     family: mononoki
-  size: 11
+  size: 10.5
+colors:
+  primary:
+    background: '#000000'
 selection:
   save_to_clipboard: true
 key_bindings:
