@@ -24,6 +24,13 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
+        <apps:property name='hasTheWord' value='from:comixology.com subject:("order confirmation")'/>
+        <apps:property name='label' value='Financial'/>
+        <apps:property name='shouldArchive' value='true'/>
+        <apps:property name='shouldNeverSpam' value='true'/>
+        <apps:property name='shouldNeverMarkAsImportant' value='true'/>
+    </entry>
+    <entry>
         <apps:property name='hasTheWord' value='from:amazon.com subject:{billing invoice}'/>
         <apps:property name='label' value='Financial'/>
         <apps:property name='shouldArchive' value='true'/>
@@ -45,14 +52,14 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{amctheatres.com craftapped.com etsy.com nintendo.com redbox.com southwest.com threadless.com united.com} -subject:{funds order purchase reservation receipt shipment "thanks for using"}'/>
+        <apps:property name='hasTheWord' value='from:{amctheatres.com comixology.com craftapped.com etsy.com nintendo.com redbox.com southwest.com threadless.com united.com} -subject:{funds order purchase reservation receipt shipment "thanks for using"}'/>
         <apps:property name='label' value='Promotions'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{antsylabs.com arlo.com bitesquad.com chuckanddons.com crazyshirts.com digikey.com ecnmag.com ecobee.com enterprise.com gearwest.com getawair.com hilton.com ikea-usa.com ikea.us jetbrains.com lyftmail.com magicleap.com maximintegrated.com medica.com medicahealthysavings.com microcenterinsider.com midwestsupplies.com mnpropaintball.com netflix.com nintendo.net packtpub.com parknfly.com pnf.com ponoko.com promo.newegg.com qdoba.com rhventures.org ring.com rose-hulman.edu southwest.com united.com vzwshop.com xbox.com}'/>
+        <apps:property name='hasTheWord' value='from:{antsylabs.com arlo.com aws-marketing-email-replies@amazon.com bitesquad.com chuckanddons.com crazyshirts.com digikey.com ecnmag.com ecobee.com enterprise.com gearwest.com getawair.com hilton.com ikea-usa.com ikea.us jetbrains.com lyftmail.com magicleap.com maximintegrated.com medica.com medicahealthysavings.com microcenterinsider.com midwestsupplies.com mnpropaintball.com netflix.com nintendo.net packtpub.com parknfly.com pnf.com ponoko.com promo.newegg.com qdoba.com rhventures.org ring.com rose-hulman.edu southwest.com united.com vzwshop.com xbox.com}'/>
         <apps:property name='label' value='Promotions'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
