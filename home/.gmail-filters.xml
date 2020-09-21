@@ -31,7 +31,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:amazon.com subject:{billing invoice}'/>
+        <apps:property name='hasTheWord' value='from:amazon.com subject:{billing invoice payment}'/>
         <apps:property name='label' value='Financial'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
