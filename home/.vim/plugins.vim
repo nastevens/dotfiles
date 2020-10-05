@@ -123,6 +123,7 @@ Plug 'vimwiki/vimwiki' "{{{
 Plug 'kergoth/vim-bitbake'
 Plug 'nastevens/vim-duckscript'
 Plug 'nastevens/vim-cargo-make'
+Plug 'ngg/vim-gn'
 Plug 'rust-lang/rust.vim' "{{{
   let g:rustfmt_command = "rustfmt +nightly"
 "}}}
