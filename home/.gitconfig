@@ -9,13 +9,21 @@
 	excludesfile = ~/.gitignore_global
 	eol = lf
 	autocrlf = input
+	pager = ( command -v delta 2>&1 >/dev/null && delta || cat )
 [pager]
-	diff = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
-	show = ( command -v diff-so-fancy 2>&1 >/dev/null && diff-so-fancy || cat ) | less --tabs=4 -RFX
 	unpushed = false
+[interactive]
+	diffFilter = ( command -v delta 2>&1 >/dev/null && delta --color-only || cat )
+[delta]
+	side-by-side = false
+	line-numbers = true
+	decorations = true
+	plus-style = syntax "#004000"
+	plus-emph-style = syntax "#00A000"
 [push]
 	default = simple
 [diff]
+	colorMoved = default
 	tool = vimdiff
 	guitool = meld
 	compactionHeuristic = true
