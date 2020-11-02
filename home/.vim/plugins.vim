@@ -143,17 +143,9 @@ Plug 'vim-scripts/scons.vim' "{{{
 "}}}
 
 " =====[Rust-Specific]=====
-let g:rust_src_path = ""
-if g:os == "Darwin"
-  let g:rust_src_path = $HOME . '/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
-endif
-if g:os == "Linux"
-  let g:rust_src_path = $HOME . '/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-endif
-
 if executable("rusty-tags")
   augroup RustyTags
-    autocmd BufRead *.rs :silent! exec "setlocal tags=./rusty-tags.vi;/," . g:rust_src_path . "/rusty-tags.vi"
+    autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
     autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
   augroup END
 endif
