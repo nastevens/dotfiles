@@ -87,7 +87,7 @@
         <apps:property name='shouldNeverMarkAsImportant' value='true'/>
     </entry>
     <entry>
-        <apps:property name='hasTheWord' value='from:{digital-noreply@amazon.com listserv@civicplus.com metrotransit.org monitor-io.com myuhc.com polco.us uspsinformeddelivery@usps.gov}'/>
+        <apps:property name='hasTheWord' value='from:{digital-noreply@amazon.com listserv@civicplus.com metrotransit.org monitor-io.com myuhc.com polco.us informeddelivery.usps.com}'/>
         <apps:property name='label' value='Notifications'/>
         <apps:property name='shouldArchive' value='true'/>
         <apps:property name='shouldNeverSpam' value='true'/>
