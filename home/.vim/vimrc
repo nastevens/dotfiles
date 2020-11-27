@@ -161,6 +161,12 @@
   nnoremap <Up> :move .-2<CR>
   vnoremap <Down> :move '>+1<CR>gv
   vnoremap <Up> :move '<-2<CR>gv
+
+  " Mapping to display the current syntax group, super useful for debugging
+  " syntax scripts
+  map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 "}}}
 
 " Spelling {{{
