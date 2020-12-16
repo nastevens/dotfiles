@@ -45,10 +45,12 @@
 	verbose = true
 [alias]
 	authors = !git log --format=\"%an <%ae>\" | sort | uniq -c | sort -nr
+	co = checkout
 	fap = fetch --all --prune
 	ls = lsbranch
 	mf = merge --ff-only
 	mfu = merge --ff-only upstream/master
+	s = status
 	wip = !git add -A && git commit -m \"WIP\"
 	unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
 	unwip = reset HEAD^
