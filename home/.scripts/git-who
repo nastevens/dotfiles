@@ -16,16 +16,17 @@ else
 fi
 
 echo "Recent:"
-git log --pretty="%cs|%ae" $REVISIONS -- $@ \
+git log --pretty="%cd|%ae" --date=short $REVISIONS -- $@ \
     | uniq \
     | head -n 10 \
     | column -ts '|' \
     | sed 's/^/  /'
 
-echo -e "\nAll:"
+echo -e "\nTop Committers:"
 git log --pretty="%ae" $REVISIONS -- $@ \
     | sort \
     | uniq -c \
     | sort -nr \
+    | head -n 10 \
     | column -t \
     | sed 's/^/  /'
