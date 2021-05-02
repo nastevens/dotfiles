@@ -23,7 +23,6 @@ antigen bundles <<EOBUNDLES
     history
     ripgrep
     rust
-    ssh-agent
     terraform
 
     # github plugins
@@ -31,6 +30,10 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
+
+if [ ! -f "$ZSH/disable_ssh_agent" ]; then
+    antigen bundle ssh-agent
+fi
 
 # Lazy-load nvm
 export NVM_LAZY_LOAD=true
