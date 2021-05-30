@@ -49,6 +49,7 @@
 	authors = !git log --format=\"%an <%ae>\" | sort | uniq -c | sort -nr
 	co = checkout
 	fap = fetch --all --prune
+	graph = log --graph --decorate --all --oneline --format='%C(green bold)%h%Creset %C(yellow bold)[%ar]%Creset %C(red bold)%d%Creset %s %C(blue bold)<%an>%Creset'
 	ls = lsbranch
 	mf = merge --ff-only
 	mfu = merge --ff-only upstream/master
