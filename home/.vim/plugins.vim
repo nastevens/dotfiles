@@ -134,6 +134,7 @@ Plug 'sheerun/vim-polyglot' "{{{
     \ 'rust',
   \]
 "}}}
+Plug 'sirtaj/vim-openscad'
 Plug 'tfnico/vim-gradle'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'vim-scripts/ebnf.vim'
