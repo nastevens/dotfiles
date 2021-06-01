@@ -56,3 +56,5 @@
 	wip = !git add -A && git commit -m \"WIP\"
 	unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
 	unwip = reset HEAD^
+[init]
+	defaultBranch = main
