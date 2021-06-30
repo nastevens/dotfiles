@@ -96,7 +96,6 @@ Plug 'vimwiki/vimwiki' "{{{
       \ 'c++': 'cpp',
       \ 'ebnf': 'ebnf',
       \ 'groovy': 'groovy',
-      \ 'java': 'java',
       \ 'markdown': 'markdown',
       \ 'python': 'python',
       \ 'rust': 'rust',
