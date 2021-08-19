@@ -121,6 +121,7 @@ Plug 'vimwiki/vimwiki' "{{{
 
 " =====[Syntax/Indenting]=====
 Plug 'kergoth/vim-bitbake'
+Plug 'hashivim/vim-terraform'
 Plug 'nastevens/vim-duckscript'
 Plug 'nastevens/vim-cargo-make'
 Plug 'ngg/vim-gn'
