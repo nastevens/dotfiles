@@ -1,7 +1,7 @@
 font:
   normal:
-    family: mononoki
-  size: 10.5
+    family: "mononoki Nerd Font"
+  size: 11
 colors:
   primary:
     background: '#000000'
