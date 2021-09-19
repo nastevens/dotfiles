@@ -26,9 +26,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 
 " =====[Tools and UIs]=====
-Plug 'vim-airline/vim-airline-themes' "{{{
-  let g:airline_theme='jellybeans'
-"}}}
 Plug 'ctrlpvim/ctrlp.vim' "{{{
   let g:ctrlp_extensions = ['tag', 'mixed']
   let g:ctrlp_cmd = 'CtrlPTag'
