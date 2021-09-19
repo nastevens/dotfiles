@@ -20,3 +20,5 @@ key_bindings:
   - key: Right
     mods: Control|Alt
     action: None
+env:
+  TERM: xterm-256color
