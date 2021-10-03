@@ -191,6 +191,7 @@ Plug 'vim-scripts/bufkill.vim' "{{{
   cabbrev bd BD
   cabbrev bw BW
 "}}}
+Plug 'nastevens/stvimhelper', { 'do': 'pipx install --force .', 'for': 'vimwiki' }
 
 " =====[Theming]=====
 Plug 'ajh17/Spacegray.vim'
