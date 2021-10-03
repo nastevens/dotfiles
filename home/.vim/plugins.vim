@@ -117,6 +117,7 @@ Plug 'vimwiki/vimwiki' "{{{
 "}}}
 
 " =====[Syntax/Indenting]=====
+Plug 'godlygeek/tabular'
 Plug 'kergoth/vim-bitbake'
 Plug 'hashivim/vim-terraform'
 Plug 'nastevens/vim-duckscript'
