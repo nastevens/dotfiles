@@ -1,6 +1,5 @@
 .aws
 .config
-.config/sakura
 .fluxbox
 .ssh
 .tmux
