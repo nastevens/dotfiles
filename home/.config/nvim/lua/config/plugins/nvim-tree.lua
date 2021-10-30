@@ -8,8 +8,10 @@ vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
 
 require("nvim-tree").setup {
   auto_close = true,
+  diagonostics = {
+    enable = true,
+  },
   hijack_cursor = true,
-  lsp_diagnostics = true,
   update_focused_file = {
     enable = true,
   },
