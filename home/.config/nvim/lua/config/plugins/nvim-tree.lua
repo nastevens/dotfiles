@@ -3,16 +3,22 @@ vim.g.nvim_tree_disable_window_picker = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_gitignore = 1
 vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_hide_dotfiles = 1
-vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
 
 require("nvim-tree").setup {
   auto_close = true,
   diagonostics = {
     enable = true,
   },
+  filters = {
+    dotfiles = true,
+  },
   hijack_cursor = true,
   update_focused_file = {
     enable = true,
+    ignore_list = {
+      ".git",
+      "node_modules",
+      ".cache",
+    },
   },
 }
