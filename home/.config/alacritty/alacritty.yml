@@ -1,12 +1,25 @@
-font:
-  normal:
-    family: "mononoki Nerd Font"
-  size: 11
+env:
+  TERM: xterm-256color
+
 colors:
   primary:
     background: '#000000'
-selection:
-  save_to_clipboard: true
+
+font:
+  normal:
+    family: mononoki Emoji
+    style: Regular
+  bold:
+    family: mononoki Emoji
+    style: Bold
+  italic:
+    family: mononoki Emoji
+    style: Italic
+  bold_italic:
+    family: mononoki Emoji
+    style: Bold Italic
+  size: 11
+
 key_bindings:
   - key: F11
     command:
@@ -20,5 +33,6 @@ key_bindings:
   - key: Right
     mods: Control|Alt
     action: None
-env:
-  TERM: xterm-256color
+
+selection:
+  save_to_clipboard: true
