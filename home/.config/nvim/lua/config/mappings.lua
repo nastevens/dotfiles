@@ -5,7 +5,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Use 'kj' instead of escape
-map("i", "kj", "<Esc>")
+-- map("i", "kj", "<Esc>")
 
 -- Add a new line before or after
 map("n", "<C-j>", "<cmd>set paste<CR>m`o<Esc>``<cmd>set nopaste<CR>")
