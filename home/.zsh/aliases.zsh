@@ -7,3 +7,7 @@ alias su="su -"
 alias tmux="tmux -2"
 alias vimupdate="vim +PlugUpgrade +PlugUpdate +qall"
 alias x="tar axf"
+
+if hash gping >/dev/null 2>&1; then
+    alias ping=gping
+fi
