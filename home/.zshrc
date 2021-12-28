@@ -103,7 +103,12 @@ export XDG_STATE_HOME=${XDG_STATE_HOME:-"$HOME/.local/state"}
 # Source local tokens/keys if present
 [[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
 
-# Load pyenv if available
+# Enable chtf if it is installed
+if [[ -f "/usr/local/share/chtf/chtf.sh" ]]; then
+    source "/usr/local/share/chtf/chtf.sh"
+fi
+
+# Enable pyenv if it is installed
 if command -v pyenv &> /dev/null; then
     export PYTHON_CONFIGURE_OPTS="--enable-framework"
     eval "$(pyenv init -)"
