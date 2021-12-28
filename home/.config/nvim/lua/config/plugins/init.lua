@@ -277,6 +277,9 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Some sums
+  use "vim-scripts/visSum.vim"
+
   -- -- session/project management
   -- use({
   --   'glepnir/dashboard-nvim',
