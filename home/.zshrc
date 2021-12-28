@@ -17,7 +17,6 @@ source "$ADOTDIR/antigen/antigen.zsh"
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     # oh-my-zsh plugins
-    cargo
     colored-man-pages
     docker
     history
