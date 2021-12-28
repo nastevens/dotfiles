@@ -17,6 +17,7 @@ opt.spelllang = "en_us"
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
+opt.undofile = true
 opt.wildmode = {"longest", "full"}
 opt.wrap = false
 
