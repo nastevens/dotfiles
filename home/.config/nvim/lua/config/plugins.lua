@@ -1,6 +1,6 @@
 local packer = require("config.packer")
 
-return packer.startup(function(use)
+return packer.module.startup(function(use)
   use({
     -- Package manager
     "wbthomason/packer.nvim",
@@ -24,6 +24,9 @@ return packer.startup(function(use)
   -- TODO: Not complete, but getting closer to where I want it
   use {
     "~/dev/grayspace.nvim",
+    config = function()
+      vim.cmd("colorscheme grayspace")
+    end,
     requires = { "tjdevries/colorbuddy.nvim" }
   }
 
@@ -32,6 +35,9 @@ return packer.startup(function(use)
 
   -- Pairs of keybindings to jump files, buffers, etc.
   use "tpope/vim-unimpaired"
+
+  -- Keybindings for lua functions
+  use "svermeulen/vimpeccable"
 
   -- Help plugins support repeating operations.
   use "tpope/vim-repeat"
@@ -65,27 +71,24 @@ return packer.startup(function(use)
   -- Add Bdelete and Bwipe which don't mess up windows when closing buffers
   use "famiu/bufdelete.nvim"
 
-  -- Allow growing/shrinking selections
-  use "terryma/vim-expand-region"
-
   -- Tabularize the things
   use "godlygeek/tabular"
 
   -- File explorer
   use {
     "kyazdani42/nvim-tree.lua",
-    cmd = {
-      "NvimTreeClipboard",
-      "NvimTreeClose",
-      "NvimTreeFindFile",
-      "NvimTreeOpen",
-      "NvimTreeRefresh",
-      "NvimTreeToggle",
-    },
+    -- cmd = {
+    --   "NvimTreeClipboard",
+    --   "NvimTreeClose",
+    --   "NvimTreeFindFile",
+    --   "NvimTreeOpen",
+    --   "NvimTreeRefresh",
+    --   "NvimTreeToggle",
+    -- },
     config = function()
       require("config.plugins.nvim-tree")
     end,
-    opt = true,
+    -- opt = true,
     requires = {
       "kyazdani42/nvim-web-devicons"
     },
@@ -111,9 +114,14 @@ return packer.startup(function(use)
       require("config.plugins.treesitter")
     end,
     requires = {
-      "windwp/nvim-ts-autotag",
-      -- TODO: This might be able to enable comment/uncomment within Rust doc comments
-      "JoosepAlviste/nvim-ts-context-commentstring",
+      {
+        "windwp/nvim-ts-autotag",
+        after = "nvim-treesitter",
+      },
+      {
+        -- TODO: This might be able to enable comment/uncomment within Rust doc comments
+        "JoosepAlviste/nvim-ts-context-commentstring"
+      },
     },
     run = ":TSUpdate",
   }
@@ -140,7 +148,7 @@ return packer.startup(function(use)
         after = "nvim-lspconfig",
       },
       { "nvim-lua/lsp-status.nvim" },
-      { 'williamboman/nvim-lsp-installer' },
+      { "williamboman/nvim-lsp-installer" },
     },
   }
 
@@ -217,7 +225,7 @@ return packer.startup(function(use)
 
   -- Statusline
   use {
-    "glepnir/galaxyline.nvim",
+    "NTBBloodbath/galaxyline.nvim",
     after = "nvim-web-devicons",
     branch = "main",
     config = function()
@@ -297,4 +305,8 @@ return packer.startup(function(use)
   --   end,
   --   disable = vim.tbl_contains(user_plugins.disable, 'auto-session'),
   -- })
+
+  if packer.bootstrap then
+    require("packer").sync()
+  end
 end)

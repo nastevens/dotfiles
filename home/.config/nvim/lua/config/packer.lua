@@ -1,7 +1,5 @@
 -- Original from https://github.com/CosmicNvim/CosmicNvim
 
-local cmd = vim.cmd
-
 local present, packer = pcall(require, "packer")
 
 if not present then
@@ -10,11 +8,11 @@ if not present then
   print("Cloning packer..")
   vim.fn.delete(packer_path, "rf")  -- remove the dir before cloning
   vim.fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", "--depth", "1", packer_path})
-  cmd("packadd packer.nvim")
+  vim.cmd("packadd packer.nvim")
 
-  present, packer = pcall(require, "packer")
+  success, packer = pcall(require, "packer")
 
-  if present then
+  if success then
     print("Packer cloned successfully.")
   else
     error("Couldn't clone packer!\nPacker path: " .. packer_path .. "\n" .. packer)
@@ -32,4 +30,4 @@ packer.init({
   },
 })
 
-return packer
+return { module = packer, bootstrap = not present }
