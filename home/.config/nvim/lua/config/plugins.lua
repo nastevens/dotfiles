@@ -77,34 +77,36 @@ return packer.module.startup(function(use)
   -- File explorer
   use {
     "kyazdani42/nvim-tree.lua",
-    -- cmd = {
-    --   "NvimTreeClipboard",
-    --   "NvimTreeClose",
-    --   "NvimTreeFindFile",
-    --   "NvimTreeOpen",
-    --   "NvimTreeRefresh",
-    --   "NvimTreeToggle",
-    -- },
     config = function()
       require("config.plugins.nvim-tree")
     end,
-    -- opt = true,
     requires = {
       "kyazdani42/nvim-web-devicons"
     },
   }
 
+  -- Code reference explorer
+  use {
+    "liuchengxu/vista.vim",
+    config = function()
+      require("config.plugins.vista")
+    end,
+  }
+
   -- Quick pick lists
   use {
-    "nvim-telescope/telescope.nvim",
-    config = function()
-      require("config.plugins.telescope")
-    end,
-    event = "BufWinEnter",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
+    {
+      "nvim-telescope/telescope.nvim",
+      config = function()
+        require("config.plugins.telescope")
+      end,
+      event = "BufWinEnter",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-lua/popup.nvim",
+      },
     },
+    "nvim-telescope/telescope-ui-select.nvim",
   }
 
   -- Treesitter support
@@ -116,6 +118,10 @@ return packer.module.startup(function(use)
     requires = {
       {
         "windwp/nvim-ts-autotag",
+        after = "nvim-treesitter",
+      },
+      {
+        "nvim-treesitter/playground",
         after = "nvim-treesitter",
       },
       {
@@ -153,6 +159,7 @@ return packer.module.startup(function(use)
   }
 
   -- TODO: Integrate with toml-tools, selene, other formatters
+  -- Example config: https://github.com/shaeinst/roshnivim/blob/main/lua/plugins/null-ls_nvim.lua
   use {
     "jose-elias-alvarez/null-ls.nvim",
     requires = {
@@ -183,7 +190,6 @@ return packer.module.startup(function(use)
           require("config.plugins.cmp").autopairs()
         end,
       },
-      -- TODO: currently disabled because of load-order issues
       {
         "onsails/lspkind-nvim",
         after = "nvim-autopairs",
@@ -288,23 +294,7 @@ return packer.module.startup(function(use)
   -- Some sums
   use "vim-scripts/visSum.vim"
 
-  -- -- session/project management
-  -- use({
-  --   'glepnir/dashboard-nvim',
-  --   config = function()
-  --     require('cosmic.core.dashboard')
-  --   end,
-  --   disable = vim.tbl_contains(user_plugins.disable, 'dashboard'),
-  -- })
-
-  -- use({
-  --   'rmagatti/auto-session',
-  --   event = 'VimEnter',
-  --   config = function()
-  --     require('cosmic.core.session')
-  --   end,
-  --   disable = vim.tbl_contains(user_plugins.disable, 'auto-session'),
-  -- })
+  use "rafcamlet/nvim-luapad"
 
   if packer.bootstrap then
     require("packer").sync()

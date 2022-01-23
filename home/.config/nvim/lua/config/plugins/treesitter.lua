@@ -13,7 +13,7 @@ treesitter.setup {
     use_languagetree = true,
   },
   indent = {
-    enable = true,
+    enable = false,
   },
   refactor = {
     highlight_definitions = { enable = false },

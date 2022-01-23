@@ -26,7 +26,7 @@ local function mode_color()
     R = colors.red,
     v = colors.magenta,
     V = colors.magenta,
-    [''] = colors.magenta,
+    [""] = colors.magenta,
   }
   local color = mode_colors[vim.fn.mode()]
   if color == nil then
@@ -69,7 +69,7 @@ gl.section.left[1] = {
   },
 }
 
-gl.section.left[2] = {
+gl.section.left[#gl.section.left + 1] = {
   ViMode = {
     provider = function() return mode_alias() .. " " end,
     highlight = { colors.bg, colors.bg },
@@ -78,7 +78,7 @@ gl.section.left[2] = {
   },
 }
 
-gl.section.left[3] = {
+gl.section.left[#gl.section.left + 1] = {
   FileIcon = {
     provider = "FileIcon",
     condition = condition.buffer_not_empty,
@@ -86,7 +86,7 @@ gl.section.left[3] = {
   },
 }
 
-gl.section.left[4] = {
+gl.section.left[#gl.section.left + 1] = {
   FileName = {
     provider = "FileName",
     condition = condition.buffer_not_empty,
@@ -96,7 +96,7 @@ gl.section.left[4] = {
   }
 }
 
-gl.section.left[5] = {
+gl.section.left[#gl.section.left + 1] = {
   GitIcon = {
     provider = function() return " " end,
     condition = condition.check_git_workspace,
@@ -104,7 +104,7 @@ gl.section.left[5] = {
   }
 }
 
-gl.section.left[6] = {
+gl.section.left[#gl.section.left + 1] = {
   GitBranch = {
     provider = "GitBranch",
     condition = condition.check_git_workspace,
@@ -114,7 +114,7 @@ gl.section.left[6] = {
   }
 }
 
-gl.section.left[7] = {
+gl.section.left[#gl.section.left + 1] = {
   DiffAdd = {
     provider = "DiffAdd",
     condition = condition.hide_in_width,
@@ -123,7 +123,7 @@ gl.section.left[7] = {
   }
 }
 
-gl.section.left[8] = {
+gl.section.left[#gl.section.left + 1] = {
   DiffModified = {
     provider = "DiffModified",
     condition = condition.hide_in_width,
@@ -132,7 +132,7 @@ gl.section.left[8] = {
   }
 }
 
-gl.section.left[9] = {
+gl.section.left[#gl.section.left + 1] = {
   DiffRemove = {
     provider = "DiffRemove",
     condition = condition.hide_in_width,
@@ -141,7 +141,7 @@ gl.section.left[9] = {
   }
 }
 
-gl.section.left[10] = {
+gl.section.left[#gl.section.left + 1] = {
   LeftEnd = {
     provider = function() return " " end,
     condition = condition.buffer_not_empty,
@@ -174,7 +174,33 @@ gl.section.right[1] = {
   },
 }
 
-gl.section.right[2] = {
+gl.section.right[#gl.section.right + 1] = {
+  Spinner = {
+    provider = function()
+      local buf_messages = require("lsp-status").messages()
+      local msgs = {}
+
+      for _, msg in ipairs(buf_messages) do
+        local contents
+        if msg.progress then
+          contents = msg.title
+          if msg.message then
+            contents = contents .. " " .. msg.message
+          end
+          if msg.percentage then
+            contents = contents .. string.format(" (%.0f%%)", msg.percentage)
+          end
+        end
+        table.insert(msgs, contents)
+      end
+
+      return table.concat(msgs, " | ")
+    end,
+    highlight = { colors.fg, colors.bg_alt },
+  }
+}
+
+gl.section.right[#gl.section.right + 1] = {
   DiagnosticError = {
     provider = "DiagnosticError",
     icon = "  ",
@@ -182,7 +208,7 @@ gl.section.right[2] = {
   },
 }
 
-gl.section.right[3] = {
+gl.section.right[#gl.section.right + 1] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     icon = "  ",
@@ -190,7 +216,7 @@ gl.section.right[3] = {
   },
 }
 
-gl.section.right[4] = {
+gl.section.right[#gl.section.right + 1] = {
   DiagnosticHint = {
     provider = "DiagnosticHint",
     icon = "  ",
@@ -198,7 +224,7 @@ gl.section.right[4] = {
   },
 }
 
-gl.section.right[5] = {
+gl.section.right[#gl.section.right + 1] = {
   DiagnosticInfo = {
     provider = "DiagnosticInfo",
     icon = "  ",
@@ -206,7 +232,7 @@ gl.section.right[5] = {
   },
 }
 
-gl.section.right[6] = {
+gl.section.right[#gl.section.right + 1] = {
   WhiteSpace = {
     provider = "WhiteSpace",
     highlight = { colors.orange, colors.bg_alt },
@@ -214,7 +240,7 @@ gl.section.right[6] = {
   }
 }
 
-gl.section.right[7] = {
+gl.section.right[#gl.section.right + 1] = {
   FileFormat = {
     provider = function() return " " .. vim.bo.filetype end,
     highlight = { colors.fg, colors.bg },
@@ -223,7 +249,7 @@ gl.section.right[7] = {
   }
 }
 
-gl.section.right[8] = {
+gl.section.right[#gl.section.right + 1] = {
   LineInfo = {
     provider = "LineColumn",
     highlight = { colors.fg, colors.bg },
@@ -232,7 +258,7 @@ gl.section.right[8] = {
   },
 }
 
-gl.section.right[9] = {
+gl.section.right[#gl.section.right + 1] = {
   LinePercent = {
       provider = "LinePercent",
       highlight = { colors.fg, colors.bg },

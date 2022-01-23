@@ -1,9 +1,3 @@
-local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend("force", options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 local function buffer_empty()
   local buffer_lines = vim.api.nvim_buf_get_lines(0, 0, vim.fn.line("$"), true)
   if buffer_lines[1] == "" and #buffer_lines == 1 then
@@ -38,10 +32,12 @@ vimp.nnoremap("<leader>sv", function()
   vimp.unmap_all()
   require("packer").reset()
   require("config.util").unload_lua_namespace("config")
+  -- require("colorbuddy.color")._clear_colors()
+  -- require("colorbuddy.group")._clear_groups()
   vim.cmd("silent wa")
   dofile(vim.fn.stdpath("config") .. "/init.lua")
   require("packer").compile()
-  require("notify")("Vim config reloaded")
+  vim.notify("Vim config reloaded")
 end)
 
 -- Open Telescope file browser in neovim config directory
@@ -73,8 +69,11 @@ vimp.nnoremap("<leader>ef", function()
   smart_open_file(config)
 end)
 
--- Open file explorer
+-- Toggle file explorer
 vimp.nnoremap("<leader>n", "<cmd>NvimTreeToggle<cr>")
+
+-- Toggle code overview
+vimp.nnoremap("<leader>v", "<cmd>Vista!!<cr>")
 
 -- Telescope mappings
 vimp.nnoremap("<C-b>", "<cmd>Telescope buffers<cr>")
@@ -98,16 +97,14 @@ vimp.nnoremap("<leader>l3", function() require("config.coding-common").overlengt
 vimp.nnoremap("<leader>lo", function() require("config.coding-common").overlength(nil) end)
 
 -- LSP mappings
--- vimp.nnoremap("ga", "<cmd>Telescope lsp_code_actions<CR>")
--- vimp.nnoremap("gd", "<cmd>Telescope lsp_definitions<CR>")
--- map("i", "<Tab>", "pumvisible() ? \"\\<C-n>\" : \"\\<Tab>\"", {expr = true})
--- map("i", "<S-Tab>", "pumvisible() ? \"\\<C-p>\" : \"\\<S-Tab>\"", {expr = true})
--- map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
--- map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
--- map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
--- map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
--- map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-vimp.nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
--- map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>')
--- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>')
--- map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+vimp.nnoremap("<space>a", vim.lsp.buf.code_action)
+vimp.nnoremap("<space>d", vim.lsp.buf.definition)
+vimp.nnoremap("<space>f", vim.lsp.buf.formatting)
+vimp.nnoremap("<space>m", vim.lsp.buf.rename)
+vimp.nnoremap("<space>r", vim.lsp.buf.references)
+vimp.nnoremap("<space>;", vim.lsp.diagnostic.goto_prev)
+vimp.nnoremap("<space>,", vim.lsp.diagnostic.goto_next)
+vimp.nnoremap("K", vim.lsp.buf.hover)
+
+-- Display style/treesitter under cursor
+vimp.nnoremap("<c-i>", "<cmd>TSHighlightCapturesUnderCursor<cr>")
