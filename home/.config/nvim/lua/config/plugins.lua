@@ -1,18 +1,13 @@
 local packer = require("config.packer")
 
 return packer.module.startup(function(use)
-  use({
-    -- Package manager
-    "wbthomason/packer.nvim",
-    -- Faster loading than built-in filetype.vim
-    -- TODO: May be able to reduce files calling just coding-common
-    "nathom/filetype.nvim",
-    -- Common useful functions
-    "nvim-lua/plenary.nvim",
-  })
+  -- Package manager
+  use "wbthomason/packer.nvim"
+
+  -- Common useful functions
+  use "nvim-lua/plenary.nvim"
 
   -- Prettier notifications
-  -- TODO: :Telescope notify lists notifications - add to an easy key binding?
   use({
     "rcarriga/nvim-notify",
     config = function()
@@ -20,14 +15,21 @@ return packer.module.startup(function(use)
     end,
   })
 
+  -- Dispatch setting filetype through Lua instead of filetype.vim
+  use {
+    "nathom/filetype.nvim",
+    config = function()
+      require("filetype")
+    end,
+  }
+
   -- Colorscheme
-  -- TODO: Not complete, but getting closer to where I want it
   use {
     "~/dev/grayspace.nvim",
     config = function()
       vim.cmd("colorscheme grayspace")
     end,
-    requires = { "tjdevries/colorbuddy.nvim" }
+    requires = "tjdevries/colorbuddy.nvim",
   }
 
   -- Add/change/delete surrounding characters.
@@ -36,29 +38,33 @@ return packer.module.startup(function(use)
   -- Pairs of keybindings to jump files, buffers, etc.
   use "tpope/vim-unimpaired"
 
-  -- Keybindings for lua functions
-  use "svermeulen/vimpeccable"
-
   -- Help plugins support repeating operations.
   use "tpope/vim-repeat"
-
-  -- Sneak-like functionality, plus improved f/F/t/T.
-  use "ggandor/lightspeed.nvim"
 
   -- Comments and uncomments lines
   use "tpope/vim-commentary"
 
-  -- Todo highlights
+  -- Create keybindings using Lua functions
+  use "svermeulen/vimpeccable"
+
+  -- Sneak-like functionality, plus improved f/F/t/T.
+  use "ggandor/lightspeed.nvim"
+
+  -- Highlight todo's with different colors and gutter icons
   use {
     "folke/todo-comments.nvim",
     config = function()
-      require("todo-comments").setup({})
+      require("todo-comments").setup({
+        highlight = {
+          keyword = "bg",
+        }
+      })
     end,
     event = "BufWinEnter",
     requires = "nvim-lua/plenary.nvim",
   }
 
-  -- Colorized hex codes
+  -- Colorize hex codes
   use {
     "norcalli/nvim-colorizer.lua",
     cmd = { "ColorizerToggle" },
@@ -257,7 +263,7 @@ return packer.module.startup(function(use)
     "nastevens/vim-cargo-make",
     "nastevens/vim-duckscript",
     "ngg/vim-gn",
-    "sheerun/vim-polyglot",
+    -- "sheerun/vim-polyglot",
     "sirtaj/vim-openscad",
     "tmux-plugins/vim-tmux",
   }
@@ -297,6 +303,6 @@ return packer.module.startup(function(use)
   use "rafcamlet/nvim-luapad"
 
   if packer.bootstrap then
-    require("packer").sync()
+    packer.module.sync()
   end
 end)

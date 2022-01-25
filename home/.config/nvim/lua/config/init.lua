@@ -23,6 +23,7 @@ opt.wrap = false
 
 require("config.plugins")
 require("config.mappings")
+require("config.codeoptions").setup()
 
 -- Briefly highlight yanked text
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank { on_visual = false }")

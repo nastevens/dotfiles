@@ -1,7 +1,7 @@
 local M = {}
+local cmp = require("cmp")
 
 M.init = function()
-  local cmp = require("cmp")
   cmp.setup {
     -- formatting = {
     --   format = require("lspkind").cmp_format({
@@ -21,7 +21,7 @@ M.init = function()
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
+      ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm({
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
@@ -33,13 +33,17 @@ M.init = function()
       end,
     },
     sources = {
-      { name = "buffer" },
+      { name = "nvim_lsp", group_index = 1, },
+      { name = "buffer", group_index = 2, },
       { name = "crates" },
       { name = "luasnip" },
-      { name = "nvim_lsp" },
       { name = "nvim_lua" },
       { name = "path" },
     },
+    experimental = {
+      ghost_text = true,
+      native_menu = true,
+    }
   }
 end
 

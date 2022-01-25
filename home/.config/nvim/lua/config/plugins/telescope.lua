@@ -4,15 +4,15 @@ local actions = require("telescope.actions")
 
 local default_mappings = {
   i = {
-    ["<c-j>"] = actions.toggle_selection + actions.move_selection_next,
-    ["<c-k>"] = actions.toggle_selection + actions.move_selection_previous,
+    ["<c-j>"] = actions.move_selection_next,
+    ["<c-k>"] = actions.move_selection_previous,
     ["<c-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
     ["<c-v>"] = actions.file_vsplit,
     ["<c-s>"] = actions.file_split,
   },
   n = {
-    ["<c-j>"] = actions.toggle_selection + actions.move_selection_next,
-    ["<c-k>"] = actions.toggle_selection + actions.move_selection_previous,
+    ["<c-j>"] = actions.move_selection_next,
+    ["<c-k>"] = actions.move_selection_previous,
     ["<c-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
     ["<c-v>"] = actions.file_vsplit,
     ["<c-s>"] = actions.file_split,

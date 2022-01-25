@@ -10,7 +10,7 @@ treesitter.setup {
   ensure_installed = "maintained",
   highlight = {
     enable = true,
-    use_languagetree = true,
+    use_languagetree = false,
   },
   indent = {
     enable = false,
