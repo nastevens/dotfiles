@@ -49,7 +49,7 @@ hints:
         mods: Control|Shift
     # Recognize github slugs in strings (i.e. "nastevens/dotfiles") and open in
     # default browser
-    - regex: "[\"'][a-zA-Z0-9][a-zA-Z0-9_-]+/[a-zA-Z0-9][a-zA-Z0-9_-]+[\"']"
+    - regex: "[\"'][a-zA-Z0-9][a-zA-Z0-9_-]+/[a-zA-Z0-9][a-zA-Z0-9_.-]+[\"']"
       command: /home/nick/.scripts/open-github-slug
       post_processing: true
       mouse:
