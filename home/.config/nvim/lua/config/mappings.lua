@@ -42,9 +42,6 @@ end)
 
 -- Open Telescope file browser in neovim config directory
 vimp.nnoremap("<leader>ev", function()
-  if not buffer_empty() then
-    vim.cmd("vsplit")
-  end
   require("telescope.builtin").find_files({
     search_dirs = { vim.fn.stdpath("config") },
   })
