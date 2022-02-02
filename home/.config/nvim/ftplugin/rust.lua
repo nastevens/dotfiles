@@ -1,1 +1,1 @@
-require("vimp").nnoremap({"buffer"}, "<leader>t", require("rust-tools.inlay_hints").toggle_inlay_hints)
+require("vimp").nnoremap({"buffer", "override"}, "<leader>t", require("rust-tools.inlay_hints").toggle_inlay_hints)

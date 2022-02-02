@@ -1,6 +1,8 @@
 -- Original from https://github.com/CosmicNvim/CosmicNvim
 
 local actions = require("telescope.actions")
+local telescope = require("telescope")
+local trouble = require("trouble.providers.telescope")
 
 local default_mappings = {
   i = {
@@ -9,6 +11,7 @@ local default_mappings = {
     ["<c-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
     ["<c-v>"] = actions.file_vsplit,
     ["<c-s>"] = actions.file_split,
+    ["<c-t>"] = trouble.open_with_trouble,
   },
   n = {
     ["<c-j>"] = actions.move_selection_next,
@@ -16,6 +19,7 @@ local default_mappings = {
     ["<c-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
     ["<c-v>"] = actions.file_vsplit,
     ["<c-s>"] = actions.file_split,
+    ["<c-t>"] = trouble.open_with_trouble,
     ["<cr>"] = actions.file_edit,
   },
 }
@@ -44,7 +48,7 @@ local opts_vertical = {
   },
 }
 
-require("telescope").setup {
+telescope.setup {
   defaults = {
     prompt_prefix = "🔍 ",
     mappings = default_mappings,
@@ -103,4 +107,4 @@ require("telescope").setup {
   },
 }
 
-require("telescope").load_extension("ui-select")
+telescope.load_extension("ui-select")

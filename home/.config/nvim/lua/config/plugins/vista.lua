@@ -1,4 +1,4 @@
-local icon_map = {
+local ICON_MAP = {
   { "", "class"},
   { "", "const", "constant" },
   { "略", "constructor" },
@@ -22,7 +22,7 @@ local icon_map = {
 
 local icon
 local icons = {}
-for _, kind in ipairs(icon_map) do
+for _, kind in ipairs(ICON_MAP) do
   for i, v in ipairs(kind) do
     if i == 1 then
       icon = v

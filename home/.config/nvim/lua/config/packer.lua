@@ -10,6 +10,7 @@ if not present then
   vim.fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", "--depth", "1", packer_path})
   vim.cmd("packadd packer.nvim")
 
+  local success
   success, packer = pcall(require, "packer")
 
   if success then

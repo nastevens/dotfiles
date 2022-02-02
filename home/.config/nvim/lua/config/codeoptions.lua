@@ -6,7 +6,7 @@ local M = {}
 -- Control if tabs are the expected indent or not. If yes they are invisible
 -- and not expanded. If no, they are expanded and any tab characters are
 -- marked.
-local function use_tabs(usetabs)
+function M.use_tabs(usetabs)
   if usetabs then
     vim.opt_local.listchars = "tab:  ,trail:·,nbsp:~"
     vim.opt_local.expandtab = false
@@ -17,14 +17,14 @@ local function use_tabs(usetabs)
 end
 
 -- Control tab width
-local function tab_width(width)
+function M.tab_width(width)
   vim.opt_local.shiftwidth = width
   vim.opt_local.softtabstop = width
   vim.opt_local.tabstop = width
 end
 
 -- Add subtle marker to certain column widths
-local function overlength(column)
+function M.overlength(column)
   if column == nil then
     vim.opt_local.colorcolumn = ""
   else
@@ -33,9 +33,9 @@ local function overlength(column)
 end
 
 local function apply_options(options)
-  use_tabs(options.use_tabs)
-  tab_width(options.tab_width)
-  overlength(options.overlength_column)
+  M.use_tabs(options.use_tabs)
+  M.tab_width(options.tab_width)
+  M.overlength(options.overlength_column)
   vim.opt_local.formatoptions = options.format_options
   vim.opt_local.smartindent = options.smart_indent
   vim.opt_local.textwidth = options.text_width
@@ -99,7 +99,7 @@ local OVERRIDES = {
   ["lua"] = { tab_width = 2 },
   ["markdown"] = { wrap = true, text_width = 80 },
   ["ruby"] = { tab_width = 2 },
-  ["rust"] = { text_width = 99 },
+  ["rust"] = { overlength_column = 99 },
   ["terraform"] = { tab_width = 2 },
   ["vim"] = { tab_width = 2 },
   ["vimwiki"] = { tab_width = 2, overlength_column = nil },

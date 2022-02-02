@@ -91,10 +91,10 @@ vimp.nnoremap("<leader>sc", function()
 end)
 
 -- Overlength mappings
-vimp.nnoremap("<leader>l1", function() require("config.coding-common").overlength(80) end)
-vimp.nnoremap("<leader>l2", function() require("config.coding-common").overlength(120) end)
-vimp.nnoremap("<leader>l3", function() require("config.coding-common").overlength(200) end)
-vimp.nnoremap("<leader>lo", function() require("config.coding-common").overlength(nil) end)
+vimp.nnoremap("<leader>l1", function() require("config.codeoptions").overlength(80) end)
+vimp.nnoremap("<leader>l2", function() require("config.codeoptions").overlength(120) end)
+vimp.nnoremap("<leader>l3", function() require("config.codeoptions").overlength(200) end)
+vimp.nnoremap("<leader>lo", function() require("config.codeoptions").overlength(nil) end)
 
 -- LSP mappings
 vimp.nnoremap("<space>a", vim.lsp.buf.code_action)

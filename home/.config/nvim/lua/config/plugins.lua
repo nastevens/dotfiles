@@ -4,9 +4,6 @@ return packer.module.startup(function(use)
   -- Package manager
   use "wbthomason/packer.nvim"
 
-  -- Common useful functions
-  use "nvim-lua/plenary.nvim"
-
   -- Prettier notifications
   use({
     "rcarriga/nvim-notify",
@@ -19,7 +16,13 @@ return packer.module.startup(function(use)
   use {
     "nathom/filetype.nvim",
     config = function()
-      require("filetype")
+      require("filetype").setup({
+        overrides = {
+          literal = {
+            Jenkinsfile = "groovy",
+          },
+        }
+      })
     end,
   }
 
@@ -117,91 +120,60 @@ return packer.module.startup(function(use)
 
   -- Treesitter support
   use {
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("config.plugins.treesitter")
-    end,
-    requires = {
-      {
-        "windwp/nvim-ts-autotag",
-        after = "nvim-treesitter",
-      },
-      {
-        "nvim-treesitter/playground",
-        after = "nvim-treesitter",
-      },
-      {
-        -- TODO: This might be able to enable comment/uncomment within Rust doc comments
-        "JoosepAlviste/nvim-ts-context-commentstring"
-      },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      config = function()
+        require("config.plugins.treesitter")
+      end,
+      run = ":TSUpdate",
     },
-    run = ":TSUpdate",
+    { "windwp/nvim-ts-autotag", after = "nvim-treesitter", },
+    { "nvim-treesitter/playground", after = "nvim-treesitter", },
+    { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
   }
 
-  -- LSP support
-  -- TODO: Tons of stuff to improve in here, starting with key bindings
+  -- Language server support
   use {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("config.plugins.lsp")
-    end,
-    requires = {
-      {
-        "ray-x/lsp_signature.nvim",
-        config = function()
-          -- must happen after servers are set up
-          require("lsp_signature").setup({
-            bind = true, -- This is mandatory, otherwise border config won't get registered.
-            handler_opts = {
-              border = "rounded",
-            },
-          })
-        end,
-        after = "nvim-lspconfig",
-      },
-      { "nvim-lua/lsp-status.nvim" },
-      { "williamboman/nvim-lsp-installer" },
-    },
-  }
-
-  -- TODO: Integrate with toml-tools, selene, other formatters
-  -- Example config: https://github.com/shaeinst/roshnivim/blob/main/lua/plugins/null-ls_nvim.lua
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
+    {
       "neovim/nvim-lspconfig",
+      config = function()
+        require("config.plugins.lsp")
+      end,
     },
+    {
+      -- TODO: Example config https://github.com/shaeinst/roshnivim/blob/main/lua/plugins/null-ls_nvim.lua
+      "jose-elias-alvarez/null-ls.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "neovim/nvim-lspconfig",
+      },
+    },
+    "nvim-lua/lsp-status.nvim",
+    "ray-x/lsp_signature.nvim",
+    "williamboman/nvim-lsp-installer",
+    "kosayoda/nvim-lightbulb",
   }
 
   -- Completion
   use {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      require("config.plugins.cmp").init()
-    end,
-    experimental = {
-      ghost_text = true,
+    {
+      "hrsh7th/nvim-cmp",
+      config = function()
+        require("config.plugins.cmp").init()
+      end,
+      requires = "onsails/lspkind-nvim",
     },
-    requires = {
-      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", after = "cmp-nvim-lsp" },
-      { "hrsh7th/cmp-buffer", after = "cmp_luasnip" },
-      { "hrsh7th/cmp-nvim-lua", after = "cmp-buffer" },
-      { "hrsh7th/cmp-path", after = "cmp-nvim-lua" },
-      {
-        "windwp/nvim-autopairs",
-        after = "cmp-path",
-        config = function()
-          require("config.plugins.cmp").autopairs()
-        end,
-      },
-      {
-        "onsails/lspkind-nvim",
-        after = "nvim-autopairs",
-        event = "InsertEnter",
-      },
+    {
+      "windwp/nvim-autopairs",
+      config = function()
+        require("config.plugins.cmp").autopairs()
+      end,
     },
+    { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+    { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+    { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+    { "hrsh7th/cmp-path", after = "nvim-cmp" },
+    { "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } },
   }
 
   -- Snippets
@@ -219,7 +191,7 @@ return packer.module.startup(function(use)
   use {
     "tpope/vim-fugitive",
     opt = true,
-    cmd = "Git",
+    cmd = { "Git", "Gwrite" },
   }
 
   -- Mark git changes in the gutter
@@ -246,6 +218,20 @@ return packer.module.startup(function(use)
     requires = {
       "kyazdani42/nvim-web-devicons"
     },
+  }
+
+
+  -- Quickfix/diagnostics browser
+  use {
+    "folke/trouble.nvim",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+    requires = "kyazdani42/nvim-web-devicons",
   }
 
   -- Rust
@@ -300,6 +286,7 @@ return packer.module.startup(function(use)
   -- Some sums
   use "vim-scripts/visSum.vim"
 
+  -- Write and execute Lua in a scratch buffer
   use "rafcamlet/nvim-luapad"
 
   if packer.bootstrap then
