@@ -26,13 +26,13 @@ return packer.module.startup(function(use)
     end,
   }
 
-  -- Colorscheme
+  -- Required for my "grayspace" colorscheme
   use {
-    "~/dev/grayspace.nvim",
+    "tjdevries/colorbuddy.nvim",
     config = function()
+      -- Set colorscheme after we're sure colorbuddy has been loaded
       vim.cmd("colorscheme grayspace")
     end,
-    requires = "tjdevries/colorbuddy.nvim",
   }
 
   -- Add/change/delete surrounding characters.
