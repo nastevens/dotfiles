@@ -16,13 +16,7 @@ return packer.module.startup(function(use)
   use {
     "nathom/filetype.nvim",
     config = function()
-      require("filetype").setup({
-        overrides = {
-          literal = {
-            Jenkinsfile = "groovy",
-          },
-        }
-      })
+      require("config.plugins.filetype")
     end,
   }
 
