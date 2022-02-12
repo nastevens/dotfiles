@@ -98,6 +98,7 @@ local OVERRIDES = {
   ["java"] = { overlength_column = 160 },
   ["lua"] = { tab_width = 2 },
   ["markdown"] = { wrap = true, text_width = 80 },
+  ["proto"] = { tab_width = 2 },
   ["ruby"] = { tab_width = 2 },
   ["rust"] = { overlength_column = 99 },
   ["terraform"] = { tab_width = 2 },
