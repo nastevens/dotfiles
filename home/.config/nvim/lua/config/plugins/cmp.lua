@@ -77,9 +77,11 @@ M.init = function()
       { name = "nvim_lua" },
       { name = "path" },
     },
+    view = {
+      entries = "native",
+    },
     experimental = {
       ghost_text = true,
-      native_menu = true,
     }
   }
 end

@@ -105,3 +105,6 @@ vimp.nnoremap("K", vim.lsp.buf.hover)
 
 -- Display style/treesitter under cursor
 vimp.nnoremap("<c-i>", "<cmd>TSHighlightCapturesUnderCursor<cr>")
+
+-- Exit terminal insert mode with normal escape sequence
+vimp.tnoremap("kj", "<C-\\><C-n>")
