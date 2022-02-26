@@ -84,7 +84,10 @@ path=(
 export path
 
 # The only sane editor option
-export EDITOR='vim'
+command -v nvim >/dev/null 2>&1 && \
+    export EDITOR='nvim' || \
+    export EDITOR='vim'
+
 
 # Use UTF-8
 export LANG=en_US.UTF-8
