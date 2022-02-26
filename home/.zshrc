@@ -75,6 +75,9 @@ path=(
     # pyenv binaries
     "$HOME/.pyenv/bin"
 
+    # Golang binaries
+    "$HOME/.golang/bin"
+
     # Include system paths
     $path
 )
@@ -152,6 +155,9 @@ fpath+=~/.zfunc
 
 # Teleport login name
 export TELEPORT_LOGIN=ubuntu
+
+# Golang GOPATH
+export GOPATH="$HOME/.golang"
 
 # Uncomment with first line to profile startup
 # zprof
