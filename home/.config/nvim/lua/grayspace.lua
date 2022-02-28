@@ -187,10 +187,10 @@ Group.new("DiffLine", c.red, c.none)
 Group.new("DiffRemoved", c.red, c.none)
 
 -- Spelling highlighting
-Group.new("SpellBad", c.none)
-Group.new("SpellLocal", c.none)
-Group.new("SpellCap", c.none)
-Group.new("SpellRare", c.none)
+Group.new("SpellBad", c.red)
+Group.new("SpellLocal", c.red)
+Group.new("SpellCap", c.red)
+Group.new("SpellRare", c.red)
 
 -- Vimwiki
 Color.new("VimwikiTitle", "#b3b8c4")
