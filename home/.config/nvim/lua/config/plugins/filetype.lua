@@ -1,5 +1,8 @@
 require("filetype").setup {
   overrides = {
+    extensions = {
+      tf = "terraform",
+    },
     literal = {
       Jenkinsfile = "groovy",
     },
