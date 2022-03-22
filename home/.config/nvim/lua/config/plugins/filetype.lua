@@ -8,6 +8,7 @@ require("filetype").setup {
     },
     complex = {
       ["%.aws/config"] = "conf",
+      ["Dockerfile"] = "dockerfile",
     },
   }
 }
