@@ -12,6 +12,7 @@ if vim.env.DROPBOX then
       python = "python",
       rust = "rust",
       sh = "sh",
+      toml = "toml",
       verilog = "verilog",
       xml = "xml",
       zsh = "zsh",
