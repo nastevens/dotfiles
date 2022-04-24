@@ -8,8 +8,6 @@ alias tmux="tmux -2"
 alias vimupdate="nvim +PackerSync"
 alias x="tar axf"
 
+command -v gping >/dev/null 2>&1 && alias ping="gping"
 command -v nvim >/dev/null 2>&1 && alias vim="nvim"
-
-if hash gping >/dev/null 2>&1; then
-    alias ping=gping
-fi
+command -v xdg-open >/dev/null 2>&1 && alias open="xdg-open"
