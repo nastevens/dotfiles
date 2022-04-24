@@ -12,7 +12,6 @@ nvim_tree.setup {
       },
     },
   },
-  auto_close = true,
   diagonostics = {
     enable = true,
   },

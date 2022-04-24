@@ -7,7 +7,7 @@ treesitter.setup {
   context_commentstring = {
     enable = true,
   },
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   highlight = {
     enable = true,
     use_languagetree = false,
