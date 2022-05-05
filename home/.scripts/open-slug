@@ -1,0 +1,10 @@
+#!/bin/sh
+
+SLUG=$(echo "$2" | tr -d "'\"")
+if hash xdg-open 2>&1 >/dev/null; then
+    OPEN=xdg-open
+else
+    OPEN=open
+fi
+
+$OPEN "$1/${SLUG}"

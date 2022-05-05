@@ -1,4 +1,0 @@
-#!/bin/sh
-
-SLUG=$(echo "$1" | tr -d "'\"")
-xdg-open "https://github.com/${SLUG}"
