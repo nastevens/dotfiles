@@ -12,7 +12,7 @@ nvim_tree.setup {
       },
     },
   },
-  diagonostics = {
+  diagnostics = {
     enable = true,
   },
   filters = {
