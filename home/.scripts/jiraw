@@ -1,0 +1,26 @@
+#!/bin/sh
+
+CMD="$1"
+shift 1
+
+list_mine() {
+    ME=$(jira me)
+    jira issue list --assignee $ME --plain --columns 'TYPE,KEY,SUMMARY,STATUS,PRIORITY' "$@"
+}
+
+case "$CMD" in
+    active)
+        list_mine --jql 'status in ("In Progress", "Ready for QA", "Reviewed")' -t~Epic --order-by status --reverse "$@"
+        ;;
+    mine)
+        list_mine --status '~Closed' --type '~Epic' "$@"
+        ;;
+    todo)
+        list_mine --status 'To Do' --type '~Epic' "$@"
+        ;;
+    bugs)
+        list_mine --status 'To Do' --type 'Bug' "$@"
+        ;;
+    *)
+        jira "$@"
+esac
