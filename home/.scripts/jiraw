@@ -1,26 +1,47 @@
 #!/bin/sh
 
-CMD="$1"
-shift 1
-
 list_mine() {
     ME=$(jira me)
     jira issue list --assignee $ME --plain --columns 'TYPE,KEY,SUMMARY,STATUS,PRIORITY' "$@"
 }
 
-case "$CMD" in
-    active)
-        list_mine --jql 'status in ("In Progress", "Ready for QA", "Reviewed")' -t~Epic --order-by status --reverse "$@"
+list_all() {
+    jira issue list --plain --columns 'TYPE,KEY,SUMMARY,STATUS,ASSIGNEE,PRIORITY' "$@"
+}
+
+filters() {
+    FUNCTION="$1"
+    FILTER="$2"
+    shift 2
+    case "$FILTER" in
+        active)
+            $FUNCTION --jql 'status in ("In Progress", "Ready for QA", "Reviewed")' -t'~Epic' --order-by 'status' --reverse "$@"
+            ;;
+        bugs)
+            $FUNCTION --status '~Closed' --type 'Bug' "$@"
+            ;;
+        todo)
+            $FUNCTION --status 'To Do' --type '~Epic' "$@"
+            ;;
+        *)
+            $FUNCTION --status '~Closed' --type '~Epic' $FILTER "$@"
+            ;;
+    esac
+}
+
+WHO="$1"
+shift 1
+case "$WHO" in
+    all)
+        filters list_all "$@"
         ;;
     mine)
-        list_mine --status '~Closed' --type '~Epic' "$@"
+        list_mine --status '~Closed' "$@"
         ;;
-    todo)
-        list_mine --status 'To Do' --type '~Epic' "$@"
-        ;;
-    bugs)
-        list_mine --status 'To Do' --type 'Bug' "$@"
+    my)
+        filters list_mine "$@"
         ;;
     *)
         jira "$@"
+        ;;
 esac
