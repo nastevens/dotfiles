@@ -2,6 +2,7 @@ require("filetype").setup {
   overrides = {
     extensions = {
       bb = "bitbake",
+      bbclass = "bitbake",
       scad = "openscad",
       tf = "terraform",
     },
