@@ -61,6 +61,8 @@ path=(
     "/usr/local/lib64/ruby/gems/3.0.0/bin"
     "$HOME/.gem/ruby/2.7.0/bin"
     "/usr/local/lib64/ruby/gems/2.7.0/bin"
+    "$HOME/.gem/ruby/2.6.0/bin"
+    "/usr/local/lib64/ruby/gems/2.6.0/bin"
 
     # Homebrew binaries
     "/usr/local/bin"
