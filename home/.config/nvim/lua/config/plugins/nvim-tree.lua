@@ -23,6 +23,7 @@ nvim_tree.setup {
     group_empty = true,
     highlight_git = true,
   },
+  sync_root_with_cwd = true,
   update_focused_file = {
     enable = true,
     ignore_list = {
