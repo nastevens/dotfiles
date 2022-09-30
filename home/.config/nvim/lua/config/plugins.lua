@@ -44,8 +44,13 @@ return packer.module.startup(function(use)
   -- Create keybindings using Lua functions
   use "svermeulen/vimpeccable"
 
-  -- Sneak-like functionality, plus improved f/F/t/T.
-  use "ggandor/lightspeed.nvim"
+  -- Sneak-like functionality
+  use {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").set_default_keymaps()
+    end,
+  }
 
   -- Highlight todo's with different colors and gutter icons
   use {
