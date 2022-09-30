@@ -19,7 +19,7 @@ local vimp = require("vimp")
 
 -- Add a new line before or after
 vimp.nnoremap({"repeatable", "silent"}, "<c-j>", "<cmd>set paste<cr>m`o<esc>``<cmd>set nopaste<cr>")
-vimp.nnoremap({"repeatable", "silent"}, "<C-k>", "<cmd>set paste<cr>m`O<esc>``<cmd>set nopaste<cr>")
+vimp.nnoremap({"repeatable", "silent"}, "<c-k>", "<cmd>set paste<cr>m`O<esc>``<cmd>set nopaste<cr>")
 
 -- Insert one space
 vimp.nnoremap("<space><space>", "i <esc>")
@@ -99,8 +99,8 @@ vimp.nnoremap("<space>d", vim.lsp.buf.definition)
 vimp.nnoremap("<space>f", vim.lsp.buf.formatting)
 vimp.nnoremap("<space>m", vim.lsp.buf.rename)
 vimp.nnoremap("<space>r", vim.lsp.buf.references)
-vimp.nnoremap("<space>;", vim.lsp.diagnostic.goto_prev)
-vimp.nnoremap("<space>,", vim.lsp.diagnostic.goto_next)
+vimp.nnoremap("<space>j", vim.diagnostic.goto_prev)
+vimp.nnoremap("<space>k", vim.diagnostic.goto_next)
 vimp.nnoremap("K", vim.lsp.buf.hover)
 
 -- Display style/treesitter under cursor
