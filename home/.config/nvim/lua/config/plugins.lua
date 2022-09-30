@@ -262,13 +262,6 @@ return packer.module.startup(function(use)
   }
   use "nastevens/stvimhelper"
 
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {}
-    end
-  }
-
   -- Prevents cursor from trailing behind when typing 'k' as part of escape
   use {
     "max397574/better-escape.nvim",
