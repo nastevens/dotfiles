@@ -3,6 +3,7 @@ opt.completeopt = {"menuone", "noinsert", "noselect"}
 opt.fileformat = "unix"
 opt.formatoptions:remove("o")
 opt.ignorecase = true
+opt.mouse = ""
 opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 4
