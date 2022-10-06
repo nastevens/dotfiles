@@ -28,3 +28,12 @@ require("config.codeoptions").setup()
 
 -- Briefly highlight yanked text
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank { on_visual = false }")
+
+-- Return to the last position in a file when reopened
+vim.cmd([[
+  autocmd BufReadPost * 
+    \ if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' 
+    \ && line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif 
+]])
