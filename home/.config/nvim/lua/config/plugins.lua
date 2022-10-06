@@ -208,15 +208,16 @@ return packer.module.startup(function(use)
 
   -- Statusline
   use {
-    "NTBBloodbath/galaxyline.nvim",
-    after = "nvim-web-devicons",
-    branch = "main",
-    config = function()
-      require("config.plugins.statusline")
+    'nvim-lualine/lualine.nvim',
+    config = function ()
+      require("lualine").setup {
+        options = {
+          disabled_filetypes = {"NvimTree", "packer", "vista"},
+          theme = "onedark"
+        },
+      }
     end,
-    requires = {
-      "kyazdani42/nvim-web-devicons"
-    },
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
 
