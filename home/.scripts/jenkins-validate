@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -eu
+
+JENKINS_CRUMB=`curl -u "$JENKINS_USER:$JENKINS_KEY" "$JENKINS_URL/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)"`
+curl -X POST -H $JENKINS_CRUMB -F "jenkinsfile=<Jenkinsfile" -u "$JENKINS_USER:$JENKINS_KEY" $JENKINS_URL/pipeline-model-converter/validate
