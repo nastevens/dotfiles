@@ -25,12 +25,18 @@
 	default = simple
 [diff]
 	colorMoved = default
-	tool = vimdiff
+	tool = nvimdiff
 	guitool = meld
 	compactionHeuristic = true
 	renames = copies
+[difftool]
+	prompt = false
 [merge]
 	defaultToUpstream = true
+	tool = nvimdiff
+[mergetool]
+	keepBackup = false
+	prompt = false
 [rebase]
 	autosquash = true
 [tag]
