@@ -72,13 +72,6 @@ vimp.nnoremap("<leader>n", "<cmd>NvimTreeToggle<cr>")
 -- Toggle code overview
 vimp.nnoremap("<leader>v", "<cmd>Vista!!<cr>")
 
--- Telescope mappings
-vimp.nnoremap("<C-b>", "<cmd>Telescope buffers<cr>")
-vimp.nnoremap("<C-f>", "<cmd>Telescope find_files<cr>")
-vimp.nnoremap("<C-h>", "<cmd>Telescope help_tags<cr>")
-vimp.nnoremap("<C-p>", "<cmd>Telescope live_grep<cr>")
-vimp.nnoremap("<C-q>", "<cmd>Telescope quickfix<cr>")
-
 -- Vimwiki mappings
 vimp.nmap({"override"}, "<leader>wp", "<cmd>norm 1<leader>ww<cr>")
 vimp.nmap({"override"}, "<leader>wo", "<cmd>norm 2<leader>ww<cr>")

@@ -101,20 +101,26 @@ return packer.module.startup(function(use)
     end,
   }
 
-  -- Quick pick lists
+  -- Quick pick lists and tools
   use {
     {
       "nvim-telescope/telescope.nvim",
       config = function()
         require("config.plugins.telescope")
       end,
-      event = "BufWinEnter",
       requires = {
         "nvim-lua/plenary.nvim",
         "nvim-lua/popup.nvim",
       },
     },
     "nvim-telescope/telescope-ui-select.nvim",
+    "benfowler/telescope-luasnip.nvim",
+    {
+      "AckslD/nvim-neoclip.lua",
+      config = function()
+        require("neoclip").setup()
+      end,
+    }
   }
 
   -- Treesitter support
@@ -274,6 +280,14 @@ return packer.module.startup(function(use)
         keys = "<Esc>",
       }
     end,
+  }
+
+  -- UI for chained keybindings
+  use {
+    "anuvyklack/hydra.nvim",
+    config = function ()
+      require("config.plugins.hydra")
+    end
   }
 
   -- Some sums
