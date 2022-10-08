@@ -89,7 +89,7 @@ vimp.nnoremap("<leader>lo", function() require("config.codeoptions").overlength(
 -- LSP mappings
 vimp.nnoremap("<space>a", vim.lsp.buf.code_action)
 vimp.nnoremap("<space>d", vim.lsp.buf.definition)
-vimp.nnoremap("<space>f", vim.lsp.buf.formatting)
+vimp.nnoremap("<space>f", vim.lsp.buf.format)
 vimp.nnoremap("<space>m", vim.lsp.buf.rename)
 vimp.nnoremap("<space>r", vim.lsp.buf.references)
 vimp.nnoremap("<space>j", vim.diagnostic.goto_prev)
