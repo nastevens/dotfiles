@@ -31,13 +31,6 @@
 	renames = copies
 [merge]
 	defaultToUpstream = true
-[color "diff-highlight"]
-	oldNormal = 9 bold
-	oldHighlight = 9 bold 52
-	newNormal = 10 bold
-	newHighlight = 10 bold 22
-[diff-so-fancy]
-	markEmptyLines = false
 [rebase]
 	autosquash = true
 [tag]
