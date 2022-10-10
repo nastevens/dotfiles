@@ -269,6 +269,18 @@ return packer.module.startup(function(use)
   }
   use "nastevens/stvimhelper"
 
+  -- Neorg
+  use {
+    "nvim-neorg/neorg",
+    run = ":Neorg sync-parsers",
+    config = function()
+      require("config.plugins.neorg")
+    end,
+    requires = {
+      "nvim-neorg/neorg-telescope"
+    },
+  }
+
   -- Prevents cursor from trailing behind when typing 'k' as part of escape
   use {
     "max397574/better-escape.nvim",

@@ -72,6 +72,7 @@ M.init = function()
     sources = {
       { name = "nvim_lsp", group_index = 1, },
       { name = "buffer", group_index = 2, },
+      { name = "neorg" },
       { name = "crates" },
       { name = "luasnip" },
       { name = "nvim_lua" },
