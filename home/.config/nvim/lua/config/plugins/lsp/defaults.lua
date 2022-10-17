@@ -2,10 +2,7 @@ local cmp_lsp = require("cmp_nvim_lsp")
 
 return {
   autostart = true,
-  capabilities = (function()
-    local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-    return cmp_lsp.update_capabilities(client_capabilities)
-  end)(),
+  capabilities = cmp_lsp.default_capabilities(),
   flags = {
     debounce_text_changes = 150,
   },
