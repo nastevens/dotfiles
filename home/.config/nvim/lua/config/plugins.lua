@@ -205,8 +205,6 @@ return packer.module.startup(function(use)
     config = function()
       require("gitsigns").setup()
     end,
-    event = "BufRead",
-    opt = true,
     requires = {
       "nvim-lua/plenary.nvim"
     },
