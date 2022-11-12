@@ -130,3 +130,6 @@ rusty-tags.vi
 
 ## tarpaulin
 tarpaulin-report.html
+
+## clangd
+.cache/
