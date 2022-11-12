@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#     --slave /usr/bin/$1 $1 /usr/bin/$1-\${version} \\
-
 function register_clang_version {
     local version=$1
     local priority=$2
