@@ -19,6 +19,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
 opt.undofile = true
+opt.virtualedit = {"block"}
 opt.wildmode = {"longest", "full"}
 opt.wrap = false
 
