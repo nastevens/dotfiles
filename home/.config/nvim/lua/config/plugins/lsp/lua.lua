@@ -2,8 +2,8 @@ return {
   settings = {
     Lua = {
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
+        -- Injected symbols when file is used as an embedded language
+        globals = { "awesome", "vim" },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
