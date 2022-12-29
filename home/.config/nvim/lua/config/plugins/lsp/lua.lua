@@ -3,7 +3,7 @@ return {
     Lua = {
       diagnostics = {
         -- Injected symbols when file is used as an embedded language
-        globals = { "awesome", "vim" },
+        globals = { "vim" },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
