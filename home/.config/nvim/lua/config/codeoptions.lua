@@ -96,7 +96,6 @@ local OVERRIDES = {
   ["groovy"] = { tab_width = 2, overlength_column = 160 },
   ["html"] = { tab_width = 2, overlength_column = nil },
   ["java"] = { overlength_column = 160 },
-  ["lua"] = { tab_width = 2 },
   ["markdown"] = { wrap = true, text_width = 80 },
   ["proto"] = { tab_width = 2 },
   ["ruby"] = { tab_width = 2 },
