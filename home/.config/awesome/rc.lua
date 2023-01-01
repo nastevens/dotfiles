@@ -37,7 +37,7 @@ local function copy_tfa_codes(args)
         if #code >= 4 and #code <= 10 then
             args.run = function()
                 put_on_clipboard(code)
-                naughty.notify { text = "Code copied!" } 
+                naughty.notify { text = "Code copied!" }
             end
             return args
         end

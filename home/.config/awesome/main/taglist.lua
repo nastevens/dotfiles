@@ -43,6 +43,8 @@ local function create(s)
     }
 end
 
-return setmetatable({}, { __call = function(_, ...)
-    create(...)
-end})
+return setmetatable({}, {
+    __call = function(_, ...)
+        create(...)
+    end,
+})

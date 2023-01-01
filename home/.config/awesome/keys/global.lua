@@ -11,7 +11,9 @@ local function create(menu)
     local popup = awful.popup {
         ontop = true,
         visible = false,
-        shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 8) end,
+        shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, 8)
+        end,
         offset = { y = 5 },
         border_width = 1,
         widget = wibox.widget {
@@ -19,15 +21,21 @@ local function create(menu)
                 font = "sans 18",
                 widget = wibox.widget.textclock,
             },
-            layout = wibox.layout.fixed.vertical
-        }
+            layout = wibox.layout.fixed.vertical,
+        },
     }
     local keybinds = gears.table.join(
         add_key("M-t", "show clock", "awesome", function()
             if popup.visible then
                 popup.visible = not popup.visible
             else
-                awful.placement.top_right(popup, { margins = { top = 30, right = 30}, parent = awful.screen.focused() })
+                awful.placement.top_right(
+                    popup,
+                    {
+                        margins = { top = 30, right = 30 },
+                        parent = awful.screen.focused(),
+                    }
+                )
                 popup.visible = true
             end
         end),
@@ -136,7 +144,7 @@ local function create(menu)
                 textbox = awful.screen.focused().mypromptbox.widget,
                 exe_callback = awful.util.eval,
                 history_path = awful.util.get_cache_dir() .. "/history_eval",
-                done_callback = function ()
+                done_callback = function()
                     input_widget.visible = false
                 end,
             }
