@@ -58,8 +58,6 @@ awful.layout.layouts = main.layouts()
 
 menubar.utils.terminal = user_config.terminal
 
-local tasklist_buttons = main.tasklist()
-
 local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
@@ -89,67 +87,17 @@ awful.screen.connect_for_each_screen(function(s)
     awful.tag({ "1", "2", "3", "4" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt {
-        done_callback = function()
-            s.input_widget.visible = false
-        end,
-    }
-
-    s.input_widget = wibox {
-        -- get screen size and widget size to calculate centre position
-        width = 1000,
-        ontop = true,
-        screen = awful.mouse.screen,
-        expand = true,
-        visible = false,
-        bg = "#1e252c55",
-        max_widget_size = 1000,
-        height = 19,
-        x = screen[1].geometry.width / 2 - 500,
-        y = 10,
-    }
-    s.input_widget:setup {
-        {
-            s.mypromptbox,
-            layout = wibox.container.margin,
-            left = 10,
-            right = 10,
-        },
-        layout = wibox.layout.fixed.horizontal,
-    }
+    s.input_widget, s.mypromptbox = main.runbox(s)
 
     -- Create an imagebox widget which will contain an icon indicating which
     -- layout we're using. We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(gears.table.join(
-        awful.button({}, 1, function()
-            awful.layout.inc(1)
-        end),
-        awful.button({}, 3, function()
-            awful.layout.inc(-1)
-        end),
-        awful.button({}, 4, function()
-            awful.layout.inc(1)
-        end),
-        awful.button({}, 5, function()
-            awful.layout.inc(-1)
-        end)
-    ))
+    s.mylayoutbox = main.layoutbox(s)
 
     -- Create a taglist widget
-    -- There's something weird with the timing if I try to make this
-    -- a callable table - I get screen errors
     s.mytaglist = main.taglist(s)
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons,
-        layout = {
-            layout = wibox.layout.fixed.vertical,
-        },
-    }
+    s.mytasklist = main.tasklist(s)
 
     local mysystray = wibox.widget.systray()
     mysystray.set_horizontal(false)

@@ -45,6 +45,6 @@ end
 
 return setmetatable({}, {
     __call = function(_, ...)
-        create(...)
+        return create(...)
     end,
 })

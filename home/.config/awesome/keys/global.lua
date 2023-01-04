@@ -29,13 +29,10 @@ local function create(menu)
             if popup.visible then
                 popup.visible = not popup.visible
             else
-                awful.placement.top_right(
-                    popup,
-                    {
-                        margins = { top = 30, right = 30 },
-                        parent = awful.screen.focused(),
-                    }
-                )
+                awful.placement.top_right(popup, {
+                    margins = { top = 30, right = 30 },
+                    parent = awful.screen.focused(),
+                })
                 popup.visible = true
             end
         end),
