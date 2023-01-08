@@ -1,6 +1,7 @@
 alias bc="bc -l"
 alias c="clear"
 alias df="df -h"
+alias ga="garden"
 alias grep="grep --colour=auto"
 alias rustfmt-nightly="rustup run nightly rustfmt --config-path ~/.nightly-rustfmt.toml --emit files --edition 2018"
 alias st="smartthings"

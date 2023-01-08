@@ -1,0 +1,236 @@
+---
+garden:
+  root: "${HOME}"
+commands:
+  fap: git fetch --all --prune
+  gc: git gc --prune=90d --aggressive
+  s: |
+    if test -n "$(git status --short)"; then
+      echo "  ${fmt_green}Changed/new files:${fmt_clear}"
+      echo "$(git status --short | sed 's/^/    /')"
+    fi
+    if test -n "$(git unpushed)"; then
+      echo "  ${fmt_green}Unpushed branches:${fmt_clear}"
+      echo "$(git unpushed --color=always | sed 's/^/    /')"
+    fi
+  unpushed: |
+    if test -n "$(git unpushed)"; then
+      echo "${fmt_ltblue}# ${fmt_blue}${fmt_underline}${TREE_NAME}${fmt_clear}"
+      echo "$(git unpushed --color=always | sed 's/^/  /')"
+    fi
+variables:
+  fmt_green: $ tput setaf 2
+  fmt_blue: $ tput setaf 4
+  fmt_ltblue: $ tput setaf 6
+  fmt_clear: $ tput sgr0
+  fmt_underline: $ tput smul
+trees:
+  dev/advent-of-code:
+    url: "ssh://git@github.com/nastevens/advent-of-code.git"
+  dev/bitcurry-provisioning:
+    url: "ssh://git@github.com/nastevens/bitcurry-provisioning.git"
+  dev/cookiecutter-rust-bin:
+    url: "ssh://git@github.com/nastevens/cookiecutter-rust-bin.git"
+  dev/farseer:
+    url: "ssh://git@github.com/nastevens/farseer.git"
+  dev/git-maintain:
+    url: ""
+  dev/hetool:
+    url: "ssh://git@github.com/nastevens/hetool.git"
+  dev/meta-rust-bin:
+    url: "ssh://git@github.com/rust-embedded/meta-rust-bin.git"
+  dev/nastevens.github.io:
+    url: "ssh://git@github.com/nastevens/nastevens.github.io.git"
+  dev/practical-svelte:
+    url: "https://github.com/Apress/practical-svelte.git"
+  dev/rust-spidev:
+    url: "ssh://git@github.com/rust-embedded/rust-spidev.git"
+  dev/saltlick-cli:
+    url: "ssh://git@github.com/saltlick-crypto/saltlick-cli.git"
+  dev/saltlick-rs:
+    remotes:
+      upstream: "ssh://git@github.com/saltlick-crypto/saltlick-rs.git"
+    url: "ssh://git@github.com/nastevens/saltlick-rs.git"
+  dev/sandbox:
+    url: "ssh://git@github.com/nastevens/sandbox.git"
+  dev/stvimhelper:
+    url: "ssh://git@github.com/nastevens/stvimhelper.git"
+  dev/tax-projection:
+    url: ""
+  dev/tycon:
+    url: ""
+  dev/vim-cargo-make:
+    url: "ssh://git@github.com/nastevens/vim-cargo-make.git"
+  dev/vim-duckscript:
+    url: "ssh://git@github.com/nastevens/vim-duckscript.git"
+  dev/vimwiki-gtd:
+    url: ""
+  dev/vimwiki-linker.nvim:
+    url: ""
+  dev/wakeonlan-edge-driver:
+    url: "ssh://git@github.com/nastevens/wakeonlan-edge-driver.git"
+  foss/cargo-make:
+    remotes:
+      upstream: "https://github.com/sagiegurari/cargo-make.git"
+    url: "ssh://git@github.com/nastevens/cargo-make.git"
+  foss/cmake:
+    url: "https://github.com/Kitware/CMake.git"
+  foss/corrosion:
+    url: "https://github.com/AndrewGaspar/corrosion.git"
+  foss/cron:
+    remotes:
+      upstream: "https://github.com/zslayton/cron.git"
+    url: "ssh://git@github.com/nastevens/cron.git"
+  foss/duckscript:
+    url: "https://github.com/sagiegurari/duckscript.git"
+  foss/fatcat:
+    url: "https://github.com/Gregwar/fatcat.git"
+  foss/git:
+    url: "ssh://git@github.com/git/git.git"
+  foss/git_cdn:
+    remotes:
+      upstream: "https://gitlab.com/grouperenault/git_cdn.git"
+    url: "ssh://git@gitlab.com/nastevens/git_cdn.git"
+  foss/gn:
+    url: "https://gn.googlesource.com/gn.git"
+  foss/jira-cli:
+    url: "https://github.com/ankitpokhrel/jira-cli.git"
+  foss/launchdarkly-rust-server-sdk:
+    url: "https://github.com/launchdarkly/rust-server-sdk.git"
+  foss/libevent-rs:
+    url: "https://github.com/jmagnuson/libevent-rs.git"
+  foss/meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+  foss/mold:
+    url: "https://github.com/rui314/mold.git"
+  foss/nsjail:
+    url: "https://github.com/google/nsjail.git"
+  foss/openconnect-gp-okta:
+    url: "https://github.com/zdave/openconnect-gp-okta.git"
+  foss/openssl:
+    url: "https://github.com/openssl/openssl.git"
+  foss/ot-br-posix:
+    url: "https://github.com/openthread/ot-br-posix.git"
+  foss/poky:
+    url: "git://git.yoctoproject.org/poky.git"
+  foss/pulldown-cmark:
+    url: "https://github.com/raphlinus/pulldown-cmark.git"
+  foss/tauri:
+    url: "https://github.com/tauri-apps/tauri.git"
+  foss/tree-sitter-rust:
+    url: "https://github.com/tree-sitter/tree-sitter-rust.git"
+  foss/vimwiki:
+    url: "https://github.com/vimwiki/vimwiki.git"
+  foss/vimwiki-rs:
+    url: "https://github.com/chipsenkbeil/vimwiki-rs.git"
+  work/behaviors-common-rs:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/behaviors-common-rs.git"
+  work/cLib:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/cLib.git"
+  work/cLib-os:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/cLib-os.git"
+  work/device-connectivity:
+    url: "ssh://git@github.ecodesamsung.com/iot/device-connectivity.git"
+  work/executor-lib:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/executor-lib.git"
+  work/gecko_sdk:
+    url: "https://github.com/SiliconLabs/gecko_sdk.git"
+  work/hive:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hive.git"
+  work/hub-asym-key-pair-ffi:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-asym-key-pair-ffi.git"
+  work/hub-connectedhomeip:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-connectedhomeip.git"
+  work/hub-core:
+    remotes:
+      p6/mbedtls: "https://github.com/ARMmbed/mbedtls.git"
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-core.git"
+  work/hub-cst:
+    url: "ssh://git@github.com/PhysicalGraph/hub-cst.git"
+  work/hub-devhub-server:
+    url: "ssh://git@github.com/PhysicalGraph/hub-devhub-server.git"
+  work/hub-ember:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-ember.git"
+  work/hub-extcsd:
+    url: "ssh://git@github.com/PhysicalGraph/hub-extcsd.git"
+  work/hub-factory-reset-utils:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-factory-reset-utils.git"
+  work/hubitual:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hubitual.git"
+  work/hub-linux:
+    remotes:
+      freescale: "https://github.com/Freescale/linux-fslc.git"
+      upstream: "https://github.com/torvalds/linux.git"
+    url: "ssh://git@github.com/PhysicalGraph/hub-linux.git"
+  work/hub-logging-infra:
+    url: "ssh://git@github.ecodesamsung.com/iot/hub-logging-infra.git"
+  work/hub-optee_os:
+    url: "ssh://git@github.com/PhysicalGraph/hub-optee_os.git"
+  work/hub-os:
+    url: "ssh://git@github.com/PhysicalGraph/hub-os.git"
+  work/hub-release-tools:
+    url: "ssh://git@github.com/PhysicalGraph/hub-release-tools.git"
+  work/hub-scripts:
+    url: "ssh://git@github.com/PhysicalGraph/hub-scripts.git"
+  work/hub-setup:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-setup.git"
+  work/hub-tee-applications:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-tee-applications.git"
+  work/hub-uboot:
+    url: "ssh://git@github.com/PhysicalGraph/hub-uboot.git"
+  work/hub-update-tls-proxy:
+    url: "ssh://git@github.com/PhysicalGraph/hub-update-tls-proxy.git"
+  work/hub-wash-sdk:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-wash-sdk.git"
+  work/hub-zipgateway:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-zipgateway.git"
+  work/imx_usb_loader:
+    url: "ssh://git@github.com/PhysicalGraph/imx_usb_loader.git"
+  work/lethe:
+    url: "ssh://git@github.ecodesamsung.com/nastevens/lethe.git"
+  work/optee_client:
+    url: "https://github.com/OP-TEE/optee_client.git"
+  work/ot-br-posix:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/ot-br-posix.git"
+  work/sawmill:
+    url: "ssh://git@github.ecodesamsung.com/iot/sawmill.git"
+  work/sch-zwave-repeater:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/sch-zwave-repeater.git"
+  work/scripting-engine:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/scripting-engine.git"
+  work/smartthings-terraform-modules:
+    url: "ssh://git@github.ecodesamsung.com/iot/smartthings-terraform-modules.git"
+  work/smartthings-terraform-preprod:
+    remotes:
+      upstream: "ssh://git@github.ecodesamsung.com/iot/smartthings-terraform-preprod.git"
+    url: "ssh://git@github.ecodesamsung.com/nastevens/smartthings-terraform-preprod.git"
+  work/smartthings-terraform-production:
+    remotes:
+      upstream: "ssh://git@github.ecodesamsung.com/iot/smartthings-terraform-production.git"
+    url: "ssh://git@github.ecodesamsung.com/nastevens/smartthings-terraform-production.git"
+  work/smartthings-terraform-sumologic:
+    url: "ssh://git@github.ecodesamsung.com/iot/smartthings-terraform-sumologic.git"
+  work/stfirmware-docker-images:
+    url: "ssh://git@github.com/PhysicalGraph/stfirmware-docker-images.git"
+  work/st-firmware-jenkins-libs:
+    url: "ssh://git@github.com/PhysicalGraph/st-firmware-jenkins-libs.git"
+  work/stfirmware-provisioning:
+    url: "ssh://git@github.com/PhysicalGraph/stfirmware-provisioning.git"
+  work/updater-ng:
+    url: "ssh://git@github.com/PhysicalGraph/updater-ng.git"
+  work/updater-ng-infrastructure:
+    url: "ssh://git@github.ecodesamsung.com/iot/updater-ng-infrastructure.git"
+  work/wash-utils:
+    url: "ssh://git@github.ecodesamsung.com/iot-hub/wash-utils.git"
+groups:
+  all:
+    - dev
+    - foss
+    - work
+  dev:
+    - dev/*
+  foss:
+    - foss/*
+  work:
+    - work/*
+gardens: {}
