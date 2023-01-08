@@ -58,7 +58,7 @@
 	mfu = merge --ff-only upstream/master
 	s = status
 	wip = !git add -A && git commit -m \"WIP\"
-	unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
+	unpushed = log --branches --not --remotes=origin --remotes=upstream --no-walk --decorate --oneline
 	unwip = reset HEAD^
 [init]
 	defaultBranch = main
