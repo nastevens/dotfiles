@@ -13,12 +13,12 @@ return packer.module.startup(function(use)
   })
 
   -- Dispatch setting filetype through Lua instead of filetype.vim
-  use {
-    "nathom/filetype.nvim",
-    config = function()
-      require("config.plugins.filetype")
-    end,
-  }
+  -- use {
+  --   "nathom/filetype.nvim",
+  --   config = function()
+  --     require("config.plugins.filetype")
+  --   end,
+  -- }
 
   -- Required for my "grayspace" colorscheme
   use {
