@@ -1,10 +1,11 @@
+# https://github.com/davvid/garden
 ---
 garden:
   root: "${HOME}"
 commands:
-  fap: git fetch --all --prune
   gc: git gc --prune=90d --aggressive
   s: |
+    echo "  ${fmt_green}Current branch:${fmt_clear} $(git rev-parse --abbrev-ref HEAD)"
     if test -n "$(git status --short)"; then
       echo "  ${fmt_green}Changed/new files:${fmt_clear}"
       echo "$(git status --short | sed 's/^/    /')"
@@ -13,11 +14,24 @@ commands:
       echo "  ${fmt_green}Unpushed branches:${fmt_clear}"
       echo "$(git unpushed --color=always | sed 's/^/    /')"
     fi
+  rb: |
+    git for-each-ref --format='%(authorname);%(refname)' refs/remotes \
+      | grep Nick \
+      | cut -d';' -f 2 \
+      | grep -vE '(origin|upstream)/(release-[^/]+/)?(main|master|HEAD)' \
+      | sed 's,refs/remotes/,,'
   unpushed: |
     if test -n "$(git unpushed)"; then
       echo "${fmt_ltblue}# ${fmt_blue}${fmt_underline}${TREE_NAME}${fmt_clear}"
       echo "$(git unpushed --color=always | sed 's/^/  /')"
     fi
+  update: |
+    git fetch --all --prune
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    if [[ "$$branch" =~ "^[^/]*/?(master|main|develop)" ]]; then
+      (git merge --ff-only | sed 's/^/  /') || true
+    fi
+    
 variables:
   fmt_green: $ tput setaf 2
   fmt_blue: $ tput setaf 4
@@ -33,8 +47,6 @@ trees:
     url: "ssh://git@github.com/nastevens/cookiecutter-rust-bin.git"
   dev/farseer:
     url: "ssh://git@github.com/nastevens/farseer.git"
-  dev/git-maintain:
-    url: ""
   dev/hetool:
     url: "ssh://git@github.com/nastevens/hetool.git"
   dev/meta-rust-bin:
@@ -139,8 +151,6 @@ trees:
     url: "ssh://git@github.ecodesamsung.com/iot-hub/hive.git"
   work/hub-asym-key-pair-ffi:
     url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-asym-key-pair-ffi.git"
-  work/hub-connectedhomeip:
-    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-connectedhomeip.git"
   work/hub-core:
     remotes:
       p6/mbedtls: "https://github.com/ARMmbed/mbedtls.git"
@@ -180,8 +190,6 @@ trees:
     url: "ssh://git@github.com/PhysicalGraph/hub-uboot.git"
   work/hub-update-tls-proxy:
     url: "ssh://git@github.com/PhysicalGraph/hub-update-tls-proxy.git"
-  work/hub-wash-sdk:
-    url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-wash-sdk.git"
   work/hub-zipgateway:
     url: "ssh://git@github.ecodesamsung.com/iot-hub/hub-zipgateway.git"
   work/imx_usb_loader:
