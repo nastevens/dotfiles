@@ -47,7 +47,7 @@
 	gpgsign = true
 	verbose = true
 [alias]
-	authors = !git log --format=\"%an <%ae>\" | sort | uniq -c | sort -nr
+	authors = shortlog --numbered --summary --format='%an <%ae>' --no-merges
 	co = checkout
 	cl = clean -ndx
 	clcl = clean -fdx
