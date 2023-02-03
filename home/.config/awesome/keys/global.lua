@@ -162,13 +162,13 @@ local function create(menu)
             volume_widget:toggle()
         end),
         add_key("XF86AudioPlay", "play", "sound", function()
-            awful.spawn.easy_async("playerctl play-pause", function() end)
+            awful.spawn.easy_async("playerctl -i firefox play-pause", function() end)
         end),
         add_key("XF86AudioNext", "next track", "sound", function()
-            awful.spawn.easy_async("playerctl next", function() end)
+            awful.spawn.easy_async("playerctl -i firefox next", function() end)
         end),
         add_key("XF86AudioPrev", "previous track", "sound", function()
-            awful.spawn.easy_async("playerctl previous", function() end)
+            awful.spawn.easy_async("playerctl -i firefox previous", function() end)
         end)
     )
 
