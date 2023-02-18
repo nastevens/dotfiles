@@ -6,13 +6,14 @@ package.path = (
 )
 
 local awful = require("awful")
-local _ = require("awful.autofocus")
 local beautiful = require("beautiful")
 local gears = require("gears")
 local menubar = require("menubar")
 local naughty = require("naughty")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local wibox = require("wibox")
+
+require("awful.autofocus")
 
 local user_config = require("main.config")
 
@@ -309,3 +310,11 @@ client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
 
+-- Fix some apps not setting an icon for Awesome to use
+local icon_dir = os.getenv("HOME") .. "/.config/awesome/icons/"
+require("icon_customizer") {
+    delay = 0.5,
+    icons = {
+        ["Slack"] = icon_dir .. "slack.svg",
+    },
+}
