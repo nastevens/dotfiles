@@ -1,5 +1,5 @@
 local opt = vim.opt
-opt.completeopt = {"menuone", "noinsert", "noselect"}
+opt.completeopt = { "menuone", "noinsert", "noselect" }
 opt.fileformat = "unix"
 opt.formatoptions:remove("o")
 opt.ignorecase = true
@@ -19,8 +19,8 @@ opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
 opt.undofile = true
-opt.virtualedit = {"block"}
-opt.wildmode = {"longest", "full"}
+opt.virtualedit = { "block" }
+opt.wildmode = { "longest", "full" }
 opt.wrap = false
 
 require("config.plugins")
