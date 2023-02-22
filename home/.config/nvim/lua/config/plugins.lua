@@ -1,6 +1,55 @@
-local packer = require("config.packer")
+local packer = nil
 
-return packer.module.startup(function(use)
+local function bootstrap()
+    local packer_path = vim.fn.stdpath("data")
+        .. "/site/pack/packer/start/packer.nvim"
+    vim.notify("Cloning packer..")
+    vim.fn.delete(packer_path, "rf") -- remove the dir before cloning
+    vim.fn.system {
+        "git",
+        "clone",
+        "https://github.com/wbthomason/packer.nvim",
+        "--depth",
+        "1",
+        packer_path,
+    }
+    vim.cmd("packadd packer.nvim")
+end
+
+local function init()
+    if packer == nil then
+        local installed, _ = pcall(require, "packer")
+        if not installed then
+            bootstrap()
+        end
+        packer = require("packer")
+    end
+
+    packer.init {
+        compile_on_sync = true,
+        display = {
+            open_fn = function()
+                local result, win, buf = require('packer.util').float {
+                    border = {
+                        { '╭', 'FloatBorder' },
+                        { '─', 'FloatBorder' },
+                        { '╮', 'FloatBorder' },
+                        { '│', 'FloatBorder' },
+                        { '╯', 'FloatBorder' },
+                        { '─', 'FloatBorder' },
+                        { '╰', 'FloatBorder' },
+                        { '│', 'FloatBorder' },
+                    },
+                }
+                vim.api.nvim_win_set_option(win, 'winhighlight', 'NormalFloat:Normal')
+                return result, win, buf
+            end,
+        },
+    }
+
+    local use = packer.use
+    packer.reset()
+
     -- Package manager
     use("wbthomason/packer.nvim")
 
@@ -31,6 +80,41 @@ return packer.module.startup(function(use)
 
     -- Add/change/delete surrounding characters.
     use("tpope/vim-surround")
+
+    -- Language server support
+    use {
+        {
+            "williamboman/mason.nvim",
+            config = require("config.plugins.lsp").mason_setup,
+        },
+        {
+            "williamboman/mason-lspconfig.nvim",
+            config = require("config.plugins.lsp").mason_lspconfig_setup,
+            after = "mason.nvim",
+        },
+        {
+            "neovim/nvim-lspconfig",
+            config = require("config.plugins.lsp").lspconfig_setup,
+            after = "mason-lspconfig.nvim",
+        },
+        {
+            "nvim-lua/lsp-status.nvim",
+            config = require("config.plugins.lsp").lsp_status_setup,
+            after = "nvim-lspconfig",
+        },
+        {
+            "ray-x/lsp_signature.nvim",
+        },
+        {
+            "kosayoda/nvim-lightbulb",
+            config = require("config.plugins.lsp").lightbulb_setup,
+        },
+        {
+            "jose-elias-alvarez/null-ls.nvim",
+            config = require("config.plugins.lsp").null_ls_setup(),
+            requires = "nvim-lua/plenary.nvim",
+        },
+    }
 
     -- Pairs of keybindings to jump files, buffers, etc.
     use("tpope/vim-unimpaired")
@@ -138,28 +222,6 @@ return packer.module.startup(function(use)
             "JoosepAlviste/nvim-ts-context-commentstring",
             after = "nvim-treesitter",
         },
-    }
-
-    -- Language server support
-    use {
-        {
-            "neovim/nvim-lspconfig",
-            config = function()
-                require("config.plugins.lsp")
-            end,
-        },
-        {
-            -- TODO: Example config https://github.com/shaeinst/roshnivim/blob/main/lua/plugins/null-ls_nvim.lua
-            "jose-elias-alvarez/null-ls.nvim",
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "neovim/nvim-lspconfig",
-            },
-        },
-        "nvim-lua/lsp-status.nvim",
-        "ray-x/lsp_signature.nvim",
-        "williamboman/nvim-lsp-installer",
-        "kosayoda/nvim-lightbulb",
     }
 
     -- Completion
@@ -313,4 +375,14 @@ return packer.module.startup(function(use)
     if packer.bootstrap then
         packer.module.sync()
     end
-end)
+end
+
+init()
+-- local plugins = setmetatable({}, {
+--   __index = function(_, key)
+--     init()
+--     return packer[key]
+--   end,
+-- })
+
+-- return plugins

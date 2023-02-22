@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "description": "Nvim settings for lua_ls",
+    "diagnostics": {
+        "enable": true,
+        "globals": [
+            "vim"
+        ]
+    },
+    "workspace": {
+        "library": [
+            "/usr/share/nvim/runtime/lua",
+            "/usr/share/nvim/runtime/vim/lsp"
+        ],
+        "maxPreload": 10000,
+        "preloadFileSize": 1000
+    },
+    "telemetry.enable": false
+}
