@@ -100,7 +100,7 @@ local function init()
         {
             "nvim-lua/lsp-status.nvim",
             config = require("config.plugins.lsp").lsp_status_setup,
-            after = "nvim-lspconfig",
+            after = "mason-lspconfig.nvim",
         },
         {
             "ray-x/lsp_signature.nvim",
@@ -283,6 +283,10 @@ local function init()
                 options = {
                     disabled_filetypes = { "NvimTree", "packer", "vista" },
                     theme = "onedark",
+                },
+                sections = {
+                    lualine_y = { "progress", "location", },
+                    lualine_z = { "require('lsp-status').status()" },
                 },
             }
         end,
