@@ -83,10 +83,10 @@ local function create(menu)
         add_key("M-Return", "open a terminal", "launcher", function()
             awful.spawn(config.terminal)
         end),
-        add_key("M-l", "increase master width factor", "layout", function()
+        add_key("M-h", "increase master width factor", "layout", function()
             awful.tag.incmwfact(0.05)
         end),
-        add_key("M-h", "decrease master width factor", "layout", function()
+        add_key("M-l", "decrease master width factor", "layout", function()
             awful.tag.incmwfact(-0.05)
         end),
         add_key(
