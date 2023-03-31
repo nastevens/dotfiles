@@ -32,4 +32,7 @@ nvim_tree.setup({
 			".cache",
 		},
 	},
+    view = {
+        side = "right",
+    },
 })
