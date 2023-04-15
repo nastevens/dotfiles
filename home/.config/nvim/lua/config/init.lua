@@ -23,6 +23,10 @@ opt.virtualedit = { "block" }
 opt.wildmode = { "longest", "full" }
 opt.wrap = false
 
+-- Customize contents of line number column
+-- Note that statuscolumn isn't exposed in Lua API yet
+vim.cmd("let &statuscolumn='%s%=%C%=%{v:relnum?v:relnum:v:lnum}%=│ '")
+
 require("config.plugins")
 require("config.mappings")
 require("config.codeoptions").setup()
