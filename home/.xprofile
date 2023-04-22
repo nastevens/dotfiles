@@ -1,14 +1,18 @@
 #!/bin/sh
 
-timeout -k 10 10 xrandr --output DP-0 --mode 5120x1440
+if ! xrandr --current | grep '*' | grep -q 5120; then
+    timeout -k 10 10 xrandr --output DP-0 --mode 5120x1440
+fi
 
 # Auto suspend after an hour unless mouse is in the lower right corner
-xautolock \
-    -time 60 \
-    -locker "systemctl suspend" \
-    -notify 60 \
-    -notifier "notify-send -u critical -t 15000 -- 'Suspending in 60 seconds'" \
-    -corners "000-" &
+if ! pidof -q xautolock; then
+    xautolock \
+        -time 60 \
+        -locker "systemctl suspend" \
+        -notify 60 \
+        -notifier "notify-send -u critical -t 15000 -- 'Suspending in 60 seconds'" \
+        -corners "000-" &
+fi
 
 # Dropbox
 caja-dropbox start -i &
@@ -17,4 +21,6 @@ caja-dropbox start -i &
 nm-applet &
 
 # Synergy desktop sharing
-synergy &
+if ! pidof -q synergy; then
+    synergy &
+fi
