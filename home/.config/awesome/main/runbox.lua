@@ -13,7 +13,7 @@ local function create(s)
         screen = awful.mouse.screen,
         expand = true,
         visible = false,
-        bg = "#1e252c55",
+        bg = "#1e252c",
         max_widget_size = 1000,
         height = 19,
         x = screen[1].geometry.width / 2 - 500,
