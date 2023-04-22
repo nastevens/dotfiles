@@ -18,5 +18,6 @@
         "maxPreload": 2000,
         "preloadFileSize": 1000
     },
-    "telemetry.enable": false
+    "telemetry.enable": false,
+    "workspace.checkThirdParty": false
 }
