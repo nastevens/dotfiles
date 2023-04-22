@@ -12,7 +12,8 @@ import subprocess
 
 def do_decrypt(args):
     dstname, _ext = os.path.splitext(args.encfile)
-    cmd = f"saltlick decrypt -i '{args.encfile}' -o '{dstname}'"
+    home = os.getenv("HOME")
+    cmd = f"{home}/.cargo/bin/saltlick decrypt -i '{args.encfile}' -o '{dstname}'"
     print(cmd)
     subprocess.check_call(cmd, shell=True)
 
