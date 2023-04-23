@@ -1,6 +1,30 @@
 local Hydra = require("hydra")
+local Path = require("plenary.path")
 local cmd = require("hydra.keymap-util").cmd
 local hint = nil
+
+local function search_root()
+    local active_file = vim.fn.expand("%:p")
+    for _, wiki in ipairs(vim.g.vimwiki_list) do
+        local abswiki = vim.fn.fnamemodify(wiki.path, ":p")
+        if Path:new(active_file):make_relative(abswiki) ~= active_file then
+            return abswiki
+        end
+    end
+    return vim.fn.getcwd()
+end
+
+local function find_files()
+    require("telescope.builtin").find_files({
+        cwd = search_root(),
+    })
+end
+
+local function live_grep()
+    require("telescope.builtin").live_grep({
+        cwd = search_root(),
+    })
+end
 
 -- Telescope on C-f
 hint = [[
@@ -31,10 +55,10 @@ Hydra({
     mode = "n",
     body = "<C-f>",
     heads = {
-        { "f", cmd("Telescope find_files") },
+        { "f", find_files },
         { "m", cmd("Telescope marks") },
         { "o", cmd("Telescope oldfiles") },
-        { "p", cmd("Telescope live_grep") },
+        { "p", live_grep },
         { "/", cmd("Telescope current_buffer_fuzzy_find") },
         { "?", cmd("Telescope search_history") },
         { "R", cmd("Telescope registers") },
