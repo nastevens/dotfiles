@@ -38,6 +38,7 @@ local function apply_options(options)
     M.use_tabs(options.use_tabs)
     M.tab_width(options.tab_width)
     M.overlength(options.overlength_column)
+    vim.opt_local.conceallevel = options.conceal_level
     vim.opt_local.formatoptions = options.format_options
     vim.opt_local.smartindent = options.smart_indent
     vim.opt_local.textwidth = options.text_width
@@ -54,12 +55,13 @@ function M.setup()
 end
 
 local DEFAULTS = {
+    conceal_level = 2,
+    format_options = "cjnqr",
     overlength_column = 80,
-    tab_width = 4,
-    use_tabs = false,
-    format_options = "cjqr",
     smart_indent = true,
+    tab_width = 4,
     text_width = 0,
+    use_tabs = false,
     wrap = false,
 }
 
@@ -99,7 +101,7 @@ local OVERRIDES = {
     ["help"] = { use_tabs = true },
     ["html"] = { tab_width = 2, overlength_column = nil },
     ["java"] = { overlength_column = 160 },
-    ["markdown"] = { wrap = true, text_width = 80 },
+    ["markdown"] = { conceal_level = 0, format_options = "cjnqtr", text_width = 80 },
     ["proto"] = { tab_width = 2 },
     ["ruby"] = { tab_width = 2 },
     ["rust"] = { overlength_column = 99 },

@@ -174,6 +174,7 @@ Group.new("TSUnderline", g.Normal, c.none, s.underline)
 Group.new("TSVariable", g.Normal, c.none)
 Group.new("TSVariableBuiltin", c.purple, c.none)
 Group.new("TSWarning", c.yellow_lt, c.none)
+Group.new("@text.literal", c.white_lt, c.none)
 
 -- Diff highlighting
 Group.new("DiffAdd", c.green, c.none)
