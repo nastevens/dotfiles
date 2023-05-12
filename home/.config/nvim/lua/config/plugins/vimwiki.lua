@@ -27,4 +27,5 @@ if vim.env.DROPBOX then
         path_html = vim.env.DROPBOX .. "/smartthings/vimwiki-html/",
     })
     vim.g.vimwiki_list = { wiki_personal, wiki_work }
+    vim.g.vimwiki_global_ext = 0
 end
