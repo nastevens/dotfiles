@@ -8,11 +8,13 @@ local M = {}
 -- marked.
 function M.use_tabs(usetabs)
     if usetabs then
-        vim.opt_local.listchars = "tab:  ,trail:·,nbsp:~"
         vim.opt_local.expandtab = false
+        vim.opt_local.list = false
+        vim.opt_local.listchars = "tab:  ,trail:·,nbsp:~"
     else
-        vim.opt_local.listchars = "tab:»»,trail:·,nbsp:~"
         vim.opt_local.expandtab = true
+        vim.opt_local.list = true
+        vim.opt_local.listchars = "tab:»»,trail:·,nbsp:~"
     end
 end
 
@@ -94,6 +96,7 @@ local OVERRIDES = {
     ["dts"] = { tab_width = 8, use_tabs = true },
     ["gradle"] = { tab_width = 2, overlength_column = 160 },
     ["groovy"] = { tab_width = 2, overlength_column = 160 },
+    ["help"] = { use_tabs = true },
     ["html"] = { tab_width = 2, overlength_column = nil },
     ["java"] = { overlength_column = 160 },
     ["markdown"] = { wrap = true, text_width = 80 },
