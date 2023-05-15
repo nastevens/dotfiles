@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if ! hash pandoc 2>&1 >/dev/null; then
+    >&2 echo Must have 'pandoc' available
+    exit 1
+fi
+
+case $1 in
+    wrap)
+        shift 1
+        pandoc --to=markdown_github --wrap=auto --columns=80 "$@"
+        ;;
+    unwrap)
+        shift 1
+        pandoc --to=markdown_github --wrap=none "$@"
+        ;;
+    *)
+        >&2 echo Unknown command $1
+        ;;
+esac
