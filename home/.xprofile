@@ -5,14 +5,14 @@ if ! xrandr --current | grep '*' | grep -q 5120; then
 fi
 
 # Auto suspend after an hour unless mouse is in the lower right corner
-if ! pidof -q xautolock; then
-    xautolock \
-        -time 60 \
-        -locker "systemctl suspend" \
-        -notify 60 \
-        -notifier "notify-send -u critical -t 15000 -- 'Suspending in 60 seconds'" \
-        -corners "000-" &
-fi
+# if ! pidof -q xautolock; then
+#     xautolock \
+#         -time 60 \
+#         -locker "systemctl suspend" \
+#         -notify 60 \
+#         -notifier "notify-send -u critical -t 15000 -- 'Suspending in 60 seconds'" \
+#         -corners "000-" &
+# fi
 
 # Dropbox
 caja-dropbox start -i &
