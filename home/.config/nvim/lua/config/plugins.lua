@@ -210,7 +210,7 @@ local function init()
             end,
             run = ":TSUpdate",
         },
-        { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
+        { "windwp/nvim-ts-autotag",     after = "nvim-treesitter" },
         { "nvim-treesitter/playground", after = "nvim-treesitter" },
         {
             "JoosepAlviste/nvim-ts-context-commentstring",
@@ -233,10 +233,10 @@ local function init()
                 require("config.plugins.cmp").autopairs()
             end,
         },
-        { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-        { "hrsh7th/cmp-path", after = "nvim-cmp" },
+        { "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp",     after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lua",     after = "nvim-cmp" },
+        { "hrsh7th/cmp-path",         after = "nvim-cmp" },
         { "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } },
     })
 
