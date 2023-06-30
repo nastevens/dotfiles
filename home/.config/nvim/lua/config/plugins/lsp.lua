@@ -35,6 +35,7 @@ function M.lspconfig_setup()
                 settings = {
                     ["rust-analyzer"] = {
                         cargo = {
+                            features = "all",
                             loadOutDirsFromCheck = true,
                         },
                         procMacro = {
