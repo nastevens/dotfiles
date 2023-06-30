@@ -1,6 +1,6 @@
 local treesitter = require("nvim-treesitter.configs")
 
-treesitter.setup({
+treesitter.setup {
     autotag = {
         enable = true,
     },
@@ -19,4 +19,4 @@ treesitter.setup({
         highlight_definitions = { enable = false },
         highlight_current_scope = { enable = false },
     },
-})
+}

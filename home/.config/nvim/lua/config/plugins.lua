@@ -1,17 +1,18 @@
 local packer = nil
 
 local function bootstrap()
-    local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+    local packer_path = vim.fn.stdpath("data")
+        .. "/site/pack/packer/start/packer.nvim"
     vim.notify("Cloning packer..")
     vim.fn.delete(packer_path, "rf") -- remove the dir before cloning
-    vim.fn.system({
+    vim.fn.system {
         "git",
         "clone",
         "https://github.com/wbthomason/packer.nvim",
         "--depth",
         "1",
         packer_path,
-    })
+    }
     vim.cmd("packadd packer.nvim")
 end
 
@@ -24,11 +25,11 @@ local function init()
         packer = require("packer")
     end
 
-    packer.init({
+    packer.init {
         compile_on_sync = true,
         display = {
             open_fn = function()
-                local result, win, buf = require("packer.util").float({
+                local result, win, buf = require("packer.util").float {
                     border = {
                         { "╭", "FloatBorder" },
                         { "─", "FloatBorder" },
@@ -39,12 +40,16 @@ local function init()
                         { "╰", "FloatBorder" },
                         { "│", "FloatBorder" },
                     },
-                })
-                vim.api.nvim_win_set_option(win, "winhighlight", "NormalFloat:Normal")
+                }
+                vim.api.nvim_win_set_option(
+                    win,
+                    "winhighlight",
+                    "NormalFloat:Normal"
+                )
                 return result, win, buf
             end,
         },
-    })
+    }
 
     local use = packer.use
     packer.reset()
@@ -53,27 +58,27 @@ local function init()
     use("wbthomason/packer.nvim")
 
     -- Prettier notifications
-    use({
+    use {
         "rcarriga/nvim-notify",
         config = function()
             vim.notify = require("notify")
         end,
-    })
+    }
 
     -- Required for my "grayspace" colorscheme
-    use({
+    use {
         "tjdevries/colorbuddy.nvim",
         config = function()
             -- Set colorscheme after we're sure colorbuddy has been loaded
             vim.cmd("colorscheme grayspace")
         end,
-    })
+    }
 
     -- Add/change/delete surrounding characters.
     use("tpope/vim-surround")
 
     -- Language server support
-    use({
+    use {
         {
             "williamboman/mason.nvim",
             config = require("config.plugins.lsp").mason_setup,
@@ -108,7 +113,7 @@ local function init()
         {
             "simrat39/rust-tools.nvim",
         },
-    })
+    }
 
     -- Pairs of keybindings to jump files, buffers, etc.
     use("tpope/vim-unimpaired")
@@ -123,36 +128,36 @@ local function init()
     use("svermeulen/vimpeccable")
 
     -- Sneak-like functionality
-    use({
+    use {
         "ggandor/leap.nvim",
         config = function()
             require("leap").set_default_keymaps()
         end,
-    })
+    }
 
     -- Highlight todo's with different colors and gutter icons
-    use({
+    use {
         "folke/todo-comments.nvim",
         config = function()
-            require("todo-comments").setup({
+            require("todo-comments").setup {
                 highlight = {
                     keyword = "bg",
                 },
-            })
+            }
         end,
         event = "BufWinEnter",
         requires = "nvim-lua/plenary.nvim",
-    })
+    }
 
     -- Colorize hex codes
-    use({
+    use {
         "norcalli/nvim-colorizer.lua",
         cmd = { "ColorizerToggle" },
         config = function()
             require("colorizer").setup()
         end,
         opt = true,
-    })
+    }
 
     -- Add Bdelete and Bwipe which don't mess up windows when closing buffers
     use("famiu/bufdelete.nvim")
@@ -161,7 +166,7 @@ local function init()
     use("godlygeek/tabular")
 
     -- File explorer
-    use({
+    use {
         "kyazdani42/nvim-tree.lua",
         config = function()
             require("config.plugins.nvim-tree")
@@ -169,18 +174,18 @@ local function init()
         requires = {
             "kyazdani42/nvim-web-devicons",
         },
-    })
+    }
 
     -- Code reference explorer
-    use({
+    use {
         "liuchengxu/vista.vim",
         config = function()
             require("config.plugins.vista")
         end,
-    })
+    }
 
     -- Quick pick lists and tools
-    use({
+    use {
         {
             "nvim-telescope/telescope.nvim",
             config = function()
@@ -199,10 +204,10 @@ local function init()
                 require("neoclip").setup()
             end,
         },
-    })
+    }
 
     -- Treesitter support
-    use({
+    use {
         {
             "nvim-treesitter/nvim-treesitter",
             config = function()
@@ -210,16 +215,16 @@ local function init()
             end,
             run = ":TSUpdate",
         },
-        { "windwp/nvim-ts-autotag",     after = "nvim-treesitter" },
+        { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
         { "nvim-treesitter/playground", after = "nvim-treesitter" },
         {
             "JoosepAlviste/nvim-ts-context-commentstring",
             after = "nvim-treesitter",
         },
-    })
+    }
 
     -- Completion
-    use({
+    use {
         {
             "hrsh7th/nvim-cmp",
             config = function()
@@ -233,15 +238,15 @@ local function init()
                 require("config.plugins.cmp").autopairs()
             end,
         },
-        { "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lsp",     after = "nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lua",     after = "nvim-cmp" },
-        { "hrsh7th/cmp-path",         after = "nvim-cmp" },
+        { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+        { "hrsh7th/cmp-path", after = "nvim-cmp" },
         { "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } },
-    })
+    }
 
     -- Snippets
-    use({
+    use {
         "L3MON4D3/LuaSnip",
         config = function()
             require("config.plugins.luasnip")
@@ -249,17 +254,17 @@ local function init()
         requires = {
             "rafamadriz/friendly-snippets",
         },
-    })
+    }
 
     -- Git
-    use({
+    use {
         "tpope/vim-fugitive",
         opt = true,
         cmd = { "Git", "Gwrite" },
-    })
+    }
 
     -- Mark git changes in the gutter
-    use({
+    use {
         "lewis6991/gitsigns.nvim",
         config = function()
             require("gitsigns").setup()
@@ -267,13 +272,13 @@ local function init()
         requires = {
             "nvim-lua/plenary.nvim",
         },
-    })
+    }
 
     -- Statusline
-    use({
+    use {
         "nvim-lualine/lualine.nvim",
         config = function()
-            require("lualine").setup({
+            require("lualine").setup {
                 options = {
                     disabled_filetypes = { "NvimTree", "packer", "vista" },
                     theme = "onedark",
@@ -282,40 +287,40 @@ local function init()
                     lualine_y = { "progress", "location" },
                     lualine_z = { "require('lsp-status').status()" },
                 },
-            })
+            }
         end,
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
+    }
 
     -- Quickfix/diagnostics browser
-    use({
+    use {
         "folke/trouble.nvim",
         config = function()
-            require("trouble").setup({
+            require("trouble").setup {
                 -- your configuration comes here
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
-            })
+            }
         end,
         requires = "kyazdani42/nvim-web-devicons",
-    })
+    }
 
     -- Rust
-    use({
+    use {
         "Saecki/crates.nvim",
         branch = "main",
         requires = { "nvim-lua/plenary.nvim" },
-        config = function ()
+        config = function()
             require("crates").setup {
                 null_ls = {
                     enabled = true,
-                }
+                },
             }
         end,
-    })
+    }
 
     -- Standalone syntax files
-    use({
+    use {
         "hashivim/vim-terraform",
         "kergoth/vim-bitbake",
         "nastevens/vim-cargo-make",
@@ -324,37 +329,37 @@ local function init()
         -- "sheerun/vim-polyglot",
         "sirtaj/vim-openscad",
         "tmux-plugins/vim-tmux",
-    })
+    }
 
     -- Vimwiki
-    use({
+    use {
         "vimwiki/vimwiki",
         config = function()
             require("config.plugins.vimwiki")
         end,
-    })
+    }
     use("nastevens/stvimhelper")
 
     -- Prevents cursor from trailing behind when typing 'k' as part of escape
-    use({
+    use {
         "max397574/better-escape.nvim",
         config = function()
-            require("better_escape").setup({
+            require("better_escape").setup {
                 mapping = { "kj" },
                 timeout = vim.o.timeoutlen,
                 clear_empty_lines = false,
                 keys = "<Esc>",
-            })
+            }
         end,
-    })
+    }
 
     -- UI for chained keybindings
-    use({
+    use {
         "anuvyklack/hydra.nvim",
         config = function()
             require("config.plugins.hydra")
         end,
-    })
+    }
 
     -- Some sums
     use("vim-scripts/visSum.vim")
@@ -362,7 +367,7 @@ local function init()
     -- Write and execute Lua in a scratch buffer
     use("rafcamlet/nvim-luapad")
 
-    use({
+    use {
         "anuvyklack/windows.nvim",
         requires = {
             "anuvyklack/middleclass",
@@ -374,7 +379,7 @@ local function init()
             vim.o.equalalways = false
             require("windows").setup()
         end,
-    })
+    }
 
     if packer.bootstrap then
         packer.module.sync()

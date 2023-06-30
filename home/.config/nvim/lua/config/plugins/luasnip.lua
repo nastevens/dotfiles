@@ -1,6 +1,6 @@
 local types = require("luasnip.util.types")
 
-require("luasnip").config.setup({
+require("luasnip").config.setup {
     ext_opts = {
         [types.choiceNode] = {
             active = {
@@ -13,6 +13,6 @@ require("luasnip").config.setup({
             },
         },
     },
-})
+}
 
 require("luasnip.loaders.from_snipmate").lazy_load()

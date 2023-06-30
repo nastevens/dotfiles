@@ -48,7 +48,7 @@ local opts_vertical = {
     },
 }
 
-telescope.setup({
+telescope.setup {
     defaults = {
         prompt_prefix = "🔍 ",
         mappings = default_mappings,
@@ -71,10 +71,14 @@ telescope.setup({
         lsp_range_code_actions = vim.tbl_deep_extend("force", opts_vertical, {
             prompt_title = "Code Actions",
         }),
-        lsp_document_diagnostics = vim.tbl_deep_extend("force", opts_vertical, {
-            prompt_title = "Document Diagnostics",
-            mappings = default_mappings,
-        }),
+        lsp_document_diagnostics = vim.tbl_deep_extend(
+            "force",
+            opts_vertical,
+            {
+                prompt_title = "Document Diagnostics",
+                mappings = default_mappings,
+            }
+        ),
         lsp_implementations = vim.tbl_deep_extend("force", opts_cursor, {
             prompt_title = "Implementations",
             mappings = default_mappings,
@@ -105,7 +109,7 @@ telescope.setup({
             require("telescope.themes").get_dropdown(),
         },
     },
-})
+}
 
 telescope.load_extension("ui-select")
 telescope.load_extension("luasnip")

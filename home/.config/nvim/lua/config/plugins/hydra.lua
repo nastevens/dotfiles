@@ -15,15 +15,15 @@ local function search_root()
 end
 
 local function find_files()
-    require("telescope.builtin").find_files({
+    require("telescope.builtin").find_files {
         cwd = search_root(),
-    })
+    }
 end
 
 local function live_grep()
-    require("telescope.builtin").live_grep({
+    require("telescope.builtin").live_grep {
         cwd = search_root(),
-    })
+    }
 end
 
 -- Telescope on C-f
@@ -41,7 +41,7 @@ _M_: manpage
 _r_: resume       _<Enter>_: Telescope      _<Esc>_
 ]]
 
-Hydra({
+Hydra {
     name = "Telescope",
     hint = hint,
     config = {
@@ -75,10 +75,12 @@ Hydra({
         { "S", cmd("Telescope spell_suggest") },
         {
             "M",
-            cmd("Telescope man_pages  sections={'1','2','3','4','5','6','7','8'}"),
+            cmd(
+                "Telescope man_pages  sections={'1','2','3','4','5','6','7','8'}"
+            ),
         },
         { "<Enter>", cmd("Telescope"), { exit = true } },
         { "r", cmd("Telescope resume") },
         { "<Esc>", nil, { exit = true, nowait = true } },
     },
-})
+}

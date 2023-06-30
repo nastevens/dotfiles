@@ -1,5 +1,6 @@
 local function buffer_empty()
-    local buffer_lines = vim.api.nvim_buf_get_lines(0, 0, vim.fn.line("$"), true)
+    local buffer_lines =
+        vim.api.nvim_buf_get_lines(0, 0, vim.fn.line("$"), true)
     if buffer_lines[1] == "" and #buffer_lines == 1 then
         return true
     else
@@ -21,7 +22,10 @@ local function show_documentation()
         vim.cmd("help " .. vim.fn.expand("<cword>"))
     elseif vim.tbl_contains({ "man" }, filetype) then
         vim.cmd("Man " .. vim.fn.expand("<cword>"))
-    elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+    elseif
+        vim.fn.expand("%:t") == "Cargo.toml"
+        and require("crates").popup_available()
+    then
         require("crates").show_popup()
     else
         vim.lsp.buf.hover()
@@ -31,8 +35,16 @@ end
 local vimp = require("vimp")
 
 -- Add a new line before or after
-vimp.nnoremap({ "repeatable", "silent" }, "<c-j>", "<cmd>set paste<cr>m`o<esc>``<cmd>set nopaste<cr>")
-vimp.nnoremap({ "repeatable", "silent" }, "<c-k>", "<cmd>set paste<cr>m`O<esc>``<cmd>set nopaste<cr>")
+vimp.nnoremap(
+    { "repeatable", "silent" },
+    "<c-j>",
+    "<cmd>set paste<cr>m`o<esc>``<cmd>set nopaste<cr>"
+)
+vimp.nnoremap(
+    { "repeatable", "silent" },
+    "<c-k>",
+    "<cmd>set paste<cr>m`O<esc>``<cmd>set nopaste<cr>"
+)
 
 -- Insert one space
 vimp.nnoremap("<space><space>", "i <esc>")
@@ -55,9 +67,9 @@ end)
 
 -- Open Telescope file browser in neovim config directory
 vimp.nnoremap("<leader>ev", function()
-    require("telescope.builtin").find_files({
+    require("telescope.builtin").find_files {
         search_dirs = { vim.fn.stdpath("config") },
-    })
+    }
 end)
 
 -- Quick-edit plugins.lua
@@ -75,7 +87,10 @@ end)
 -- Quick-edit ftplugin for current file type
 vimp.nnoremap("<leader>ef", function()
     local filetype = vim.bo.filetype
-    local config = vim.fn.stdpath("config") .. "/ftplugin/" .. filetype .. ".lua"
+    local config = vim.fn.stdpath("config")
+        .. "/ftplugin/"
+        .. filetype
+        .. ".lua"
     smart_open_file(config)
 end)
 

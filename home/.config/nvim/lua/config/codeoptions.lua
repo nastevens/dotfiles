@@ -101,7 +101,11 @@ local OVERRIDES = {
     ["help"] = { use_tabs = true },
     ["html"] = { tab_width = 2, overlength_column = nil },
     ["java"] = { overlength_column = 160 },
-    ["markdown"] = { conceal_level = 0, format_options = "cjnqtr", text_width = 80 },
+    ["markdown"] = {
+        conceal_level = 0,
+        format_options = "cjnqtr",
+        text_width = 80,
+    },
     ["proto"] = { tab_width = 2 },
     ["ruby"] = { tab_width = 2 },
     ["rust"] = { overlength_column = 99 },

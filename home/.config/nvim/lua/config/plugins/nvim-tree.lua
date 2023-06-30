@@ -1,6 +1,6 @@
 local nvim_tree = require("nvim-tree")
 
-nvim_tree.setup({
+nvim_tree.setup {
     actions = {
         open_file = {
             window_picker = {
@@ -35,4 +35,4 @@ nvim_tree.setup({
     view = {
         side = "right",
     },
-})
+}

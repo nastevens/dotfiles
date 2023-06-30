@@ -1,4 +1,4 @@
-require("filetype").setup({
+require("filetype").setup {
     overrides = {
         extensions = {
             bb = "bitbake",
@@ -15,4 +15,4 @@ require("filetype").setup({
             [".*/hub%-os/.*%.inc"] = "bitbake",
         },
     },
-})
+}

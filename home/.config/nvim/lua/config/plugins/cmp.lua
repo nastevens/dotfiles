@@ -4,13 +4,18 @@ local luasnip = require("luasnip")
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0
+        and vim.api
+                .nvim_buf_get_lines(0, line - 1, line, true)[1]
+                :sub(col, col)
+                :match("%s")
+            == nil
 end
 
 M.init = function()
-    cmp.setup({
+    cmp.setup {
         formatting = {
-            format = require("lspkind").cmp_format({
+            format = require("lspkind").cmp_format {
                 with_text = true,
                 menu = {
                     buffer = "[Buf]",
@@ -19,7 +24,7 @@ M.init = function()
                     path = "[Path]",
                     luasnip = "[Snip]",
                 },
-            }),
+            },
         },
         mapping = {
             ["<C-n>"] = cmp.mapping(function(fallback)
@@ -59,10 +64,10 @@ M.init = function()
                 end
             end, { "i", "s" }),
             ["<C-e>"] = cmp.mapping.abort(),
-            ["<Tab>"] = cmp.mapping.confirm({
+            ["<Tab>"] = cmp.mapping.confirm {
                 behavior = cmp.ConfirmBehavior.Insert,
                 select = true,
-            }),
+            },
         },
         snippet = {
             expand = function(args)
@@ -83,20 +88,23 @@ M.init = function()
         experimental = {
             ghost_text = true,
         },
-    })
+    }
 end
 
 M.autopairs = function()
     local npairs = require("nvim-autopairs")
-    npairs.setup({
+    npairs.setup {
         disable_filetype = { "TelescopePrompt", "vim" },
         ignored_next_char = "[%w%.]",
-    })
+    }
 
     npairs.add_rules(require("nvim-autopairs.rules.endwise-lua"))
 
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+    cmp.event:on(
+        "confirm_done",
+        cmp_autopairs.on_confirm_done { map_char = { tex = "" } }
+    )
 end
 
 return M
