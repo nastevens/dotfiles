@@ -1,5 +1,8 @@
 extends copyright-clike
 
+snippet der Add a derive statement
+    #[derive($1)]
+
 snippet allder Add all built-in derive types
     #[derive(Clone, Copy, Debug, Default, Hash, Eq, Ord, PartialEq, PartialOrd)]
 
@@ -73,3 +76,15 @@ snippet as Create assert!
 
 snippet ase Create assert_eq!
     assert_eq!($1, $2);
+
+snippet test Create unit test
+    #[test]
+    fn $1() {
+        $2
+    }
+
+snippet testmod Create unit test module
+    #[cfg(test)]
+    mod test {
+        test$1
+    }
