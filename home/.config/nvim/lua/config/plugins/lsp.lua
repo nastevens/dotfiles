@@ -26,15 +26,11 @@ end
 
 function M.lspconfig_setup()
     require("mason-lspconfig").setup_handlers({
-
         -- default handler
         function(server_name)
             require("config.plugins.lsp").lsp_apply(server_name)
         end,
-
         ["rust_analyzer"] = function()
-            -- TODO: do I want this?
-            -- require("rust-tools").setup {}
             require("config.plugins.lsp").lsp_apply("rust_analyzer", {
                 settings = {
                     ["rust-analyzer"] = {
@@ -47,6 +43,18 @@ function M.lspconfig_setup()
                     },
                 },
             })
+            require("rust-tools").setup {
+                tools = {
+                    inlay_hints = {
+                        parameter_hints_prefix = " ",
+                        other_hints_prefix = " ",
+                    },
+                },
+            }
+            require('vimp').nnoremap("<space>c", "<cmd>RustOpenCargo<cr>")
+            require('vimp').nnoremap("<space>x", "<cmd>RustRunnables<cr>")
+            require("vimp").nnoremap("<C-M-j>", "<cmd>RustMoveItemDown<cr>")
+            require("vimp").nnoremap("<C-M-k>", "<cmd>RustMoveItemUp<cr>")
         end,
     })
 end

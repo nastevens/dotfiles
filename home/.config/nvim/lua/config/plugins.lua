@@ -105,6 +105,9 @@ local function init()
             config = require("config.plugins.lsp").null_ls_setup(),
             requires = "nvim-lua/plenary.nvim",
         },
+        {
+            "simrat39/rust-tools.nvim",
+        },
     })
 
     -- Pairs of keybindings to jump files, buffers, etc.
@@ -303,7 +306,6 @@ local function init()
         branch = "main",
         requires = { "nvim-lua/plenary.nvim" },
     })
-    use("simrat39/rust-tools.nvim")
 
     -- Standalone syntax files
     use({
