@@ -15,6 +15,19 @@ local function smart_open_file(path)
     end
 end
 
+local function show_documentation()
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({ "vim", "help" }, filetype) then
+        vim.cmd("help " .. vim.fn.expand("<cword>"))
+    elseif vim.tbl_contains({ "man" }, filetype) then
+        vim.cmd("Man " .. vim.fn.expand("<cword>"))
+    elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+        require("crates").show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
+end
+
 local vimp = require("vimp")
 
 -- Add a new line before or after
@@ -102,7 +115,7 @@ vimp.nnoremap("<space>m", vim.lsp.buf.rename)
 vimp.nnoremap("<space>r", vim.lsp.buf.references)
 vimp.nnoremap("<space>j", vim.diagnostic.goto_prev)
 vimp.nnoremap("<space>k", vim.diagnostic.goto_next)
-vimp.nnoremap("K", vim.lsp.buf.hover)
+vimp.nnoremap("K", show_documentation)
 
 -- Display style/treesitter under cursor
 vimp.nnoremap("<c-i>", "<cmd>TSHighlightCapturesUnderCursor<cr>")

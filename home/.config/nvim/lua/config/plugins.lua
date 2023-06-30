@@ -305,6 +305,13 @@ local function init()
         "Saecki/crates.nvim",
         branch = "main",
         requires = { "nvim-lua/plenary.nvim" },
+        config = function ()
+            require("crates").setup {
+                null_ls = {
+                    enabled = true,
+                }
+            }
+        end,
     })
 
     -- Standalone syntax files
