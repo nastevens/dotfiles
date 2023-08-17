@@ -21,6 +21,6 @@ caja-dropbox start -i &
 nm-applet &
 
 # Synergy desktop sharing
-if ! pidof -q synergy; then
-    synergy &
-fi
+# if ! pidof -q synergy; then
+#     synergy &
+# fi
