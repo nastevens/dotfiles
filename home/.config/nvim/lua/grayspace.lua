@@ -167,8 +167,9 @@ Group.link("TSTagDelimiter", g.Normal)
 Group.new("TSText", c.blue_dk, c.none)
 Group.new("TSTextReference", c.none, c.none, s.italic)
 Group.new("TSTitle", g.TSText, c.none, s.bold)
-Group.new("TSType", g.Type)
+Group.link("TSType", g.Type)
 Group.new("TSTypeBuiltin", c.yellow_lt, c.none)
+Group.new("TSTypeQualifier", c.purple_lt, c.none)
 Group.new("TSURI", g.Normal, c.none, s.underline)
 Group.new("TSUnderline", g.Normal, c.none, s.underline)
 Group.new("TSVariable", g.Normal, c.none)
@@ -201,3 +202,7 @@ Group.new("VimwikiHeader2", c.VimwikiTitle, c.none, s.bold)
 Group.new("VimwikiHeader3", c.VimwikiTitle, c.none, s.bold)
 Group.new("VimwikiListTodo", c.yellow, c.none)
 Group.new("VimwikiLink", c.VimwikiLink, c.none, s.underline)
+
+vim.cmd([[
+    highlight! link @type.qualifier TSTypeQualifier
+]])
