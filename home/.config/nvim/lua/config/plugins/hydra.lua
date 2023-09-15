@@ -36,7 +36,7 @@ _h_: vim help      _O_: vim options    _c_: commands
 _k_: keymaps       _x_: clipboard      _C_: command history
 
 _s_: snippets      _t_: treesitter     _S_: spelling
-_M_: manpage
+_M_: manpage       _d_: diagnostics
 
 _r_: resume       _<Enter>_: Telescope      _<Esc>_
 ]]
@@ -79,6 +79,7 @@ Hydra {
                 "Telescope man_pages  sections={'1','2','3','4','5','6','7','8'}"
             ),
         },
+        { "d", cmd("Telescope diagnostics") },
         { "<Enter>", cmd("Telescope"), { exit = true } },
         { "r", cmd("Telescope resume") },
         { "<Esc>", nil, { exit = true, nowait = true } },
