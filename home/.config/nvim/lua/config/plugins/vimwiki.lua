@@ -28,4 +28,11 @@ if vim.env.DROPBOX then
     })
     vim.g.vimwiki_list = { wiki_personal, wiki_work }
     vim.g.vimwiki_global_ext = 0
+
+    vim.cmd([[
+        augroup vimwikiscratch
+            autocmd!
+            autocmd BufRead scratchpad.wiki setfiletype vimwiki
+        augroup END
+    ]])
 end
