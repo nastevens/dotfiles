@@ -208,3 +208,6 @@ Group.new("VimwikiLink", c.VimwikiLink, c.none, s.underline)
 vim.cmd([[
     highlight! link @type.qualifier TSTypeQualifier
 ]])
+
+-- Highlight for current line number in status column
+Group.new("StatusColumnCurrentLine", c.white, c.none, s.bold)
