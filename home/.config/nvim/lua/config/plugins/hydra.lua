@@ -6,7 +6,7 @@ local hint = nil
 local function search_root()
     local active_file = vim.fn.expand("%:p")
     for _, wiki in ipairs(vim.g.vimwiki_list) do
-        local abswiki = vim.fn.fnamemodify(wiki.path, ":p")
+        local abswiki = vim.fn.resolve(vim.fn.expand(wiki.path, ":p"))
         if Path:new(active_file):make_relative(abswiki) ~= active_file then
             return abswiki
         end

@@ -105,7 +105,7 @@ export XDG_STATE_HOME=${XDG_STATE_HOME:-"$HOME/.local/state"}
 [[ -d "$HOME/local/lib" ]] && export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
 
 # If Dropbox folder is in expected locations export env var
-[[ -d "$HOME/Dropbox" ]] && export DROPBOX='~/Dropbox'
+[[ -e "$HOME/Dropbox" ]] && export DROPBOX='~/Dropbox'
 
 # Source local tokens/keys if present
 [[ -f "$HOME/.zsh/tokens.zsh" ]] && source "$HOME/.zsh/tokens.zsh"
