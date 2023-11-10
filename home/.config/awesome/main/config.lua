@@ -7,7 +7,7 @@ return {
     editor = os.getenv("EDITOR") or "vim",
     home = home,
     modkey = "Mod4",
-    tagcount = 4,
+    tagcount = 5,
     terminal = "alacritty",
     theme = fs.get_xdg_config_home() .. "/awesome/theme.lua",
     wallpaper = dropbox .. "/images/wallpapers/Space Cat Ultrawide.jpg",
