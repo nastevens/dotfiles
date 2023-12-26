@@ -355,8 +355,7 @@ local function init()
 
     -- UI for chained keybindings
     use {
-        -- "anuvyklack/hydra.nvim",
-        "nvim-island/hydra.nvim",
+        "nvimtools/hydra.nvim",
         config = function()
             require("config.plugins.hydra")
         end,
