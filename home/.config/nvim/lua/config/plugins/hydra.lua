@@ -49,7 +49,12 @@ Hydra {
         invoke_on_body = true,
         hint = {
             position = "middle",
-            border = "rounded",
+            float_opts = {
+                border = "rounded",
+                focusable = false,
+                noautocmd = true,
+                style = "minimal",
+            },
         },
     },
     mode = "n",
