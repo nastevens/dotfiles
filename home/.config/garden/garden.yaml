@@ -16,8 +16,8 @@ commands:
     fi
   rb: |
     git for-each-ref --format='%(authorname);%(refname)' refs/remotes \
-      | grep Nick \
-      | cut -d';' -f 2 \
+      | grep 'Nick Stevens' \
+      | cut -d';' -f2 \
       | grep -vE '(origin|upstream)/(release-[^/]+/)?(main|master|HEAD)' \
       | sed 's,refs/remotes/,,'
   unpushed: |
@@ -31,7 +31,6 @@ commands:
     if [[ "$$branch" =~ "^[^/]*/?(master|main|develop)" ]]; then
       (git merge --ff-only | sed 's/^/  /') || true
     fi
-    
 variables:
   fmt_green: $ tput setaf 2
   fmt_blue: $ tput setaf 4
@@ -45,6 +44,8 @@ trees:
     url: "ssh://git@github.com/nastevens/bitcurry-provisioning.git"
   dev/cookiecutter-rust-bin:
     url: "ssh://git@github.com/nastevens/cookiecutter-rust-bin.git"
+  dev/doorbell-circuit:
+    url: "ssh://git@github.com/nastevens/doorbell-circuit.git"
   dev/farseer:
     url: "ssh://git@github.com/nastevens/farseer.git"
   dev/hetool:
@@ -53,8 +54,10 @@ trees:
     url: "ssh://git@github.com/rust-embedded/meta-rust-bin.git"
   dev/nastevens.github.io:
     url: "ssh://git@github.com/nastevens/nastevens.github.io.git"
-  dev/practical-svelte:
-    url: "https://github.com/Apress/practical-svelte.git"
+  dev/resume:
+    url: "ssh://git@github.com/nastevens/resume.git"
+  dev/risp:
+    url: "ssh://git@github.com/nastevens/risp.git"
   dev/rust-spidev:
     url: "ssh://git@github.com/rust-embedded/rust-spidev.git"
   dev/saltlick-cli:
@@ -77,8 +80,6 @@ trees:
     url: "ssh://git@github.com/nastevens/vim-duckscript.git"
   dev/vimwiki-gtd:
     url: ""
-  dev/vimwiki-linker.nvim:
-    url: ""
   dev/wakeonlan-edge-driver:
     url: "ssh://git@github.com/nastevens/wakeonlan-edge-driver.git"
   foss/cargo-make:
@@ -87,48 +88,42 @@ trees:
     url: "ssh://git@github.com/nastevens/cargo-make.git"
   foss/cmake:
     url: "https://github.com/Kitware/CMake.git"
+  foss/codelab-android-compose:
+    url: "https://github.com/android/codelab-android-compose"
   foss/corrosion:
     url: "https://github.com/AndrewGaspar/corrosion.git"
-  foss/cron:
-    remotes:
-      upstream: "https://github.com/zslayton/cron.git"
-    url: "ssh://git@github.com/nastevens/cron.git"
   foss/duckscript:
     url: "https://github.com/sagiegurari/duckscript.git"
   foss/fatcat:
     url: "https://github.com/Gregwar/fatcat.git"
   foss/git:
     url: "ssh://git@github.com/git/git.git"
-  foss/git_cdn:
-    remotes:
-      upstream: "https://gitlab.com/grouperenault/git_cdn.git"
-    url: "ssh://git@gitlab.com/nastevens/git_cdn.git"
-  foss/gn:
-    url: "https://gn.googlesource.com/gn.git"
+  foss/gridfinity-rebuilt-openscad:
+    url: "https://github.com/kennetek/gridfinity-rebuilt-openscad"
   foss/jira-cli:
     url: "https://github.com/ankitpokhrel/jira-cli.git"
   foss/launchdarkly-rust-server-sdk:
     url: "https://github.com/launchdarkly/rust-server-sdk.git"
   foss/libevent-rs:
     url: "https://github.com/jmagnuson/libevent-rs.git"
+  foss/mal:
+    url: "https://github.com/kanaka/mal.git"
   foss/meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
   foss/mold:
     url: "https://github.com/rui314/mold.git"
   foss/nsjail:
     url: "https://github.com/google/nsjail.git"
-  foss/openconnect-gp-okta:
-    url: "https://github.com/zdave/openconnect-gp-okta.git"
+  foss/OctoPrint:
+    url: "https://github.com/OctoPrint/OctoPrint.git"
   foss/openssl:
     url: "https://github.com/openssl/openssl.git"
-  foss/ot-br-posix:
-    url: "https://github.com/openthread/ot-br-posix.git"
   foss/poky:
     url: "git://git.yoctoproject.org/poky.git"
   foss/pulldown-cmark:
     url: "https://github.com/raphlinus/pulldown-cmark.git"
-  foss/tauri:
-    url: "https://github.com/tauri-apps/tauri.git"
+  foss/rustup:
+    url: "https://github.com/rust-lang/rustup.git"
   foss/tree-sitter-rust:
     url: "https://github.com/tree-sitter/tree-sitter-rust.git"
   foss/vimwiki:
