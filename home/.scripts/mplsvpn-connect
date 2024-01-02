@@ -1,8 +1,0 @@
-#!/bin/bash
-
-OC_GP_OKTA="$HOME/dev/openconnect-gp-okta"
-PYTHON="$OC_GP_OKTA/env/bin/python"
-
-$PYTHON $OC_GP_OKTA/openconnect-gp-okta \
-    --username nick.stevens@smartthings.com \
-    --sudo mplsvpn.smartthings.com
