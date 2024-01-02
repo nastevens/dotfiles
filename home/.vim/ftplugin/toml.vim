@@ -1,1 +1,0 @@
-runtime coding-common.vim
