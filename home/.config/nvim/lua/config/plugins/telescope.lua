@@ -114,3 +114,4 @@ telescope.setup {
 telescope.load_extension("ui-select")
 telescope.load_extension("luasnip")
 telescope.load_extension("neoclip")
+telescope.load_extension("emoji")

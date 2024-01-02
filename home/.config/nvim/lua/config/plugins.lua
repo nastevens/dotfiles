@@ -198,6 +198,7 @@ local function init()
         },
         "nvim-telescope/telescope-ui-select.nvim",
         "benfowler/telescope-luasnip.nvim",
+        "xiyaowong/telescope-emoji.nvim",
         {
             "AckslD/nvim-neoclip.lua",
             config = function()
