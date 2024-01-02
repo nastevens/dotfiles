@@ -158,9 +158,6 @@ zstyle ':completion:*' matcher-list 'r:|=*' '+ r:|[._-]=* l:|=*'
 # Add custom completion functions
 fpath+=~/.zfunc
 
-# Teleport login name
-export TELEPORT_LOGIN=ubuntu
-
 # Golang GOPATH
 export GOPATH="$HOME/.golang"
 

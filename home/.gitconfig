@@ -2,8 +2,6 @@
 	name = Nick Stevens
 	email = nick@bitcurry.com
 	signingkey = A30D0C434B4F28BDA94B1ACF0F5379F10F6CA6C1
-[includeIf "gitdir:~/projects/"]
-	path = .gitconfig-work
 [includeIf "gitdir:~/work/"]
 	path = .gitconfig-work
 [color]
