@@ -137,3 +137,7 @@ vimp.nnoremap("<c-i>", "<cmd>TSHighlightCapturesUnderCursor<cr>")
 
 -- Exit terminal insert mode with normal escape sequence
 vimp.tnoremap("kj", "<C-\\><C-n>")
+
+-- Insert current date/time
+vim.cmd("iabbrev <expr> dts strftime('%Y-%m-%d')")
+vim.cmd("iabbrev <expr> dtt strftime('%H:%M:%S')")
