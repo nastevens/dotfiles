@@ -127,6 +127,7 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 source "$ZSH/aliases.zsh"
 source "$ZSH/dircolors.zsh"
 source "$ZSH/homesick.zsh"
+source "$ZSH/mancolor.zsh"
 
 # Clean up paths, removing duplicates and non-existant directories
 source "$ZSH/prune-paths.zsh"
