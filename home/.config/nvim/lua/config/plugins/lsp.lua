@@ -75,9 +75,4 @@ function M.lightbulb_setup()
     )
 end
 
--- TODO: Example config https://github.com/shaeinst/roshnivim/blob/main/lua/plugins/null-ls_nvim.lua
-function M.null_ls_setup()
-    require("null-ls").setup()
-end
-
 return M

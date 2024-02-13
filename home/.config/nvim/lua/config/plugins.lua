@@ -106,8 +106,7 @@ local function init()
             config = require("config.plugins.lsp").lightbulb_setup,
         },
         {
-            "jose-elias-alvarez/null-ls.nvim",
-            config = require("config.plugins.lsp").null_ls_setup(),
+            "nvimtools/none-ls.nvim",
             requires = "nvim-lua/plenary.nvim",
         },
         {
