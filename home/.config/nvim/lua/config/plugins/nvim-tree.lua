@@ -1,4 +1,5 @@
 local nvim_tree = require("nvim-tree")
+local vimp = require("vimp")
 
 nvim_tree.setup {
     actions = {
@@ -36,3 +37,6 @@ nvim_tree.setup {
         side = "right",
     },
 }
+
+-- Toggle file explorer
+vimp.nnoremap("<leader>n", "<cmd>NvimTreeToggle<cr>")

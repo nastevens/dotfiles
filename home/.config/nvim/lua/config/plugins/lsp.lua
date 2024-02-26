@@ -52,10 +52,11 @@ function M.lspconfig_setup()
                     },
                 },
             }
-            require("vimp").nnoremap("<space>c", "<cmd>RustOpenCargo<cr>")
-            require("vimp").nnoremap("<space>x", "<cmd>RustRunnables<cr>")
-            require("vimp").nnoremap("<C-M-j>", "<cmd>RustMoveItemDown<cr>")
-            require("vimp").nnoremap("<C-M-k>", "<cmd>RustMoveItemUp<cr>")
+            local vimp = require("vimp")
+            vimp.nnoremap("<space>c", "<cmd>RustOpenCargo<cr>")
+            vimp.nnoremap("<space>x", "<cmd>RustRunnables<cr>")
+            vimp.nnoremap("<C-M-j>", "<cmd>RustMoveItemDown<cr>")
+            vimp.nnoremap("<C-M-k>", "<cmd>RustMoveItemUp<cr>")
         end,
     }
 end

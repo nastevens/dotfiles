@@ -52,6 +52,21 @@ function M.setup()
         au FileType * lua require'config.codeoptions'.apply(vim.fn.expand('<amatch>'))
         augroup END
     ]])
+
+    -- Overlength mappings
+    local vimp = require("vimp")
+    vimp.nnoremap("<leader>l1", function()
+        require("config.codeoptions").overlength(80)
+    end)
+    vimp.nnoremap("<leader>l2", function()
+        require("config.codeoptions").overlength(120)
+    end)
+    vimp.nnoremap("<leader>l3", function()
+        require("config.codeoptions").overlength(200)
+    end)
+    vimp.nnoremap("<leader>lo", function()
+        require("config.codeoptions").overlength(nil)
+    end)
 end
 
 local DEFAULTS = {
