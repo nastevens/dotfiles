@@ -96,7 +96,6 @@ local function init()
         {
             "nvim-lua/lsp-status.nvim",
             config = require("config.plugins.lsp").lsp_status_setup,
-            after = "mason-lspconfig.nvim",
         },
         {
             "ray-x/lsp_signature.nvim",
