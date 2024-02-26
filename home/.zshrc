@@ -115,6 +115,11 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
     source "$HOME/.rvm/scripts/rvm"
 fi
 
+# Enable direnv if it is installed
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
 # Options
 setopt autocontinue
 setopt correct
