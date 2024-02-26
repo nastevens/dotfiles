@@ -4,14 +4,12 @@ local cmd = require("hydra.keymap-util").cmd
 local hint = nil
 
 local function search_root()
-    local active_file = vim.fn.expand("%:p")
-    for _, wiki in ipairs(vim.g.vimwiki_list) do
-        local abswiki = vim.fn.resolve(vim.fn.expand(wiki.path))
-        if Path:new(active_file):make_relative(abswiki) ~= active_file then
-            return abswiki
-        end
+    local ok, is_vimwiki = pcall(vim.fn["vimwiki#u#ft_is_vw"])
+    if ok and is_vimwiki == 1 then
+        return vim.fn["vimwiki#vars#get_wikilocal"]("path")
+    else
+        return vim.fn.getcwd()
     end
-    return vim.fn.getcwd()
 end
 
 local function find_files()
