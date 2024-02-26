@@ -25,14 +25,12 @@ if vim.env.DROPBOX then
         path_html = vim.env.DROPBOX .. "/vimwiki-html/",
     })
 
-    -- Temporarily disable work related wiki
-    -- local wiki_work = vim.tbl_deep_extend("force", wiki_base, {
-    --     path = vim.env.DROPBOX .. "/smartthings/vimwiki/",
-    --     path_html = vim.env.DROPBOX .. "/smartthings/vimwiki-html/",
-    -- })
-    -- vim.g.vimwiki_list = { wiki_personal, wiki_work }
+    local wiki_work = vim.tbl_deep_extend("force", wiki_base, {
+        path = vim.env.DROPBOX .. "/work/vimwiki/",
+        path_html = vim.env.DROPBOX .. "/work/vimwiki-html/",
+    })
+    vim.g.vimwiki_list = { wiki_personal, wiki_work }
 
-    vim.g.vimwiki_list = { wiki_personal }
     vim.g.vimwiki_global_ext = 0
 
     vim.cmd([[
