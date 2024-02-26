@@ -34,8 +34,9 @@ if [ ! -f "$ZSH/disable_ssh_agent" ]; then
     antigen bundle ssh-agent
 fi
 
-# Lazy-load nvm
-export NVM_LAZY_LOAD=true
+# Load nvm. Note that lazy-loading nvm interferes with Neovim integrations
+# since lazy-loading generates functions for node/npm instead of binaries.
+export NVM_LAZY_LOAD=false
 antigen bundle lukechilds/zsh-nvm
 
 antigen apply
