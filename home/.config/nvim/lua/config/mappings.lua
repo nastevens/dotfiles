@@ -97,9 +97,6 @@ end)
 -- Toggle file explorer
 vimp.nnoremap("<leader>n", "<cmd>NvimTreeToggle<cr>")
 
--- Toggle code overview
-vimp.nnoremap("<leader>v", "<cmd>Vista!!<cr>")
-
 -- Vimwiki mappings
 vimp.nmap({ "override" }, "<leader>wp", "<cmd>norm 1<leader>ww<cr>")
 vimp.nmap({ "override" }, "<leader>wo", "<cmd>norm 2<leader>ww<cr>")

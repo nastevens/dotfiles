@@ -175,14 +175,6 @@ local function init()
         },
     }
 
-    -- Code reference explorer
-    use {
-        "liuchengxu/vista.vim",
-        config = function()
-            require("config.plugins.vista")
-        end,
-    }
-
     -- Quick pick lists and tools
     use {
         {
@@ -276,7 +268,7 @@ local function init()
         config = function()
             require("lualine").setup {
                 options = {
-                    disabled_filetypes = { "NvimTree", "packer", "vista" },
+                    disabled_filetypes = { "NvimTree", "packer" },
                     theme = "onedark",
                 },
                 sections = {
