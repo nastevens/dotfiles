@@ -89,7 +89,7 @@ M.init = function()
             ghost_text = true,
         },
     }
-    cmp.setup.filetype('vimwiki', { enabled = false })
+    cmp.setup.filetype("vimwiki", { enabled = false })
 end
 
 M.autopairs = function()

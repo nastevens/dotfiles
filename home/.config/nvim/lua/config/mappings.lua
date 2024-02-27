@@ -43,7 +43,7 @@ vimp.nnoremap("<leader>ev", function()
         search_dirs = { vim.fn.stdpath("config") },
         get_selection_window = function(picker, entry)
             if not util.buffer_empty() then
-                vim.cmd('vsplit')
+                vim.cmd("vsplit")
             end
             return 0
         end,

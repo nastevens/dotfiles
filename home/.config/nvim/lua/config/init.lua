@@ -25,7 +25,9 @@ opt.wrap = false
 
 -- Customize contents of line number column
 -- Note that statuscolumn isn't exposed in Lua API yet
-vim.cmd([[let &statuscolumn='%s%=%{v:relnum?printf("%3d",v:relnum):""}%#StatusColumnCurrentLine#%{v:relnum?"":printf("%3d",v:lnum)}%* │ ']])
+vim.cmd(
+    [[let &statuscolumn='%s%=%{v:relnum?printf("%3d",v:relnum):""}%#StatusColumnCurrentLine#%{v:relnum?"":printf("%3d",v:lnum)}%* │ ']]
+)
 
 require("config.plugins")
 require("config.mappings")
