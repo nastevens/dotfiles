@@ -131,11 +131,10 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 # Source my "plugin" scripts
 source "$ZSH/aliases.zsh"
-source "$ZSH/dircolors.zsh"
 source "$ZSH/homesick.zsh"
 source "$ZSH/mancolor.zsh"
 
-# Clean up paths, removing duplicates and non-existant directories
+# Clean up paths, removing duplicates and non-existent directories
 source "$ZSH/prune-paths.zsh"
 
 # Fix https://github.com/robbyrussell/oh-my-zsh/issues/1398

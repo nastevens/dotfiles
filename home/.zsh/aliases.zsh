@@ -1,3 +1,6 @@
+# Remove aliases from other modules
+unalias -m '*'
+
 # Aliases that only use coreutils or other tools that would cause a broken
 # system if they didn't exist.
 alias c="clear"
@@ -25,13 +28,12 @@ alias_if_exists tmux tmux "tmux -2"
 alias_if_exists xdg-open open xdg-open
 
 if command -v exa >/dev/null 2>&1; then
-    alias l=exa
     alias ls=exa
     alias ll="exa -lh"
     alias la="exa -a"
     alias lla="exa -la"
 else
-    alias l=ls
+    source "$ZSH/dircolors.zsh"
     alias ll="ls -lh"
     alias la="ls -a"
     alias lla="ls -la"
