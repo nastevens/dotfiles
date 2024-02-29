@@ -89,7 +89,11 @@ M.init = function()
             ghost_text = true,
         },
     }
-    cmp.setup.filetype("vimwiki", { enabled = false })
+    cmp.setup.filetype("vimwiki", {
+        sources = {
+            { name = "luasnip" },
+        },
+    })
 end
 
 M.autopairs = function()
