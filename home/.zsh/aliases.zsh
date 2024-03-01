@@ -18,6 +18,7 @@ function alias_if_exists() {
 
 alias_if_exists bandwhich bandwhich "sudo $HOME/.cargo/bin/bandwhich"
 alias_if_exists bc bc "bc -l"
+alias_if_exists distrobox dbx distrobox
 alias_if_exists garden ga garden
 alias_if_exists gping ping gping
 alias_if_exists nvim vim nvim
