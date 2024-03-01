@@ -27,11 +27,11 @@ alias_if_exists smartthings st smartthings
 alias_if_exists tmux tmux "tmux -2"
 alias_if_exists xdg-open open xdg-open
 
-if command -v exa >/dev/null 2>&1; then
-    alias ls=exa
-    alias ll="exa -lh"
-    alias la="exa -a"
-    alias lla="exa -la"
+if command -v eza >/dev/null 2>&1; then
+    alias ls=eza
+    alias ll="eza -lh"
+    alias la="eza -a"
+    alias lla="eza -la"
 else
     source "$ZSH/dircolors.zsh"
     alias ll="ls -lh"
